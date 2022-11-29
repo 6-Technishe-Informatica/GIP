@@ -1,7 +1,3 @@
 <html>
-    test
-
-    <?php
-        
-    ?>
+    tester
 </html>
