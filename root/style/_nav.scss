@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    main{
+        margin-top: 5rem;
+    }
+}
+
+header {
+    background-color: $mainColor;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+
+    nav {
+        display: grid;
+        grid-template-columns: 15% 85%;
+        align-items: center;
+        justify-items: center;
+        height: 100%;
+
+        a{
+            color: $accentColor;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        ul {
+            li {
+                display: inline-block;
+                a {
+                    text-decoration: none;
+                    color: $accentColor;
+                    padding: 10px;
+                    display: block;
+                }
+            }
+        }
+    }
+}
