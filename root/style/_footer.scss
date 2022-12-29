@@ -1,0 +1,40 @@
+footer{
+    background-color: $mainColor;
+    margin-bottom: -1.5rem;
+    padding: 2rem;
+
+    h2{
+        color: $accentColor;
+        text-align: center;
+        font-size: 2rem;
+        span{
+            color: black;
+        }
+    }
+
+    .contact{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        p{
+            a{
+                color: $accentColor;
+            }
+        }
+    }
+
+    .socialMedia{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        a{
+            img{
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+}

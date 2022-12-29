@@ -1,8 +1,9 @@
-[Tue Dec 06 13:03:53.367014 2022] [mpm_winnt:notice] [pid 6072:tid 652] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Tue Dec 06 13:03:53.368367 2022] [mpm_winnt:notice] [pid 6072:tid 652] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Tue Dec 06 13:03:53.368367 2022] [core:notice] [pid 6072:tid 652] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
-[Tue Dec 06 13:03:53.466487 2022] [mpm_winnt:notice] [pid 6072:tid 652] AH00418: Parent: Created child process 12120
-[Tue Dec 06 13:03:54.195332 2022] [mpm_winnt:notice] [pid 12120:tid 780] AH00354: Child: Starting 64 worker threads.
-[Tue Dec 06 13:21:50.250518 2022] [:error] [pid 12120:tid 1316] [client 127.0.0.1:62738] PHP Warning:  include(nav.php): failed to open stream: No such file or directory in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 11
-[Tue Dec 06 13:21:50.250518 2022] [:error] [pid 12120:tid 1316] [client 127.0.0.1:62738] PHP Warning:  include(): Failed opening 'nav.php' for inclusion (include_path='.;C:\\php\\pear') in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 11
-[Tue Dec 06 14:36:06.494105 2022] [:error] [pid 12120:tid 1316] [client 127.0.0.1:65101] script 'C:/Users/devlo/Documents/GitHub/GIP/root/about.php' not found or unable to stat, referer: http://localhost:8080/
+[Thu Dec 29 14:37:41.237178 2022] [mpm_winnt:notice] [pid 15528:tid 676] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Thu Dec 29 14:37:41.237178 2022] [mpm_winnt:notice] [pid 15528:tid 676] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Thu Dec 29 14:37:41.237178 2022] [core:notice] [pid 15528:tid 676] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
+[Thu Dec 29 14:37:41.240416 2022] [mpm_winnt:notice] [pid 15528:tid 676] AH00418: Parent: Created child process 3588
+[Thu Dec 29 14:37:41.935454 2022] [mpm_winnt:notice] [pid 3588:tid 828] AH00354: Child: Starting 64 worker threads.
+[Thu Dec 29 14:53:36.335456 2022] [:error] [pid 3588:tid 1268] [client 127.0.0.1:62560] PHP Notice:  Undefined variable: products in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 67
+[Thu Dec 29 14:53:36.336440 2022] [:error] [pid 3588:tid 1268] [client 127.0.0.1:62560] PHP Warning:  Invalid argument supplied for foreach() in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 67
+[Thu Dec 29 14:53:46.681726 2022] [:error] [pid 3588:tid 1268] [client 127.0.0.1:62565] PHP Notice:  Undefined variable: products in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 26
+[Thu Dec 29 14:53:46.681726 2022] [:error] [pid 3588:tid 1268] [client 127.0.0.1:62565] PHP Warning:  Invalid argument supplied for foreach() in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\index.php on line 26
