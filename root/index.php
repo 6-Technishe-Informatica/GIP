@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="style/index.css">
 
-    <title>Document</title>
+    <title>Tech point</title>
 </head>
 
 <body>
@@ -60,6 +60,7 @@
             ];
 
             foreach ($products as $product) {
+                echo '<a href="pages/product.php?productName=' . $product['name'] .'">';
                 echo '<article>';
                 echo '<img src="images/productPicture.webp" alt="productPicture">';
                 echo '<p>' . $product['brand'] . '</p>';
@@ -69,6 +70,7 @@
                 echo '<p>' . $product['priceNew'] . '</p>';
                 echo '</div>';
                 echo '</article>';
+                echo '</a>';
             }
             ?>
         </div>
@@ -107,6 +109,7 @@
             ];
 
             foreach ($products as $product) {
+                echo '<a href="pages/product.php?productName=' . $product['name'] .'">';
                 echo '<article>';
                 echo '<img src="images/productPicture.webp" alt="productPicture">';
                 echo '<p>' . $product['brand'] . '</p>';
@@ -115,6 +118,7 @@
                 echo '<p>' . $product['price'] . '</p>';
                 echo '</div>';
                 echo '</article>';
+                echo '</a>';
             }
             ?>
         </div>
