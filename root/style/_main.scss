@@ -21,8 +21,11 @@ main {
     }
 
     .dealsText {
-        margin-top: 2rem;
-        margin-left: 1rem;
+        // margin-top: 2rem;
+        // margin-left: 1rem;
+        
+        margin-left: 10%;
+        margin-right: 10%;
     }
 
     .deals {
@@ -30,7 +33,8 @@ main {
         display: flex;
         flex-wrap: nowrap;
         gap: 1rem;
-        padding: 1rem;
+        margin-left: 10%;
+        margin-right: 10%;
 
         //hide scrollbar chrome, safari, opera
         &::-webkit-scrollbar {
@@ -109,8 +113,10 @@ main {
 
     .overOns {
         p {
-            padding-left: 1rem;
-            padding-right: 1rem;
+            // padding-left: 1rem;
+            // padding-right: 1rem;
+            margin-left: 10%;
+            margin-right: 10%;
         }
     }
 }

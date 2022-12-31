@@ -58,15 +58,16 @@ main .hero p {
   text-align: center;
 }
 main .dealsText {
-  margin-top: 2rem;
-  margin-left: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 main .deals {
   overflow-x: scroll;
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  padding: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -128,8 +129,8 @@ main .deals a article .dealsPrice p {
   color: inherit;
 }
 main .overOns p {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 footer {
