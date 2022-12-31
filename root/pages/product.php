@@ -41,18 +41,19 @@
             <img class="" src="../images/productPicture.webp" alt="<?php echo $_GET['productName']; ?>">
             <p class="price"><?php echo $productPrice; ?></p>
         </article>
-        <div>
-            <button>Productomschrijving</button>
+        <div class="detailsDiscription">
+            <button id="discription-button">Productomschrijving</button>
+            <button id="details-button">Details</button>
             
 
-            <p class="discription"><?php echo $productDiscription; ?></p>
-            <p class="details">
+            <p id="discription" class="discription"><?php echo $productDiscription; ?></p>
+            <div id="details" class="details active">
                 <?php
                 foreach ($details as $key => $value) {
                     echo "<strong>" . $key . "</strong><p>" . $value . "</p>";
                 }
                 ?>
-            </p>
+            </div>
         </div>
     </main>
 

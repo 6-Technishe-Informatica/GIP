@@ -1,7 +1,5 @@
-[Sat Dec 31 14:12:13.715036 2022] [mpm_winnt:notice] [pid 27416:tid 792] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Sat Dec 31 14:12:13.715036 2022] [mpm_winnt:notice] [pid 27416:tid 792] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Sat Dec 31 14:12:13.716033 2022] [core:notice] [pid 27416:tid 792] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
-[Sat Dec 31 14:12:13.723545 2022] [mpm_winnt:notice] [pid 27416:tid 792] AH00418: Parent: Created child process 33800
-[Sat Dec 31 14:12:14.286030 2022] [mpm_winnt:notice] [pid 33800:tid 840] AH00354: Child: Starting 64 worker threads.
-[Sat Dec 31 14:17:28.157651 2022] [:error] [pid 33800:tid 1360] [client 127.0.0.1:50604] script 'C:/Users/calla/Documents/GitHub/GIP/root/about.php' not found or unable to stat, referer: http://localhost:8080/
-[Sat Dec 31 14:17:30.120539 2022] [:error] [pid 33800:tid 1360] [client 127.0.0.1:50604] script 'C:/Users/calla/Documents/GitHub/GIP/root/contact.php' not found or unable to stat, referer: http://localhost:8080/
+[Sat Dec 31 16:09:18.836481 2022] [mpm_winnt:notice] [pid 13980:tid 868] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Sat Dec 31 16:09:18.836481 2022] [mpm_winnt:notice] [pid 13980:tid 868] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Sat Dec 31 16:09:18.836481 2022] [core:notice] [pid 13980:tid 868] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
+[Sat Dec 31 16:09:18.846855 2022] [mpm_winnt:notice] [pid 13980:tid 868] AH00418: Parent: Created child process 35156
+[Sat Dec 31 16:09:19.621944 2022] [mpm_winnt:notice] [pid 35156:tid 784] AH00354: Child: Starting 64 worker threads.

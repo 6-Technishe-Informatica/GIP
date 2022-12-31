@@ -8,13 +8,15 @@ body main {
 }
 
 header {
-  background-color: #c2c2c2;
+  background-color: #2274A5;
   position: fixed;
   top: 0;
   width: 100%;
   height: 5rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+}
+header hr {
+  margin-top: 0;
+  color: #131B23;
 }
 header nav {
   display: grid;
@@ -24,7 +26,7 @@ header nav {
   height: 100%;
 }
 header nav a {
-  color: red;
+  color: #131B23;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 600;
@@ -34,9 +36,26 @@ header nav ul li {
 }
 header nav ul li a {
   text-decoration: none;
-  color: red;
+  color: #B8DBD9;
   padding: 10px;
   display: block;
+}
+
+main .detailsDiscription p, main .detailsDiscription div.details {
+  display: none;
+}
+main .detailsDiscription .active, main .detailsDiscription .details.active {
+  display: block;
+}
+main .detailsDiscription .active p, main .detailsDiscription .details.active p {
+  display: block;
+}
+main .detailsDiscription .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main .detailsDiscription .details p {
+  display: inline;
 }
 
 footer {

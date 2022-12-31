@@ -1,0 +1,26 @@
+main{
+    .detailsDiscription{
+        //display: none; for when not active, see js for change code
+        
+        p, div.details{
+            display: none;
+        }
+
+        .active, .details.active{
+            display: block;
+
+            p{
+                display: block;
+            }
+        }
+
+        .details{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            p{
+                display: inline;
+            }
+        }
+    }
+}
