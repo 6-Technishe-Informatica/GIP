@@ -9,13 +9,18 @@ body{
 }
 
 header {
-    background-color: $mainColor;
+    background-color: $tertiaryColor;
     position: fixed;
     top: 0;
     width: 100%;
     height: 5rem;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    // border-bottom-left-radius: 1rem;
+    // border-bottom-right-radius: 1rem;
+    
+    hr{
+        margin-top: 0;
+        color: $secondAccentColor;
+    }
 
     nav {
         display: grid;
@@ -25,7 +30,7 @@ header {
         height: 100%;
 
         a{
-            color: $accentColor;
+            color: $primaryColor;
             text-decoration: none;
             font-size: 1.5rem;
             font-weight: 600;
@@ -36,7 +41,7 @@ header {
                 display: inline-block;
                 a {
                     text-decoration: none;
-                    color: $accentColor;
+                    color: $primaryColor;
                     padding: 10px;
                     display: block;
                 }
