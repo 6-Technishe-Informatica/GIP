@@ -9,7 +9,7 @@ body{
 }
 
 header {
-    background-color: $tertiaryColor;
+    background-color: $secondaryColor;
     position: fixed;
     top: 0;
     width: 100%;
@@ -19,9 +19,10 @@ header {
     
     hr{
         margin-top: 0;
-        color: $secondAccentColor;
+        color: $primaryColor;
     }
 
+    // navigatie
     nav {
         display: grid;
         grid-template-columns: 15% 85%;
@@ -29,19 +30,24 @@ header {
         justify-items: center;
         height: 100%;
 
+        // navigatie logo
         a{
             color: $primaryColor;
             text-decoration: none;
             font-size: 1.5rem;
             font-weight: 600;
+            // nav background color test
+            // background-color: $tertiaryColor;
+            // border-radius: 1rem;
         }
 
+        // navigatie items 
         ul {
             li {
                 display: inline-block;
                 a {
                     text-decoration: none;
-                    color: $primaryColor;
+                    color: $tertiaryColor;
                     padding: 10px;
                     display: block;
                 }
