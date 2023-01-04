@@ -1,27 +1,42 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
-body main {
+
+main {
   margin-top: 3rem;
 }
 
 header nav {
   background-color: #1D1D1F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  font-size: 1.2rem;
 }
 header nav ul {
-  display: inline-block;
+  display: flex;
 }
 header nav ul li {
-  display: inline-block;
   list-style-type: none;
+  list-style: none;
+}
+header nav ul li a {
   text-decoration: none;
   color: #F5F5F7;
 }
+header nav ul a .logo {
+  padding-left: 20px;
+}
+header nav ul .nav-item {
+  padding-right: 25px;
+}
 header hr {
   margin-top: 0;
-  color: #F5F5F7;
+  color: #6B7D7D;
+  height: 2px;
 }
 
 main {

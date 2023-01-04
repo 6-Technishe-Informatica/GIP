@@ -1,29 +1,51 @@
-body{
+*{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-
-    main{
-        margin-top: 3rem;
-    }
+    box-sizing: border-box;
 }
 
+main{
+    margin-top: 3rem;
+}
+
+
 header{
+
     nav{
         background-color: $primaryColor;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        font-size: 1.2rem;
+
         ul{
-            display: inline-block;
+            display: flex;
+
             li{
-                display: inline-block;
                 list-style-type: none;
-                text-decoration: none;
-                color: $secondaryColor;
+                list-style: none;
+                
+                a{
+                    text-decoration: none;
+                    color: $secondaryColor;
+                }
+            }
+
+            a .logo{
+                padding-left: 20px;
+            }
+
+            .nav-item{
+                padding-right: 25px;
             }
         }
     }
+
     hr{
         margin-top: 0;
-        color: $secondaryColor;
+        color: $tertiaryColor;
+        height: 2px;
     }
 
 }
