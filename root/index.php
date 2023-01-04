@@ -17,7 +17,7 @@
     </header>
     <main>
         <article class="hero">
-            <h2>Tech Point</h2>
+            <h2>Tech <span>Point</span></h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil accusantium corporis quidem, aut cupiditate voluptatum, adipisci ea consequuntur officiis temporibus eveniet perferendis laborum sunt fuga placeat sequi pariatur non impedit!</p>
         </article>
 
@@ -27,6 +27,36 @@
             //make a products array with 5 products
 
             $products = [
+                [
+                    'brand' => 'Apple',
+                    'name' => 'iPhone 12',
+                    'price' => '€ 799',
+                    'priceNew' => '€ 699'
+                ],
+                [
+                    'brand' => 'Apple',
+                    'name' => 'MacBook Pro',
+                    'price' => '€ 1.999',
+                    'priceNew' => '€ 1.799'
+                ],
+                [
+                    'brand' => 'Apple',
+                    'name' => 'iPad Pro',
+                    'price' => '€ 1.099',
+                    'priceNew' => '€ 999'
+                ],
+                [
+                    'brand' => 'Apple',
+                    'name' => 'Apple Watch',
+                    'price' => '€ 399',
+                    'priceNew' => '€ 299'
+                ],
+                [
+                    'brand' => 'Apple',
+                    'name' => 'AirPods',
+                    'price' => '€ 199',
+                    'priceNew' => '€ 149'
+                ],
                 [
                     'brand' => 'Apple',
                     'name' => 'iPhone 12',

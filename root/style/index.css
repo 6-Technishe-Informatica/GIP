@@ -5,7 +5,7 @@
 }
 
 main {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 header nav {
@@ -16,22 +16,56 @@ header nav {
   height: 50px;
   font-size: 1.2rem;
 }
+header nav h2 {
+  padding-left: 50px;
+}
+header nav h2 a {
+  text-decoration: none;
+  color: #4848fd;
+  font-size: 2rem;
+}
+header nav h2 a span {
+  color: #F5F5F7;
+}
 header nav ul {
   display: flex;
 }
 header nav ul li {
   list-style-type: none;
   list-style: none;
+  border-left: 1px solid #6B7D7D;
 }
 header nav ul li a {
   text-decoration: none;
   color: #F5F5F7;
 }
-header nav ul a .logo {
-  padding-left: 20px;
+header nav ul li a img {
+  text-align: center;
+  height: 20px;
 }
-header nav ul .nav-item {
-  padding-right: 25px;
+header nav ul li:last-child {
+  margin-right: 30px;
+}
+header nav ul .underline-hover-effect {
+  padding-bottom: 0.25rem;
+  position: relative;
+}
+header nav ul .underline-hover-effect::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4848fd;
+  transition: width 0.25s ease-out;
+}
+header nav ul .underline-hover-effect:hover::before {
+  width: 100%;
+}
+header nav ul li {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 header hr {
   margin-top: 0;
@@ -44,20 +78,26 @@ main {
 }
 main .hero {
   width: 80%;
-  border: 2px solid black;
+  border: 2px solid #6B7D7D;
   margin: auto;
   padding: 1rem;
   border-radius: 0.5rem;
+  background-color: #F5F5F7;
 }
 main .hero h2 {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
+  color: #4848fd;
+}
+main .hero h2 span {
+  color: black;
 }
 main .hero p {
   text-align: center;
 }
 main .dealsText {
+  margin-top: 2rem;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -68,20 +108,16 @@ main .deals {
   gap: 1rem;
   margin-left: 10%;
   margin-right: 10%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-main .deals::-webkit-scrollbar {
-  display: none;
+  padding-bottom: 20px;
 }
 main .deals a {
   text-decoration: none;
   color: inherit;
 }
 main .deals a article {
-  border: 1px solid #c2c2c2;
+  border: 1px solid #6B7D7D;
   border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #c2c2c2;
+  box-shadow: 0 0 0.5rem #6B7D7D;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -127,13 +163,14 @@ main .deals a article .dealsPrice p {
   text-align: left;
   text-decoration: none;
   color: inherit;
+  color: red;
+}
+main .overOns {
+  margin-bottom: 1rem;
 }
 main .overOns p {
   margin-left: 10%;
   margin-right: 10%;
-}
-main hr {
-  margin-bottom: 0;
 }
 
 footer {
@@ -182,4 +219,5 @@ footer .socialMedia {
 footer .socialMedia a img {
   width: 2rem;
   height: 2rem;
+  fill: #4848fd;
 }/*# sourceMappingURL=index.css.map */

@@ -5,7 +5,7 @@
     <p>Of stuur ons een mailtje: <a href="mailto:info@alternate.be">info@techpoint.be</a></p>
 </div>
 <div class="socialMedia">
-    <a href="https://www.facebook.com/techpoint.be" target="_blank"><img src="images/facebook.svg" alt="facebook"></a>
-    <a href="https://www.instagram.com/techpoint.be/" target="_blank"><img src="images/instagram.svg" alt="instagram"></a>
-    <a href="https://tiktok.com/techpoint_be" target="_blank"><img src="images/tiktok.svg" alt="tiktok"></a>
+    <a href="https://www.facebook.com/techpoint.be" target="_blank"><img src="../images/facebook.svg" alt="facebook"></a>
+    <a href="https://www.instagram.com/techpoint.be/" target="_blank"><img src="../images/instagram.svg" alt="instagram"></a>
+    <a href="https://tiktok.com/techpoint_be" target="_blank"><img src="../images/tiktok.svg" alt="tiktok"></a>
 </div>

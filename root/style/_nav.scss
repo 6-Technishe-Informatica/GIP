@@ -1,17 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-main{
-    margin-top: 3rem;
+main {
+    margin-top: 2rem;
 }
 
-
-header{
-
-    nav{
+header {
+    nav {
         background-color: $primaryColor;
         display: flex;
         justify-content: space-between;
@@ -19,33 +17,89 @@ header{
         height: 50px;
         font-size: 1.2rem;
 
-        ul{
-            display: flex;
+        // logo style
 
-            li{
-                list-style-type: none;
-                list-style: none;
-                
-                a{
-                    text-decoration: none;
+        h2 {
+            padding-left: 50px;
+            a {
+                text-decoration: none;
+    
+                color: $secondAccentColor;
+                font-size: 2rem;
+                span {
                     color: $secondaryColor;
                 }
             }
+        }
 
-            a .logo{
-                padding-left: 20px;
+        // nav links style
+
+        ul {
+            display: flex;
+
+            // opmaak voor de list items
+            li {
+                list-style-type: none;
+                list-style: none;
+                border-left: 1px solid $tertiaryColor;
+
+                // opmaak voor de links
+                a {
+                    text-decoration: none;
+                    color: $secondaryColor;
+
+                    // winkelmandje opmaak
+                    img{
+                        text-align: center;
+                        height: 20px;
+                    }
+                }
+                
             }
 
-            .nav-item{
-                padding-right: 25px;
+            // ruimte voor de eerste en laatste li
+            // li:first-child{
+            //     margin-left: 30px;
+            // }
+            li:last-child{
+                margin-right: 30px;
+            }
+
+            // nav items hover effect
+
+            .underline-hover-effect {
+                // display: inline-block;
+                padding-bottom: 0.25rem; // defines the space between text and underline
+                position: relative;
+              }
+              
+              .underline-hover-effect::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: $secondAccentColor;
+                transition: width 0.25s ease-out;
+              }
+              .underline-hover-effect:hover::before {
+                width: 100%;
+              }
+
+            // ruimte tussen items
+            li {
+                padding-left: 20px;
+                padding-right: 20px;
             }
         }
     }
 
-    hr{
+    //under nav hr
+
+    hr {
         margin-top: 0;
         color: $tertiaryColor;
         height: 2px;
     }
-
 }
