@@ -1,40 +1,57 @@
 footer{
-    background-color: $mainColor;
+    background-color: $secondaryColor;
     margin-bottom: -1.5rem;
     padding: 2rem;
 
+    display: grid;
+    //make a grid area for the footer
+    grid-template-areas: ("contact contact logo logo") ("contact contact socialMedia socialMedia");
+    justify-items: center;
+    align-items: center;
+
+    border-top: 2px solid $tertiaryColor;
+
     h2{
-        color: $accentColor;
+        color: $secondAccentColor;
         text-align: center;
         font-size: 2rem;
+        grid-area: logo;
         span{
             color: black;
         }
     }
 
     .contact{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
+        grid-area: contact;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid $secondAccentColor;
         p{
+            text-align: center;
             a{
-                color: $accentColor;
+                color: $secondAccentColor;
             }
         }
     }
 
     .socialMedia{
+        grid-area: socialMedia;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
         align-items: center;
         margin-top: 2rem;
+        gap: 5rem;
 
         a{
             img{
-                width: 3rem;
-                height: 3rem;
+                width: 2rem;
+                height: 2rem;
             }
         }
     }
+    
 }

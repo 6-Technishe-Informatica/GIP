@@ -4,54 +4,26 @@ body{
     overflow-x: hidden;
 
     main{
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 }
 
-header {
-    background-color: $secondaryColor;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 5rem;
-    // border-bottom-left-radius: 1rem;
-    // border-bottom-right-radius: 1rem;
-    
-    hr{
-        margin-top: 0;
-        color: $primaryColor;
-    }
-
-    // navigatie
-    nav {
-        display: grid;
-        grid-template-columns: 15% 85%;
-        align-items: center;
-        justify-items: center;
-        height: 100%;
-
-        // navigatie logo
-        a{
-            color: $primaryColor;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 600;
-            // nav background color test
-            // background-color: $tertiaryColor;
-            // border-radius: 1rem;
-        }
-
-        // navigatie items 
-        ul {
-            li {
+header{
+    nav{
+        background-color: $primaryColor;
+        ul{
+            display: inline-block;
+            li{
                 display: inline-block;
-                a {
-                    text-decoration: none;
-                    color: $tertiaryColor;
-                    padding: 10px;
-                    display: block;
-                }
+                list-style-type: none;
+                text-decoration: none;
+                color: $secondaryColor;
             }
         }
     }
+    hr{
+        margin-top: 0;
+        color: $secondaryColor;
+    }
+
 }
