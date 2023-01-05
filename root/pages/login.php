@@ -21,13 +21,13 @@
             <h2>Log in</h2>
             <form action="../includes/login.inc.php" method="post">
 
-                <label for="name">Naam</label>
+                <label for="uid">Naam</label>
                 <input type="text" name="uid" placeholder="Gebruikersnaam / E-mail">
 
                 <label for="pwd">Wachtwoord</label>
                 <input type="password" name="pwd" placeholder="Wachtwoord">
                 
-                <input type="submit" value="Log in">
+                <button type="submit" name="submit">Registreer</button>
             </form>
             <?php
                 if(isset($_GET["error"])) {
