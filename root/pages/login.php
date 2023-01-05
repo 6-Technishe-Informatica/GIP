@@ -27,7 +27,7 @@
                 <label for="pwd">Wachtwoord</label>
                 <input type="password" name="pwd" placeholder="Wachtwoord">
                 
-                <button type="submit" name="submit">Registreer</button>
+                <button type="submit" name="login-submit">Log in</button>
             </form>
             <?php
                 if(isset($_GET["error"])) {

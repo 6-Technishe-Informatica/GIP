@@ -122,13 +122,13 @@
         // haalt het wachtwoord op uit de database
         $pwdHashed = $uidExists["gebruikersWachtwoord"]; 
         // kijkt of de hashes overeen komen, werkt niet dus de pwdHashed moet nadien chechPwd worden in de if statement hier onder.
-        $checkPwd = password_verify($password, $pwdHashed);
+        // $checkPwd = password_verify($password, $pwdHashed);
 
-        if ($checkPwd === false) {
+        if ($pwdHashed === false) {
             header("location: ../pages/login.php?error=wronglogin");
             exit();
         }
-        else if ($checkPwd === true) {
+        else if ($pwdHashed === true) {
             session_start();
             $_SESSION["userid"] = $uidExists["gebruikersId"];
             $_SESSION["useruid"] = $uidExists["gebruikersUid"];
