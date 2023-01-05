@@ -15,7 +15,21 @@
     <header>
         <?php include '../siteParts/nav.php'; ?>
     </header>
-    <main>
+    <main id="signup">
+
+        <div class="gridSignup">
+            <h2>Log in</h2>
+            <form action="../includes/login.inc.php" method="post">
+
+                <label for="name">Naam</label>
+                <input type="text" name="name" placeholder="Gebruikersnaam / E-mail">
+
+                <label for="pwd">Wachtwoord</label>
+                <input type="password" name="pwd" placeholder="Wachtwoord">
+                
+                <input type="submit" value="Log in">
+            </form>
+        </div>
         
     </main>
     <footer>
@@ -23,4 +37,5 @@
     </footer>
 </body>
 
+</html>
 </html>

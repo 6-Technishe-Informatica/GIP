@@ -1,13 +1,10 @@
-[Thu Jan 05 14:43:29.307407 2023] [mpm_winnt:notice] [pid 14068:tid 788] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Thu Jan 05 14:43:29.307907 2023] [mpm_winnt:notice] [pid 14068:tid 788] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Thu Jan 05 14:43:29.307907 2023] [core:notice] [pid 14068:tid 788] AH00094: Command line: 'C:\\Users\\Manu\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/Manu/Documents/GitHub/GIP/apache2'
-[Thu Jan 05 14:43:29.310407 2023] [mpm_winnt:notice] [pid 14068:tid 788] AH00418: Parent: Created child process 12092
-[Thu Jan 05 14:43:29.671201 2023] [mpm_winnt:notice] [pid 12092:tid 836] AH00354: Child: Starting 64 worker threads.
-[Thu Jan 05 14:43:50.250984 2023] [:error] [pid 12092:tid 1332] [client 127.0.0.1:61009] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/login.php
-[Thu Jan 05 14:54:13.153026 2023] [:error] [pid 12092:tid 1336] [client 127.0.0.1:49494] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/login.php
-[Thu Jan 05 15:25:37.424708 2023] [:error] [pid 12092:tid 1340] [client 127.0.0.1:54350] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/contact.php
-[Thu Jan 05 15:28:40.970390 2023] [:error] [pid 12092:tid 1328] [client 127.0.0.1:54475] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 15:30:30.194551 2023] [:error] [pid 12092:tid 1328] [client 127.0.0.1:49363] script 'C:/Users/Manu/Documents/GitHub/GIP/root/about.php' not found or unable to stat, referer: http://localhost:8080/index.php
-[Thu Jan 05 15:30:44.597544 2023] [:error] [pid 12092:tid 1328] [client 127.0.0.1:52512] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 15:33:09.731789 2023] [:error] [pid 12092:tid 1328] [client 127.0.0.1:61201] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/contact.php
-[Thu Jan 05 15:47:01.803570 2023] [:error] [pid 12092:tid 1344] [client 127.0.0.1:57460] script 'C:/Users/Manu/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/contact.php
+[Thu Jan 05 15:59:31.060761 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Thu Jan 05 15:59:31.060761 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Thu Jan 05 15:59:31.060761 2023] [core:notice] [pid 6016:tid 508] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
+[Thu Jan 05 15:59:31.064074 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00418: Parent: Created child process 22976
+[Thu Jan 05 15:59:31.581950 2023] [mpm_winnt:notice] [pid 22976:tid 872] AH00354: Child: Starting 64 worker threads.
+[Thu Jan 05 16:04:03.524305 2023] [:error] [pid 22976:tid 1308] [client 127.0.0.1:63304] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/signup.inc.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
+[Thu Jan 05 16:20:34.134395 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:50767] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/signup.inc.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
+[Thu Jan 05 17:07:00.549654 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59501] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
+[Thu Jan 05 17:07:47.226701 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59516] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
+[Thu Jan 05 17:09:07.230720 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59539] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
