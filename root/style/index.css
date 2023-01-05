@@ -1,3 +1,11 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +22,7 @@ header nav {
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 header nav h2 {
   padding-left: 50px;
@@ -173,10 +181,20 @@ main .overOns p {
   margin-right: 10%;
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 170px;
+}
+
 footer {
   background-color: #F5F5F7;
   margin-bottom: -1.5rem;
   padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 170px;
   display: grid;
   grid-template-areas: "contact contact logo logo" "contact contact socialMedia socialMedia";
   justify-items: center;
@@ -220,4 +238,355 @@ footer .socialMedia a img {
   width: 2rem;
   height: 2rem;
   fill: #4848fd;
+}
+
+main#contact {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+main#contact h2 {
+  font-size: 2rem;
+}
+main#contact .gridContact {
+  background-color: #F5F5F7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+main#contact .gridContact form {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+main#contact .gridContact form .message {
+  grid-column: span 2;
+  text-align: left;
+}
+main#contact .gridContact form .messageArea {
+  grid-column: span 2;
+  width: 100%;
+  height: 10rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+}
+main#contact .gridContact form label::before {
+  content: "*";
+  color: #147CE5;
+}
+main#contact .gridContact form input {
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+}
+main#contact .gridContact form input[type=submit] {
+  grid-column: span 2;
+  width: 100%;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+  background-color: #1D1D1F;
+  color: #F5F5F7;
+  cursor: pointer;
+}
+main#contact .gridContact form input:focus, main#contact .gridContact form textarea:focus {
+  outline: none;
+  border: 2px solid #6B7D7D;
+  caret-color: #4848fd;
+}
+main#contact .gridContact form .required {
+  grid-column: span 2;
+  color: red;
+  font-size: 0.8rem;
+}
+main#contact .gridContact form .required.show {
+  height: 1rem;
+}
+main#contact .gridContact .map {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+main#contact .gridContact .map iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+}
+
+main#products {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 1rem;
+}
+main#products button {
+  cursor: pointer;
+}
+main#products article {
+  display: grid;
+  grid-template-areas: "productName productName productName productName" "productImage shop shop shop";
+  gap: 2rem;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+main#products article h2 {
+  grid-area: productName;
+}
+main#products article .images {
+  grid-area: productImage;
+}
+main#products article .images .slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+main#products article .images .slideshow-container .mySlides {
+    display: none;
+}
+main#products article .images .slideshow-container .prev,
+main#products article .images .slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #6B7D7D;
+}
+main#products article .images .slideshow-container .next {
+  right: 0;
+  border-radius: 3px;
+}
+main#products article .images .slideshow-container .prev:hover,
+main#products article .images .slideshow-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+main#products article .images .slideshow-container .numbertext {
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+main#products article .images .slideshow-container .fade {
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+main#products article .images .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #6B7D7D;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+main#products article .images .active,
+main#products article .images .dot:hover {
+  background-color: #717171;
+}
+main#products article .shop {
+  grid-area: shop;
+  display: grid;
+  grid-template-rows: 25% 25% 25%;
+  align-items: center;
+}
+main#products article .shop .price {
+  display: inline;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}
+main#products article .shop .stock {
+  text-align: center;
+  padding: 1rem;
+  color: #009824;
+  font-weight: bold;
+  border-top: 1px solid #6B7D7D;
+  border-bottom: 1px solid #6B7D7D;
+}
+main#products article .shop .stock.out {
+  color: red;
+}
+main#products article .shop .winkelMand {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #6B7D7D;
+  text-align: left;
+  color: white;
+  font-size: 1rem;
+}
+main#products article .shop .winkelMand img {
+  width: 2rem;
+  height: 2rem;
+  text-align: right;
+}
+main#products .detailsDiscription {
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+main#products .detailsDiscription .buttons {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+main#products .detailsDiscription .buttons #discription-button,
+main#products .detailsDiscription .buttons #details-button {
+  display: inline;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #F5F5F7;
+}
+main#products .detailsDiscription .buttons #discription-button.active,
+main#products .detailsDiscription .buttons #details-button.active {
+  border-bottom: 1px solid #6B7D7D;
+}
+main#products .detailsDiscription p,
+main#products .detailsDiscription div.details {
+  display: none;
+}
+main#products .detailsDiscription .active,
+main#products .detailsDiscription .details.active {
+  display: block;
+}
+main#products .detailsDiscription .active p,
+main#products .detailsDiscription .details.active p {
+  display: block;
+}
+main#products .detailsDiscription .details.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main#products .detailsDiscription .details.active p {
+  display: inline;
+}
+
+main#signup {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+main#signup h2 {
+  font-size: 2rem;
+}
+main#signup .gridSignup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+main#signup .gridSignup form {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+main#signup .gridSignup form .message {
+  grid-column: span 2;
+  text-align: left;
+}
+main#signup .gridSignup form .messageArea {
+  grid-column: span 2;
+  width: 100%;
+  height: 10rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+}
+main#signup .gridSignup form label::before {
+  content: "*";
+  color: #147CE5;
+}
+main#signup .gridSignup form input {
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+}
+main#signup .gridSignup form input[type=submit] {
+  grid-column: span 2;
+  width: 100%;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #6B7D7D;
+  padding: 0.5rem;
+  background-color: #1D1D1F;
+  color: #F5F5F7;
+  cursor: pointer;
+}
+main#signup .gridSignup form input:focus, main#signup .gridSignup form textarea:focus {
+  outline-color: #6B7D7D;
+}
+main#signup .gridSignup form .required {
+  grid-column: span 2;
+  color: red;
+  font-size: 0.8rem;
+}
+main#signup .gridSignup form .required.show {
+  height: 1rem;
+}
+main#signup .gridSignup .map {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+main#signup .gridSignup .map iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
 }/*# sourceMappingURL=index.css.map */

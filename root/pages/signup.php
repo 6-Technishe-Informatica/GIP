@@ -15,7 +15,19 @@
     <header>
         <?php include '../siteParts/nav.php'; ?>
     </header>
-    <main>
+    <main id="signup">
+
+        <div class="gridSignup">
+            <h2>Registreer</h2>
+            <form action="signup.inc.php" method="post">
+                <input type="text" name="name" placeholder="Volledige naam">
+                <input type="text" name="email" placeholder="E-mail">
+                <input type="text" name="uid" placeholder="Gebruikersnaam">
+                <input type="password" name="pwd" placeholder="Wachtwoord">
+                <input type="password" name="pwd-repeat" placeholder="Herhaal wachtwoord">
+                <button type="submit" name="submit">Registreer</button>
+            </form>
+        </div>
         
     </main>
     <footer>

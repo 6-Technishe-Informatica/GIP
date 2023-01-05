@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../style/product.css">
+    <link rel="stylesheet" href="../style/index.css">
 
     <title><?php echo $_GET['productName'] ?></title>
 </head>
 
-<body>
+<body id="product">
     <header>
         <?php include '../siteParts/nav.php'; ?>
     </header>
-    <main>
+    <main id="products">
         <article>
             <?php
             $productDiscription = "lore ipsum dolor sit amet consectetur adipisicing elit. Nihil accusantium corporis quidem, aut cupiditate voluptatum, adipisci ea consequuntur officiis temporibus eveniet perferendis laborum sunt fuga placeat sequi pariatur non impedit!";
@@ -111,7 +111,7 @@
         <?php include '../siteParts/contact.php'; ?>
     </footer>
 
-    <script src="product.js"></script>
+    <script src="../main.js"></script>
 </body>
 
 </html>
