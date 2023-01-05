@@ -22,13 +22,23 @@
             <form action="../includes/login.inc.php" method="post">
 
                 <label for="name">Naam</label>
-                <input type="text" name="name" placeholder="Gebruikersnaam / E-mail">
+                <input type="text" name="uid" placeholder="Gebruikersnaam / E-mail">
 
                 <label for="pwd">Wachtwoord</label>
                 <input type="password" name="pwd" placeholder="Wachtwoord">
                 
                 <input type="submit" value="Log in">
             </form>
+            <?php
+                if(isset($_GET["error"])) {
+                    if($_GET["error"] == "emptyinput") {
+                        echo "<p>Vul alle velden in!</p>";
+                    }
+                    else if($_GET["error"] == "wronglogin") {
+                        echo "<p>Verkeerde login informatie!</p>";
+                    }
+                }
+            ?>
         </div>
         
     </main>

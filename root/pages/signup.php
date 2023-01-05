@@ -35,9 +35,38 @@
                 <label for="pwd-repeat">Herhaal wachtwoord</label>
                 <input type="password" name="pwd-repeat" placeholder="Herhaal wachtwoord">
                 
-                <input type="submit" value="Registreer">
+                <!-- <input type="submit" value="Registreer"> -->
+                <button type="submit" name="submit">Registreer</button>
             </form>
+            <!-- Geeft een foutcode op de pagina -->
+            <?php
+                if(isset($_GET["error"])) {
+                    if($_GET["error"] == "emptyinput") {
+                        echo "<p>Vul alle velden in!</p>";
+                    }
+                    else if($_GET["error"] == "invaliduid") {
+                        echo "<p>Kies een geldige gebruikersnaam!</p>";
+                    }
+                    else if($_GET["error"] == "invalidemail") {
+                        echo "<p>Kies een geldig e-mail adres!</p>";
+                    }
+                    else if($_GET["error"] == "passwordsdontmatch") {
+                        echo "<p>Wachtwoorden komen niet overeen!</p>";
+                    }
+                    else if($_GET["error"] == "stmtfailed") {
+                        echo "<p>Er is iets fout gegaan, probeer het opnieuw!</p>";
+                    }
+                    else if($_GET["error"] == "usernametaken") {
+                        echo "<p>Deze gebruikersnaam is al in gebruik!</p>";
+                    }
+                    else if($_GET["error"] == "none") {
+                        echo "<p>U bent geregistreerd!</p>";
+                    }
+                }
+            ?>
         </div>
+
+        
         
     </main>
     <footer>

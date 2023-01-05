@@ -35,11 +35,14 @@
             header("location: ../pages/signup.php?error=passwordsdontmatch");
             exit(); // zorgt ervoor dat de code stopt.
         }
-        // kijkt of de gebruikersnaam al bestaat
-        if (uidExists($conn, $username) !== false) {
+        // kijkt of de gebruikersnaam en email al bestaat
+        if (uidExists($conn, $username, $email) !== false) {
             header("location: ../pages/signup.php?error=usernametaken");
             exit(); // zorgt ervoor dat de code stopt.
         }
+
+        // maakt de gebruiker aan
+        createUser($conn, $name, $email, $username, $pwd);
     }
     else{
         header("location: ../pages/signup.php");
