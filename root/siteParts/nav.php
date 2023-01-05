@@ -6,6 +6,8 @@
     <ul>
         <li class="nav-item" ><a href="about.php" class="underline-hover-effect">About</a></li>
         <li class="nav-item" ><a href="../pages/contact.php" class="underline-hover-effect">Contact</a></li>
+        <li class="nav-item" ><a href="../pages/signup.php" class="underline-hover-effect">Registreer</a></li>
+        <li class="nav-item" ><a href="../pages/login.php" class="underline-hover-effect">Log in</a></li>
         <li><a href="#"><img src="../images/winkelwagen.svg" alt="winkelwagen"></a></li>
     </ul>
 </nav>

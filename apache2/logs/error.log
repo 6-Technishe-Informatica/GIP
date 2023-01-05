@@ -1,0 +1,6 @@
+[Thu Jan 05 12:57:53.723279 2023] [mpm_winnt:notice] [pid 19996:tid 524] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Thu Jan 05 12:57:53.723279 2023] [mpm_winnt:notice] [pid 19996:tid 524] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Thu Jan 05 12:57:53.723279 2023] [core:notice] [pid 19996:tid 524] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
+[Thu Jan 05 12:57:53.727388 2023] [mpm_winnt:notice] [pid 19996:tid 524] AH00418: Parent: Created child process 664
+[Thu Jan 05 12:57:54.168276 2023] [mpm_winnt:notice] [pid 664:tid 788] AH00354: Child: Starting 64 worker threads.
+[Thu Jan 05 13:09:34.273726 2023] [:error] [pid 664:tid 1296] [client 127.0.0.1:58489] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/singup.php' not found or unable to stat, referer: http://localhost:8080/
