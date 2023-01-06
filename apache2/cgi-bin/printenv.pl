@@ -1,4 +1,4 @@
-#!D:/programs/perl/bin/perl.exe
+#!C:/Perl64/bin/perl.exe
 #
 
 # To permit this cgi, replace # on the first line above with the
