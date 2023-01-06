@@ -13,7 +13,7 @@
         <?php
             if(isset($_SESSION["useruid"])){
                 echo "<li class='nav-item' ><a href='../pages/profile.php' class='underline-hover-effect'>Profiel</a></li>";
-                echo "<li class='nav-item' ><a href='../includes/logout.inc.php' class='underline-hover-effect'>Log out</a></li>";
+                echo "<li class='nav-item' ><a href='../includes/logout.inc.php' class='underline-hover-effect'>Log uit</a></li>";
             }
             else{
                 echo "<li class='nav-item' ><a href='../pages/signup.php' class='underline-hover-effect'>Registreer</a></li>";

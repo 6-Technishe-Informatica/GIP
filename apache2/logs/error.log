@@ -1,10 +1,7 @@
-[Thu Jan 05 15:59:31.060761 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Thu Jan 05 15:59:31.060761 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Thu Jan 05 15:59:31.060761 2023] [core:notice] [pid 6016:tid 508] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
-[Thu Jan 05 15:59:31.064074 2023] [mpm_winnt:notice] [pid 6016:tid 508] AH00418: Parent: Created child process 22976
-[Thu Jan 05 15:59:31.581950 2023] [mpm_winnt:notice] [pid 22976:tid 872] AH00354: Child: Starting 64 worker threads.
-[Thu Jan 05 16:04:03.524305 2023] [:error] [pid 22976:tid 1308] [client 127.0.0.1:63304] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/signup.inc.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 16:20:34.134395 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:50767] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/signup.inc.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 17:07:00.549654 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59501] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 17:07:47.226701 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59516] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
-[Thu Jan 05 17:09:07.230720 2023] [:error] [pid 22976:tid 1336] [client 127.0.0.1:59539] script 'C:/Users/calla/Documents/GitHub/GIP/root/signup.php' not found or unable to stat, referer: http://localhost:8080/pages/signup.php
+[Fri Jan 06 17:38:13.492635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Fri Jan 06 17:38:13.492635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Fri Jan 06 17:38:13.492635 2023] [core:notice] [pid 25424:tid 884] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
+[Fri Jan 06 17:38:13.495635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00418: Parent: Created child process 15952
+[Fri Jan 06 17:38:14.068641 2023] [mpm_winnt:notice] [pid 15952:tid 280] AH00354: Child: Starting 64 worker threads.
+[Fri Jan 06 18:48:46.029046 2023] [:error] [pid 15952:tid 1284] [client 127.0.0.1:63218] PHP Fatal error:  Call to undefined function password_hash() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 92, referer: http://localhost:8080/pages/signup.php?error=stmtfailed
+[Fri Jan 06 18:56:20.373189 2023] [:error] [pid 15952:tid 1284] [client 127.0.0.1:51327] PHP Notice:  Undefined index: gebruikersWachtwoord in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 123, referer: http://localhost:8080/pages/login.php
