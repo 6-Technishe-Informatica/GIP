@@ -53,6 +53,8 @@ main {
             text-decoration: none;
             color: inherit;
 
+            height: 100%;
+
             article {
                 border: 1px solid $tertiaryColor;
                 border-radius: 0.5rem;
@@ -64,6 +66,8 @@ main {
                 justify-content: space-between;
     
                 white-space: nowrap;
+
+                height: 100%;
     
                 img {
                     aspect-ratio: 1/1;

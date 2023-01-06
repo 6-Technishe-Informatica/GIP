@@ -121,6 +121,7 @@ main .deals {
 main .deals a {
   text-decoration: none;
   color: inherit;
+  height: 100%;
 }
 main .deals a article {
   border: 1px solid #6B7D7D;
@@ -131,6 +132,7 @@ main .deals a article {
   flex-direction: column;
   justify-content: space-between;
   white-space: nowrap;
+  height: 100%;
 }
 main .deals a article img {
   aspect-ratio: 1/1;

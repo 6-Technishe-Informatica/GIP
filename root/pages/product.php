@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../style/index.css">
 
+    <script src="http://code.jquery.com/jquery-3.6.3.min.js"></script>
+
     <title><?php echo $_GET['productName'] ?></title>
 </head>
 
@@ -18,23 +20,33 @@
     <main id="products">
         <article>
             <?php
-            $productDiscription = "lore ipsum dolor sit amet consectetur adipisicing elit. Nihil accusantium corporis quidem, aut cupiditate voluptatum, adipisci ea consequuntur officiis temporibus eveniet perferendis laborum sunt fuga placeat sequi pariatur non impedit!";
-            $productPrice = "€ 799";
-            $details = array(
-                "Brand" => "Apple",
-                "Model" => "iPhone 12",
-                "Color" => "Black",
-                "Storage" => "128GB",
-                "Weight" => "164g",
-                "Dimensions" => "146.7 x 71.5 x 7.4 mm",
-                "Display" => "6.1 inch",
-                "Resolution" => "2532 x 1170 pixels",
-                "Battery" => "2815 mAh",
-                "Processor" => "A14 Bionic",
-                "RAM" => "4GB",
-                "Camera" => "12MP",
-                "OS" => "iOS 14"
-            );
+            //connect to database
+            $servername = "localhost";
+            $username = "root";
+            $password = "usbw";
+
+            $prijs = 0;
+            $stock = 0;
+            $productDiscription = "";
+
+            $conn = new mysqli($servername, $username, $password, "gip");
+
+            if (!$conn) {
+                echo "Fout: geen connectie naar database. <br>";
+                echo "Error: " . mysqli_connect_error() . "<br>";
+                exit();
+            }
+
+            $referentieNummer = $_GET['referentieNummer'];
+
+            $result = mysqli_query($conn, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer");
+
+            while ($row = mysqli_fetch_array($result)) {
+                $productDiscription = $row['artikelBeschrijving'];
+                $prijs = $row['prijs'];
+                $stock = $row['beschikbaarheid'];
+            }
+
             ?>
 
             <h2 class="productName"><?php echo $_GET['productName']; ?></h2>
@@ -74,11 +86,9 @@
             </div>
 
             <div class="shop">
-                <p class="price"><?php echo $productPrice; ?></p>
+                <p class="price"><?php echo $prijs ?></p>
 
                 <?php
-                    $stock = 1;
-
                     if ($stock > 0) {
                         echo "<p class='stock'>Op vooraad</p>";
                     } else {

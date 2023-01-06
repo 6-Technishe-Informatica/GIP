@@ -72,8 +72,6 @@
     <footer>
         <?php include '../siteParts/contact.php'; ?>
     </footer>
-
-    <script src="http://code.jquery.com/jquery-3.6.3.min.js"></script>
 </body>
 
 </html>

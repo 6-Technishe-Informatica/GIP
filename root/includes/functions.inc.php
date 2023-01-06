@@ -88,10 +88,10 @@
         }
 
         // hashing werkt nog niet, eens dit wel werkt verander de $pwd naar $hashedPwd op derde lijn hier onder
-        // $pwd is de wachtwoord variabele die hierboven word meegegeven, PASSWORD_DEFAULT is een standaard functie van php die het wachtwoord hash.
-        // $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT); 
+        // $pwd is de wachtwoord variabele die hierboven word meegegeven, PASSWORD_DEFAULT is een standaard functie van php die het wachtwoord hash version 5.5, in 5.2 werkt crypt.
+        $hashedPwd = crypt($pwd); 
         
-        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $pwd); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
         header("location: ../pages/signup.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
@@ -101,6 +101,7 @@
     // kijkt na of de input fields ingevuld zijn.
     function emptyInputLogin($username, $pwd){
         $result; // gaat true or false terug geven
+
         if (empty($username) || empty($pwd)) { // kijkt na of de input fields leeg zijn.
             $result = true; // geeft true terug als de input fields leeg zijn.
         }
@@ -111,7 +112,7 @@
     }
 
     // functie die de gebruiker inlogt
-    function loginUser($conn, $username, $password){
+    function loginUser($conn, $username, $pwd){
         // maakt gebruik van de register uidExists functie
         $uidExists = uidExists($conn, $username, $username); // kijkt na of de gebruikersnaam of email bestaat in de database
         if ($uidExists === false) { // kijkt na of de gebruikersnaam of email bestaat in de database? zoniet stuurt hij de gebruiker terug naar de login pagina met een error.
@@ -124,15 +125,16 @@
         // kijkt of de hashes overeen komen, werkt niet dus de pwdHashed moet nadien chechPwd worden in de if statement hier onder.
         // $checkPwd = password_verify($pwd, $pwdHashed);
 
-        if ($pwdHashed === false) { // kijkt na of de hashes overeen komen? zoniet stuurt hij de gebruiker terug naar de login pagina met een error.    
-            header("location: ../pages/login.php?error=wronglogin"); // stuurt de gebruiker terug naar de login pagina met een error.
+        if (crypt($pwd, $pwdHashed)) { // kijkt na of de hashes overeen komen? zoniet stuurt hij de gebruiker terug naar de login pagina met een error.  
+            echo "loginUser";
+            session_start(); // start een sessie
+            $_SESSION["userid"] = $uidExists["usersId"]; // zet de gebruikersId in de sessie
+            $_SESSION["useruid"] = $uidExists["usersUid"]; // zet de gebruikersUid in de sessie
+            header("location: ../index.php"); // stuurt de gebruiker naar de index pagina.
             exit(); // zorgt ervoor dat de code stopt.
         }
-        else if ($pwdHashed === true) { // kijkt na of de hashes overeen komen? zoja stuurt hij de gebruiker naar de index pagina.
-            session_start(); // start een sessie
-            $_SESSION["userid"] = $uidExists["gebruikersId"]; // zet de gebruikersId in de sessie
-            $_SESSION["useruid"] = $uidExists["gebruikersUid"]; // zet de gebruikersUid in de sessie
-            header("location: ../index.php"); // stuurt de gebruiker naar de index pagina.
+        else { // kijkt na of de hashes overeen komen? zoja stuurt hij de gebruiker naar de index pagina.
+            header("location: ../pages/login.php?error=wronglogin"); // stuurt de gebruiker terug naar de login pagina met een error.
             exit(); // zorgt ervoor dat de code stopt.
         }
     }

@@ -1,7 +1,11 @@
-[Fri Jan 06 17:38:13.492635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Fri Jan 06 17:38:13.492635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Fri Jan 06 17:38:13.492635 2023] [core:notice] [pid 25424:tid 884] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
-[Fri Jan 06 17:38:13.495635 2023] [mpm_winnt:notice] [pid 25424:tid 884] AH00418: Parent: Created child process 15952
-[Fri Jan 06 17:38:14.068641 2023] [mpm_winnt:notice] [pid 15952:tid 280] AH00354: Child: Starting 64 worker threads.
-[Fri Jan 06 18:48:46.029046 2023] [:error] [pid 15952:tid 1284] [client 127.0.0.1:63218] PHP Fatal error:  Call to undefined function password_hash() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 92, referer: http://localhost:8080/pages/signup.php?error=stmtfailed
-[Fri Jan 06 18:56:20.373189 2023] [:error] [pid 15952:tid 1284] [client 127.0.0.1:51327] PHP Notice:  Undefined index: gebruikersWachtwoord in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 123, referer: http://localhost:8080/pages/login.php
+[Fri Jan 06 21:46:12.101373 2023] [mpm_winnt:notice] [pid 16484:tid 620] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Fri Jan 06 21:46:12.101373 2023] [mpm_winnt:notice] [pid 16484:tid 620] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Fri Jan 06 21:46:12.101373 2023] [core:notice] [pid 16484:tid 620] AH00094: Command line: 'C:\\Users\\calla\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/calla/Documents/GitHub/GIP/apache2'
+[Fri Jan 06 21:46:12.104861 2023] [mpm_winnt:notice] [pid 16484:tid 620] AH00418: Parent: Created child process 17076
+[Fri Jan 06 21:46:12.499315 2023] [mpm_winnt:notice] [pid 17076:tid 4] AH00354: Child: Starting 64 worker threads.
+[Fri Jan 06 21:46:51.414690 2023] [:error] [pid 17076:tid 1336] [client 127.0.0.1:61995] PHP Fatal error:  Call to undefined function password_hash() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 96, referer: http://localhost:8080/pages/signup.php
+[Fri Jan 06 21:49:22.420357 2023] [:error] [pid 17076:tid 1304] [client 127.0.0.1:62059] PHP Fatal error:  Call to undefined function password_verify() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 126, referer: http://localhost:8080/pages/login.php
+[Fri Jan 06 21:49:27.985462 2023] [:error] [pid 17076:tid 1336] [client ::1:62061] PHP Fatal error:  Call to undefined function password_verify() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 126, referer: http://localhost:8080/pages/login.php
+[Fri Jan 06 21:54:50.280053 2023] [:error] [pid 17076:tid 1304] [client 127.0.0.1:62159] PHP Fatal error:  Call to undefined function hash_equals() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 128, referer: http://localhost:8080/pages/login.php
+[Fri Jan 06 21:54:51.058094 2023] [:error] [pid 17076:tid 1336] [client ::1:62156] PHP Fatal error:  Call to undefined function hash_equals() in C:\\Users\\calla\\Documents\\GitHub\\GIP\\root\\includes\\functions.inc.php on line 128, referer: http://localhost:8080/pages/login.php
+[Fri Jan 06 21:57:17.234634 2023] [:error] [pid 17076:tid 1292] [client ::1:62211] script 'C:/Users/calla/Documents/GitHub/GIP/root/pages/about.php' not found or unable to stat, referer: http://localhost:8080/pages/login.php?error=wronglogin

@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 
 <nav>
         <!-- <li><a href=""><img src="../images/burger.svg" alt="burger menu"></a></li> -->

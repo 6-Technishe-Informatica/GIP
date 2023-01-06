@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,132 +28,75 @@
         <h2 class="dealsText">Special deals</h2>
         <div class="deals">
             <?php
-            //make a products array with 5 products
+                //connect to database
+                $servername = "localhost";
+                $username = "root";
+                $password = "usbw";
 
-            $products = [
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPhone 12',
-                    'price' => '€ 799',
-                    'priceNew' => '€ 699'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'MacBook Pro',
-                    'price' => '€ 1.999',
-                    'priceNew' => '€ 1.799'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPad Pro',
-                    'price' => '€ 1.099',
-                    'priceNew' => '€ 999'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'Apple Watch',
-                    'price' => '€ 399',
-                    'priceNew' => '€ 299'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'AirPods',
-                    'price' => '€ 199',
-                    'priceNew' => '€ 149'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPhone 12',
-                    'price' => '€ 799',
-                    'priceNew' => '€ 699'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'MacBook Pro',
-                    'price' => '€ 1.999',
-                    'priceNew' => '€ 1.799'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPad Pro',
-                    'price' => '€ 1.099',
-                    'priceNew' => '€ 999'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'Apple Watch',
-                    'price' => '€ 399',
-                    'priceNew' => '€ 299'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'AirPods',
-                    'price' => '€ 199',
-                    'priceNew' => '€ 149'
-                ]
-            ];
+                $conn = new mysqli($servername, $username, $password, "gip");
 
-            foreach ($products as $product) {
-                echo '<a href="pages/product.php?productName=' . $product['name'] .'">';
-                echo '<article>';
-                echo '<img src="images/productPicture.webp" alt="productPicture">';
-                echo '<p>' . $product['brand'] . '</p>';
-                echo '<div class="gridNamePrice dealsPrice">';
-                echo '<h3>' . $product['name'] . '</h3>';
-                echo '<p class="ouldPrice">' . $product['price'] . '</p>';
-                echo '<p>' . $product['priceNew'] . '</p>';
-                echo '</div>';
-                echo '</article>';
-                echo '</a>';
-            }
+                if (!$conn) {
+                    echo "Fout: geen connectie naar database. <br>";
+                    echo "Error: " . mysqli_connect_error() . "<br>";
+                    exit();
+                }
+
+                $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
+
+
+                
+
+                while ($productDeal = mysqli_fetch_assoc($res)) {
+                    echo '<a href="pages/product.php?productName=' . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] .'">';
+                    echo '<article>';
+                    echo '<img src="images/productPicture.webp" alt="productPicture">';
+                    echo '<p>' . $productDeal['brand'] . '</p>';
+                    echo '<div class="gridNamePrice dealsPrice">';
+                    echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
+
+                    //check if there is a new price
+                    if ($productDeal['prijsNieuw'] != 0) {
+                        echo '<p class="ouldPrice">' . $productDeal['prijs'] . '</p>';
+                        echo '<p class="newPrice">' . $productDeal['prijsNieuw'] . '</p>';
+                    }else{
+                        echo '<p class="newPrice">' . $productDeal['prijs'] . '</p>';
+                    }
+
+                    echo '</div>';
+                    echo '</article>';
+                    echo '</a>';
+                }
             ?>
         </div>
 
         <h2 class="dealsText">Ondek</h2>
         <div class="deals">
             <?php
-            //make a products array with 5 products
 
-            $products = [
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPhone 12',
-                    'price' => '€ 799'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'MacBook Pro',
-                    'price' => '€ 1.999'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'iPad Pro',
-                    'price' => '€ 1.099'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'Apple Watch',
-                    'price' => '€ 399'
-                ],
-                [
-                    'brand' => 'Apple',
-                    'name' => 'AirPods',
-                    'price' => '€ 199'
-                ]
-            ];
+                $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
 
-            foreach ($products as $product) {
-                echo '<a href="pages/product.php?productName=' . $product['name'] .'">';
-                echo '<article>';
-                echo '<img src="images/productPicture.webp" alt="productPicture">';
-                echo '<p>' . $product['brand'] . '</p>';
-                echo '<div class="gridNamePrice">';
-                echo '<h3>' . $product['name'] . '</h3>';
-                echo '<p>' . $product['price'] . '</p>';
-                echo '</div>';
-                echo '</article>';
-                echo '</a>';
-            }
+                while ($productDiscover = mysqli_fetch_assoc($res2)) {
+                    echo '<a href="pages/product.php?productName=' . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] .'">';
+                    echo '<article>';
+                    echo '<img src="images/productPicture.webp" alt="productPicture">';
+                    echo '<p>' . $productDiscover['brand'] . '</p>';
+                    echo '<div class="gridNamePrice dealsPrice">';
+                    echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
+
+                    //check if there is a new price
+                    if ($productDiscover['prijsNieuw'] != 0) {
+                        echo '<p class="ouldPrice">' . $productDiscover['prijs'] . '</p>';
+                        echo '<p class="newPrice">' . $productDiscover['prijsNieuw'] . '</p>';
+                    }else{
+                        echo '<p class="newPrice">' . $productDiscover['prijs'] . '</p>';
+                    }
+
+                    echo '</div>';
+                    echo '</article>';
+                    echo '</a>';
+                }
+
+                mysqli_close($conn);
             ?>
         </div>
 

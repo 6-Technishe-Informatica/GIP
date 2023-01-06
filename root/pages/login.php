@@ -19,7 +19,7 @@
 
         <div class="gridSignup">
             <h2>Log in</h2>
-            <form action="../includes/login.inc.php" method="post">
+            <form action="../includes/login.inc.php" method="post" enctype="multipart/form-data">
 
                 <label for="uid">Naam</label>
                 <input type="text" name="uid" placeholder="Gebruikersnaam / E-mail">
