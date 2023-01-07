@@ -242,14 +242,14 @@ footer .socialMedia a img {
   fill: #4848fd;
 }
 
-main#contact {
+main#contact, main#signup {
   margin-left: 10%;
   margin-right: 10%;
 }
-main#contact h2 {
+main#contact h2, main#signup h2 {
   font-size: 2rem;
 }
-main#contact .gridContact {
+main#contact .gridContact, main#contact .gridSignup, main#signup .gridContact, main#signup .gridSignup {
   background-color: #F5F5F7;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -259,7 +259,7 @@ main#contact .gridContact {
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
-main#contact .gridContact form {
+main#contact .gridContact form, main#contact .gridSignup form, main#signup .gridContact form, main#signup .gridSignup form {
   display: grid;
   grid-template-columns: 0.1fr 1fr;
   gap: 0.5rem;
@@ -267,11 +267,11 @@ main#contact .gridContact form {
   align-items: center;
   padding: 1rem;
 }
-main#contact .gridContact form .message {
+main#contact .gridContact form .message, main#contact .gridSignup form .message, main#signup .gridContact form .message, main#signup .gridSignup form .message {
   grid-column: span 2;
   text-align: left;
 }
-main#contact .gridContact form .messageArea {
+main#contact .gridContact form .messageArea, main#contact .gridSignup form .messageArea, main#signup .gridContact form .messageArea, main#signup .gridSignup form .messageArea {
   grid-column: span 2;
   width: 100%;
   height: 10rem;
@@ -279,17 +279,17 @@ main#contact .gridContact form .messageArea {
   border: 1px solid #6B7D7D;
   padding: 0.5rem;
 }
-main#contact .gridContact form label::before {
+main#contact .gridContact form label::before, main#contact .gridSignup form label::before, main#signup .gridContact form label::before, main#signup .gridSignup form label::before {
   content: "*";
   color: #147CE5;
 }
-main#contact .gridContact form input {
+main#contact .gridContact form input, main#contact .gridSignup form input, main#signup .gridContact form input, main#signup .gridSignup form input {
   height: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid #6B7D7D;
   padding: 0.5rem;
 }
-main#contact .gridContact form input[type=submit] {
+main#contact .gridContact form input[type=submit], main#contact .gridSignup form input[type=submit], main#signup .gridContact form input[type=submit], main#signup .gridSignup form input[type=submit] {
   grid-column: span 2;
   width: 100%;
   height: 2rem;
@@ -300,25 +300,32 @@ main#contact .gridContact form input[type=submit] {
   color: #F5F5F7;
   cursor: pointer;
 }
-main#contact .gridContact form input:focus, main#contact .gridContact form textarea:focus {
+main#contact .gridContact form input:focus, main#contact .gridContact form textarea:focus, main#contact .gridSignup form input:focus, main#contact .gridSignup form textarea:focus, main#signup .gridContact form input:focus, main#signup .gridContact form textarea:focus, main#signup .gridSignup form input:focus, main#signup .gridSignup form textarea:focus {
   outline: none;
   border: 2px solid #6B7D7D;
   caret-color: #4848fd;
 }
-main#contact .gridContact form .required {
+main#contact .gridContact form .required, main#contact .gridSignup form .required, main#signup .gridContact form .required, main#signup .gridSignup form .required {
   grid-column: span 2;
   color: red;
   font-size: 0.8rem;
 }
-main#contact .gridContact form .required.show {
+main#contact .gridContact form .required.show, main#contact .gridSignup form .required.show, main#signup .gridContact form .required.show, main#signup .gridSignup form .required.show {
   height: 1rem;
 }
-main#contact .gridContact .map {
+main#contact .gridContact .info, main#contact .gridSignup .info, main#signup .gridContact .info, main#signup .gridSignup .info {
+  padding: 1rem;
+}
+main#contact .gridContact .info p, main#contact .gridSignup .info p, main#signup .gridContact .info p, main#signup .gridSignup .info p {
+  margin: 0;
+  padding: 0.5rem;
+}
+main#contact .map, main#signup .map {
   padding: 1rem;
   width: 100%;
   height: 100%;
 }
-main#contact .gridContact .map iframe {
+main#contact .map iframe, main#signup .map iframe {
   width: 100%;
   height: 100%;
   border: 1px solid #6B7D7D;
@@ -526,6 +533,7 @@ main#signup h2 {
   border-bottom: 1px solid #6B7D7D;
 }
 main#signup .gridSignup {
+  display: block;
   background-color: #F5F5F7;
   justify-content: center;
   align-items: center;
@@ -535,53 +543,4 @@ main#signup .gridSignup {
 }
 main#signup .gridSignup form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-main#signup .gridSignup form .message {
-  grid-column: span 2;
-  text-align: left;
-}
-main#signup .gridSignup form .messageArea {
-  grid-column: span 2;
-  width: 100%;
-  height: 10rem;
-  border-radius: 0.5rem;
-  border: 1px solid #6B7D7D;
-  padding: 0.5rem;
-}
-main#signup .gridSignup form label::before {
-  content: "*";
-  color: #147CE5;
-}
-main#signup .gridSignup form input {
-  height: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #6B7D7D;
-  padding: 0.5rem;
-}
-main#signup .gridSignup form input[type=submit] {
-  grid-column: span 2;
-  width: 100%;
-  height: 2rem;
-  border-radius: 0.5rem;
-  border: 1px solid #6B7D7D;
-  padding: 0.5rem;
-  background-color: #1D1D1F;
-  color: #F5F5F7;
-  cursor: pointer;
-}
-main#signup .gridSignup form input:focus, main#signup .gridSignup form textarea:focus {
-  outline-color: #6B7D7D;
-}
-main#signup .gridSignup form .required {
-  grid-column: span 2;
-  color: red;
-  font-size: 0.8rem;
-}
-main#signup .gridSignup form .required.show {
-  height: 1rem;
 }/*# sourceMappingURL=index.css.map */

@@ -1,4 +1,3 @@
-
 <h2>Tech <span>point</span></h2>
 <div class="contact">
     <p>Bel ons op: <a href="tel:038711111">+324 68 22 74 25</a></p>

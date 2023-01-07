@@ -2,7 +2,7 @@
 
     // functie dat kijkt of de input fields ingevuld zijn.
     function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         // empty kijkt na of de variabele leeg is, als de variabele leeg is dan is de resultaat true.
         if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
             $result = true; // geeft true terug wat zegt dat er een variabele leeg is.
@@ -14,7 +14,7 @@
     }
     // functie dat kijkt of de gebruikersnaam de juiste character bevat.
     function invalidUid($username){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) { // !preg_match kijkt na of de gebruikersnaam alleen letters en cijfers bevat.
             $result = true; // geeft true terug wat zegt dat de gebruikersnaam niet de juiste character bevat.
         }
@@ -25,7 +25,7 @@
     }
     // functie dat kijkt of de email een geldig email adres is.
     function invalidEmail($email){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // !filter_var kijkt na of de email een geldig email adres is, FILTER_VALIDATE_EMAIL is een standaard functie van php dat de email nakijkt.
             $result = true; // geeft true terug wat zegt dat de email niet geldig is.
         }
@@ -36,7 +36,7 @@
     }
     // functie dat kijkt of de wachtwoorden overeen komen.
     function pwdMatch($pwd, $pwdRepeat){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         // kijkt na of de wachtwoorden overeen komen.
         if ($pwd !== $pwdRepeat) { // !== kijkt na of de wachtwoorden niet overeen komen.
             $result = true; // geeft true terug wat zegt dat de wachtwoorden niet overeen komen.
@@ -89,7 +89,7 @@
 
         // hashing werkt nog niet, eens dit wel werkt verander de $pwd naar $hashedPwd op derde lijn hier onder
         // $pwd is de wachtwoord variabele die hierboven word meegegeven, PASSWORD_DEFAULT is een standaard functie van php die het wachtwoord hash version 5.5, in 5.2 werkt crypt.
-        $hashedPwd = crypt($pwd); 
+        $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT); 
         
         mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
@@ -100,7 +100,7 @@
 
     // kijkt na of de input fields ingevuld zijn.
     function emptyInputLogin($username, $pwd){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
 
         if (empty($username) || empty($pwd)) { // kijkt na of de input fields leeg zijn.
             $result = true; // geeft true terug als de input fields leeg zijn.
@@ -125,7 +125,7 @@
         // kijkt of de hashes overeen komen, werkt niet dus de pwdHashed moet nadien chechPwd worden in de if statement hier onder.
         // $checkPwd = password_verify($pwd, $pwdHashed);
 
-        if (crypt($pwd, $pwdHashed)) { // kijkt na of de hashes overeen komen? zoniet stuurt hij de gebruiker terug naar de login pagina met een error.  
+        if (password_verify($pwd, $pwdHashed)) { // kijkt na of de hashes overeen komen? zoniet stuurt hij de gebruiker terug naar de login pagina met een error.  
             echo "loginUser";
             session_start(); // start een sessie
             $_SESSION["userid"] = $uidExists["usersId"]; // zet de gebruikersId in de sessie

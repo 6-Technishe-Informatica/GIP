@@ -8,14 +8,12 @@
 
     <link rel="stylesheet" href="../style/index.css">
 
-    <script src="http://code.jquery.com/jquery-3.6.3.min.js"></script>
-
-    <title><?php echo $_GET['productName'] ?></title>
+    <title><?php echo $_GET['productName'] // shows product name in page title?></title>
 </head>
 
 <body id="product">
     <header>
-        <?php include '../siteParts/nav.php'; ?>
+        <?php include '../siteParts/nav.php'; // includes navbar?>
     </header>
     <main id="products">
         <article>
@@ -25,31 +23,32 @@
             $username = "root";
             $password = "usbw";
 
-            $prijs = 0;
-            $stock = 0;
-            $productDiscription = "";
+            $prijs = 0; // price
+            $stock = 0; // stock
+            $productDiscription = ""; // product discription
 
-            $conn = new mysqli($servername, $username, $password, "gip");
+            $conn = new mysqli($servername, $username, $password, "gip"); // connect to database
 
-            if (!$conn) {
+            if (!$conn) { // if there is no connection give error
                 echo "Fout: geen connectie naar database. <br>";
                 echo "Error: " . mysqli_connect_error() . "<br>";
                 exit();
             }
 
-            $referentieNummer = $_GET['referentieNummer'];
+            $referentieNummer = $_GET['referentieNummer']; // get referentie nummer
 
-            $result = mysqli_query($conn, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer");
+            $result = mysqli_query($conn, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer"); // get data from database where referentie nummer is the same as the referentie nummer from the url
 
-            while ($row = mysqli_fetch_array($result)) {
-                $productDiscription = $row['artikelBeschrijving'];
-                $prijs = $row['prijs'];
-                $stock = $row['beschikbaarheid'];
+            while ($row = mysqli_fetch_array($result)) { // while there is data in the database
+                $productDiscription = $row['artikelBeschrijving']; // get the data
+                $prijs = $row['prijs']; // get the data
+                $stock = $row['beschikbaarheid']; // get the data
             }
 
             ?>
 
-            <h2 class="productName"><?php echo $_GET['productName']; ?></h2>
+            <h2 class="productName"><?php echo $_GET['productName']; // show product name
+                                    ?></h2>
 
             <div class="images">
                 <!-- Slideshow container -->
@@ -86,14 +85,14 @@
             </div>
 
             <div class="shop">
-                <p class="price"><?php echo $prijs ?></p>
+                <p class="price"><?php echo $prijs // show price?></p>
 
                 <?php
-                    if ($stock > 0) {
-                        echo "<p class='stock'>Op vooraad</p>";
-                    } else {
-                        echo "<p class='stock out'>Niet op vooraad</p>";
-                    }
+                if ($stock > 0) { // if stock is more than 0 show op vooraad
+                    echo "<p class='stock'>Op vooraad</p>";
+                } else { // if stock is 0 or less show n niet op vooraad
+                    echo "<p class='stock out'>Niet op vooraad</p>";
+                }
                 ?>
 
                 <button class="winkelMand"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</button>
@@ -106,19 +105,19 @@
             </div>
 
 
-            <p id="discription" class="discription active"><?php echo $productDiscription; ?></p>
+            <p id="discription" class="discription active"><?php echo $productDiscription; // shows product discrition?></p>
             <div id="details" class="details">
                 <?php
-                foreach ($details as $key => $value) {
+                foreach ($details as $key => $value) { // shows product details
                     echo "<strong>" . $key . "</strong><p>" . $value . "</p>";
                 }
                 ?>
             </div>
         </div>
     </main>
-    
+
     <footer>
-        <?php include '../siteParts/contact.php'; ?>
+        <?php include '../siteParts/contact.php'; // includes footer?>
     </footer>
 
     <script src="../main.js"></script>

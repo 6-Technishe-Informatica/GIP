@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <?php include '../siteParts/nav.php'; ?>
+        <?php include '../siteParts/nav.php'; // includes navbar?>
     </header>
     <main id="signup">
 
@@ -40,26 +40,26 @@
             </form>
             <!-- Geeft een foutcode op de pagina -->
             <?php
-                if(isset($_GET["error"])) {
-                    if($_GET["error"] == "emptyinput") {
+                if(isset($_GET["error"])) { // if there is an error
+                    if($_GET["error"] == "emptyinput") { // if the error is empty input
                         echo "<p>Vul alle velden in!</p>";
                     }
-                    else if($_GET["error"] == "invaliduid") {
+                    else if($_GET["error"] == "invaliduid") { // if the error is invalid username
                         echo "<p>Kies een geldige gebruikersnaam!</p>";
                     }
-                    else if($_GET["error"] == "invalidemail") {
+                    else if($_GET["error"] == "invalidemail") { // if the error is invalid email
                         echo "<p>Kies een geldig e-mail adres!</p>";
                     }
-                    else if($_GET["error"] == "passwordsdontmatch") {
+                    else if($_GET["error"] == "passwordsdontmatch") { // if the error is passwords dont match
                         echo "<p>Wachtwoorden komen niet overeen!</p>";
                     }
-                    else if($_GET["error"] == "stmtfailed") {
+                    else if($_GET["error"] == "stmtfailed") { // if the error is statement failed
                         echo "<p>Er is iets fout gegaan, probeer het opnieuw!</p>";
                     }
-                    else if($_GET["error"] == "usernametaken") {
+                    else if($_GET["error"] == "usernametaken") { // if the error is username taken
                         echo "<p>Deze gebruikersnaam is al in gebruik!</p>";
                     }
-                    else if($_GET["error"] == "none") {
+                    else if($_GET["error"] == "none") { // if there is no error
                         echo "<p>U bent geregistreerd!</p>";
                     }
                 }
@@ -70,7 +70,7 @@
         
     </main>
     <footer>
-        <?php include '../siteParts/contact.php'; ?>
+        <?php include '../siteParts/contact.php'; // includes footer?>
     </footer>
 </body>
 

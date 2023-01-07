@@ -1,9 +1,9 @@
-main#products {
+main#products { // checks if main is on product page
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 1rem;
 
-    button {
+    button { // makes your cursor pointer wenever over a button
         cursor: pointer;
     }
 
@@ -21,7 +21,7 @@ main#products {
             grid-area: productName;
         }
 
-        .images {
+        .images { // style for pruduct pictures
             grid-area: productImage;
 
             //Slideshow container
@@ -109,7 +109,7 @@ main#products {
             }
         }
 
-        .shop {
+        .shop { // right area of grid, style for stock indicator price and scopig card
             grid-area: shop;
             display: grid;
             grid-template-rows: 25% 25% 25%;
@@ -164,7 +164,7 @@ main#products {
         }
     }
 
-    .detailsDiscription {
+    .detailsDiscription {// style container with detais and discription of product
         border: 1px solid $tertiaryColor;
         border-radius: 0.5rem;
         
@@ -195,10 +195,8 @@ main#products {
             }
         }
 
-        //display: none; for when not active, see js for change code
-
         p,
-        div.details {
+        div.details { //display: none; for when not active, see js for change code
             display: none;
         }
 

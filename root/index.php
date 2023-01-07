@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <?php include 'siteParts/nav.php'; ?>
+        <?php include 'siteParts/nav.php'; // includes nav bar ?> 
     </header>
     <main>
         <article class="hero">
@@ -33,20 +33,20 @@
                 $username = "root";
                 $password = "usbw";
 
-                $conn = new mysqli($servername, $username, $password, "gip");
+                $conn = new mysqli($servername, $username, $password, "gip"); // connection command mysql database
 
-                if (!$conn) {
-                    echo "Fout: geen connectie naar database. <br>";
+                if (!$conn) { // shows error when connection failed
+                    echo "Fout: geen connectie naar database. <br>"; 
                     echo "Error: " . mysqli_connect_error() . "<br>";
                     exit();
                 }
 
-                $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
+                $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1"); // query selctor to get artikelen with special deals set to true
 
 
                 
 
-                while ($productDeal = mysqli_fetch_assoc($res)) {
+                while ($productDeal = mysqli_fetch_assoc($res)) { // loop to all product with special deals and put them in a card on index.php -> Special deals
                     echo '<a href="pages/product.php?productName=' . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] .'">';
                     echo '<article>';
                     echo '<img src="images/productPicture.webp" alt="productPicture">';
@@ -73,9 +73,9 @@
         <div class="deals">
             <?php
 
-                $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
+                $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1"); // query selctor to get artikelen with discover set to true
 
-                while ($productDiscover = mysqli_fetch_assoc($res2)) {
+                while ($productDiscover = mysqli_fetch_assoc($res2)) { // loop to all product with discover and put them in a card on index.php -> ondek
                     echo '<a href="pages/product.php?productName=' . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] .'">';
                     echo '<article>';
                     echo '<img src="images/productPicture.webp" alt="productPicture">';
@@ -96,7 +96,7 @@
                     echo '</a>';
                 }
 
-                mysqli_close($conn);
+                mysqli_close($conn); // close database connection
             ?>
         </div>
 
@@ -106,7 +106,7 @@
         </article>
     </main>
     <footer>
-        <?php include 'siteParts/contact.php'; ?>
+        <?php include 'siteParts/contact.php'; // includes footer?>
     </footer>
 </body>
 

@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <?php include '../siteParts/nav.php'; ?>
+        <?php include '../siteParts/nav.php'; // include nav?>
     </header>
     <main id="signup">
 
@@ -30,12 +30,12 @@
                 <button type="submit" name="login-submit">Log in</button>
             </form>
             <?php
-                if(isset($_GET["error"])) {
-                    if($_GET["error"] == "emptyinput") {
-                        echo "<p>Vul alle velden in!</p>";
+                if(isset($_GET["error"])) { // if there is an error
+                    if($_GET["error"] == "emptyinput") { // if the error is empty input
+                        echo "<p>Vul alle velden in!</p>"; // echo error message
                     }
-                    else if($_GET["error"] == "wronglogin") {
-                        echo "<p>Verkeerde login informatie!</p>";
+                    else if($_GET["error"] == "wronglogin") { // if the error is wrong login
+                        echo "<p>Verkeerde login informatie!</p>"; // echo error message
                     }
                 }
             ?>
@@ -43,7 +43,7 @@
         
     </main>
     <footer>
-        <?php include '../siteParts/contact.php'; ?>
+        <?php include '../siteParts/contact.php'; // include footer?>
     </footer>
 </body>
 

@@ -1,4 +1,4 @@
-body{
+body{ // gives body position relative and creates white space at the bottom of 170px to place footer at the bottom of evry page.
     position: relative;
     min-height: 100vh;
 
@@ -10,20 +10,21 @@ footer {
     margin-bottom: -1.5rem;
     padding: 2rem;
 
+    // puts footer at the bottom of the page (see body code)
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 170px;
 
-    display: grid;
     //make a grid area for the footer
+    display: grid;
     grid-template-areas: ("contact contact logo logo") ("contact contact socialMedia socialMedia");
     justify-items: center;
     align-items: center;
 
     border-top: 2px solid $tertiaryColor;
 
-    h2 {
+    h2 { // logo-shop name
         color: $secondAccentColor;
         text-align: center;
         font-size: 2rem;
@@ -33,7 +34,7 @@ footer {
         }
     }
 
-    .contact {
+    .contact { // link section of footer
         grid-area: contact;
         width: 100%;
         height: 100%;
@@ -49,7 +50,7 @@ footer {
         }
     }
 
-    .socialMedia {
+    .socialMedia { // social link buttons on footer
         grid-area: socialMedia;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

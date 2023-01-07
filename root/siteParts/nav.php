@@ -8,11 +8,11 @@
         <li class="nav-item" ><a href="about.php" class="underline-hover-effect">About</a></li>
         <li class="nav-item" ><a href="../pages/contact.php" class="underline-hover-effect">Contact</a></li>
         <?php
-            if(isset($_SESSION["useruid"])){
+            if(isset($_SESSION["useruid"])){ // if user is logged in
                 echo "<li class='nav-item' ><a href='../pages/profile.php' class='underline-hover-effect'>Profiel</a></li>";
                 echo "<li class='nav-item' ><a href='../includes/logout.inc.php' class='underline-hover-effect'>Log uit</a></li>";
             }
-            else{
+            else{ // if no user is logged in
                 echo "<li class='nav-item' ><a href='../pages/signup.php' class='underline-hover-effect'>Registreer</a></li>";
                 echo "<li class='nav-item' ><a href='../pages/login.php' class='underline-hover-effect'>Log in</a></li>";
             }

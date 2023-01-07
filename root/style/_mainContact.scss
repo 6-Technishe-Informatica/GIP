@@ -1,4 +1,4 @@
-main#contact{
+main#contact, main#signup{ // checks if main is from contact page or signup page
     margin-left: 10%;
     margin-right: 10%;
 
@@ -6,7 +6,7 @@ main#contact{
         font-size: 2rem;
     }
 
-    .gridContact{
+    .gridContact, .gridSignup{ //create grid for contact form and info
         
         background-color: $secondaryColor;
         display: grid;
@@ -20,7 +20,7 @@ main#contact{
 
         margin-top: 1rem;
 
-        form{
+        form{ // contact form style
             display: grid;
             grid-template-columns: 0.1fr 1fr;
 
@@ -46,7 +46,7 @@ main#contact{
                 padding: 0.5rem;
             }
 
-            label::before{
+            label::before{ // puts * before requierd fields
                 content: "*";
                 color: $firstAccentColor;
             }
@@ -58,7 +58,7 @@ main#contact{
                 padding: 0.5rem;
             }
 
-            input[type="submit"]{
+            input[type="submit"]{ // select submit button
                 grid-column: span 2;
                 width: 100%;
                 height: 2rem;
@@ -73,7 +73,7 @@ main#contact{
                 cursor: pointer;
             }
 
-            input:focus, textarea:focus{
+            input:focus, textarea:focus{ // changes caret -> typing idicator and border color of fields in focus
                 outline: none;
                 border: 2px solid $tertiaryColor;
 
@@ -92,18 +92,27 @@ main#contact{
             }
         }
 
-        .map{
+        .info{
             padding: 1rem;
+
+            p{
+                margin: 0;
+                padding: 0.5rem;
+            }
+        }
+    }
+
+    .map{ // style for maps map
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+
+        iframe{
             width: 100%;
             height: 100%;
 
-            iframe{
-                width: 100%;
-                height: 100%;
-    
-                border: 1px solid $tertiaryColor;
-                border-radius: 0.5rem;
-            }
+            border: 1px solid $tertiaryColor;
+            border-radius: 0.5rem;
         }
     }
 }
