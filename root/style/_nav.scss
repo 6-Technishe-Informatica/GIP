@@ -54,6 +54,18 @@ header {
                         height: 20px;
                     }
                 }
+
+                input{
+                    background-color: $primaryColor;
+                    border: 0;
+                    color: $secondaryColor;
+                    font-size: 1rem;
+
+                    &:focus{
+                        outline: none;
+                        caret-color: $secondAccentColor;
+                    }
+                }
                 
             }
 
@@ -101,5 +113,58 @@ header {
         margin-top: 0;
         color: $tertiaryColor;
         height: 2px;
+    }
+
+    table{
+        width: 45vw;
+        max-width: 650px;
+        max-height: 50vh;
+        overflow-y: scroll;
+
+        position: absolute;
+        left: 50%;
+        top: 4rem;
+        transform: translateX(-50%);
+
+        border-collapse: collapse;
+        border-radius: 0.5rem;
+
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: $primaryColor;
+
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+
+            color: $secondaryColor;
+
+            width: 100%;
+
+            a{
+                text-decoration: none;
+                color: $secondaryColor;
+
+                transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+
+                &:hover{
+                    color: $secondAccentColor;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        tr{
+            width: 100%;
+
+            td:nth-child(2){
+                padding-right: 1rem;
+            }
+        }
+
+        th{
+            border-bottom: 1px solid $tertiaryColor;
+            color: $secondAccentColor;;  
+        }
     }
 }

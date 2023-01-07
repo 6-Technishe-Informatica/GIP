@@ -3,13 +3,17 @@
     // kijkt of de signup.inc.php pagina word aangesproken door de registreer knop en niet gewoon door een url.
     if (isset($_POST["submit"])) {
 
-        // echo "it works"; 
         // neemt de data van de signup.php pagina via de POST methode en zet het in een variabele
-        $name = $_POST["name"];
-        $email = $_POST["email"];
         $username = $_POST["uid"];
         $pwd = $_POST["pwd"];
         $pwdRepeat = $_POST["pwd-repeat"];
+        $email = $_POST["email"];
+
+        // maakt verbinding met de signup php file en de contr php file.
+
+        include "../classes/signup.clases.php";
+        include "../classes/signup-contr.clases.php";
+        $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email); // stopt de SignupContr class in de $signup en geeft deze de $_POST variabelen.
 
         // zorgt ervoor dat de code uit de andere pagina's kan gebruikt worden door de code hier in te laden.
         require_once 'dbh.inc.php';

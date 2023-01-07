@@ -51,6 +51,16 @@ header nav ul li a img {
   text-align: center;
   height: 20px;
 }
+header nav ul li input {
+  background-color: #1D1D1F;
+  border: 0;
+  color: #F5F5F7;
+  font-size: 1rem;
+}
+header nav ul li input:focus {
+  outline: none;
+  caret-color: #4848fd;
+}
 header nav ul li:last-child {
   margin-right: 30px;
 }
@@ -79,6 +89,48 @@ header hr {
   margin-top: 0;
   color: #6B7D7D;
   height: 2px;
+}
+header table {
+  width: 45vw;
+  max-width: 650px;
+  max-height: 50vh;
+  overflow-y: scroll;
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #1D1D1F;
+}
+header table th, header table td {
+  padding: 0.5rem;
+  text-align: left;
+  color: #F5F5F7;
+  width: 100%;
+}
+header table th a, header table td a {
+  text-decoration: none;
+  color: #F5F5F7;
+  transition: color 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
+}
+header table th a:hover, header table td a:hover {
+  color: #4848fd;
+  text-decoration: underline;
+}
+header table tr {
+  width: 100%;
+}
+header table tr td:nth-child(2) {
+  padding-right: 1rem;
+}
+header table th {
+  border-bottom: 1px solid #6B7D7D;
+  color: #4848fd;
 }
 
 main {
