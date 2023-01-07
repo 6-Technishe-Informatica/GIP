@@ -1,0 +1,12 @@
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET / HTTP/1.1" 200 12517
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /style/index.css HTTP/1.1" 200 14049
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /siteparts/search.js HTTP/1.1" 200 1857
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/winkelwagen.svg HTTP/1.1" 200 600
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/productPicture.webp HTTP/1.1" 200 3366
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/instagram.svg HTTP/1.1" 200 1740
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/facebook.svg HTTP/1.1" 200 1212
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/tiktok.svg HTTP/1.1" 200 1419
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /includes/get_data.php HTTP/1.1" 200 3086
+127.0.0.1 - - [07/Jan/2023:21:17:20 +0100] "GET /images/favicon.ico HTTP/1.1" 200 23728
+127.0.0.1 - - [07/Jan/2023:21:17:25 +0100] "GET / HTTP/1.1" 200 12517
+127.0.0.1 - - [07/Jan/2023:21:17:25 +0100] "GET /includes/get_data.php HTTP/1.1" 200 3086
