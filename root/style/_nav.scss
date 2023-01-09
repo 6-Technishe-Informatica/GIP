@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main { // creates white space for nav placement
+    margin-top: 2rem;
+}
+
+header {
+    nav { // nav style
+        background-color: $primaryColor;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        font-size: 1.1rem;
+
+        // logo style
+
+        h2 {
+            padding-left: 50px;
+            a {
+                text-decoration: none;
+    
+                color: $secondAccentColor;
+                font-size: 2rem;
+                span {
+                    color: $secondaryColor;
+                }
+            }
+        }
+
+        // nav links style
+
+        ul {
+            display: flex;
+
+            // opmaak voor de list items
+            li {
+                list-style-type: none;
+                list-style: none;
+                border-left: 1px solid $tertiaryColor;
+
+                // opmaak voor de links
+                a {
+                    text-decoration: none;
+                    color: $secondaryColor;
+
+                    // winkelmandje opmaak
+                    img{
+                        text-align: center;
+                        height: 20px;
+                    }
+                }
+
+                input{
+                    background-color: $primaryColor;
+                    border: 0;
+                    color: $secondaryColor;
+                    font-size: 1rem;
+
+                    &:focus{
+                        outline: none;
+                        caret-color: $secondAccentColor;
+                    }
+                }
+                
+            }
+
+            // ruimte voor de eerste en laatste li
+            // li:first-child{
+            //     margin-left: 30px;
+            // }
+            li:last-child{
+                margin-right: 30px;
+            }
+
+            // nav items hover effect
+
+            .underline-hover-effect {
+                // display: inline-block;
+                padding-bottom: 0.25rem; // defines the space between text and underline
+                position: relative;
+              }
+              
+              .underline-hover-effect::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: $secondAccentColor;
+                transition: width 0.25s ease-out;
+              }
+              .underline-hover-effect:hover::before {
+                width: 100%;
+              }
+
+            // ruimte tussen items
+            li {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+
+    //under nav hr
+
+    hr {
+        margin-top: 0;
+        color: $tertiaryColor;
+        height: 2px;
+    }
+
+    table{
+        width: 45vw;
+        max-width: 650px;
+        max-height: 50vh;
+        overflow-y: scroll;
+
+        position: absolute;
+        left: 50%;
+        top: 4rem;
+        transform: translateX(-50%);
+
+        border-collapse: collapse;
+        border-radius: 0.5rem;
+
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: $primaryColor;
+
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+
+            color: $secondaryColor;
+
+            width: 100%;
+
+            a{
+                text-decoration: none;
+                color: $secondaryColor;
+
+                transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+
+                &:hover{
+                    color: $secondAccentColor;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        tr{
+            width: 100%;
+
+            td:nth-child(2){
+                padding-right: 1rem;
+            }
+        }
+
+        th{
+            border-bottom: 1px solid $tertiaryColor;
+            color: $secondAccentColor;;  
+        }
+    }
+}

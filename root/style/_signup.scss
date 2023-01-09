@@ -1,0 +1,30 @@
+main#signup{ // checks is min is on signup/register page -> see _mainContact.scss for further code
+    margin-left: 10%;
+    margin-right: 10%;
+
+    h2{
+        margin-left: 5%;
+        padding: 2px;
+        font-size: 2rem;
+        text-align: center;
+        width: 90%;
+        border-bottom: 1px solid $tertiaryColor;
+    }
+
+    .gridSignup{
+        display: block;
+
+        background-color: $secondaryColor;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid $tertiaryColor;
+        border-radius: 0.5rem;
+
+        margin-top: 1rem;
+
+        form{
+            display: grid;
+        }
+    }
+}

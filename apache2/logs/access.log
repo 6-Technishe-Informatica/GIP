@@ -1,0 +1,13 @@
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET / HTTP/1.1" 200 12446
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET /images/productPicture.webp HTTP/1.1" 200 3366
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET /images/facebook.svg HTTP/1.1" 200 1192
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET /images/instagram.svg HTTP/1.1" 200 1713
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET /images/tiktok.svg HTTP/1.1" 200 1391
+::1 - - [09/Jan/2023:12:58:13 +0100] "GET /includes/get_data.php HTTP/1.1" 200 3086
+::1 - - [09/Jan/2023:12:58:15 +0100] "GET /pages/login.php HTTP/1.1" 200 2654
+::1 - - [09/Jan/2023:12:58:15 +0100] "GET /includes/get_data.php HTTP/1.1" 200 3086
+::1 - - [09/Jan/2023:12:58:15 +0100] "GET /favicon.ico HTTP/1.1" 404 196
+::1 - - [09/Jan/2023:12:58:19 +0100] "POST /includes/login.inc.php HTTP/1.1" 302 9
+::1 - - [09/Jan/2023:12:58:19 +0100] "GET /index.php HTTP/1.1" 200 12453
+::1 - - [09/Jan/2023:12:58:19 +0100] "GET /includes/get_data.php HTTP/1.1" 200 3086
+::1 - - [09/Jan/2023:12:59:19 +0100] "-" 408 -

@@ -1,0 +1,221 @@
+main#products { // checks if main is on product page
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1rem;
+
+    button { // makes your cursor pointer wenever over a button
+        cursor: pointer;
+    }
+
+    article {
+        display: grid;
+        grid-template-areas: ("productName productName productName productName") ("productImage shop shop shop");
+        gap: 2rem;
+
+        border: 1px solid $tertiaryColor;
+        border-radius: 0.5rem;
+
+        padding: 1rem;
+
+        h2 {
+            grid-area: productName;
+        }
+
+        .images { // style for pruduct pictures
+            grid-area: productImage;
+
+            //Slideshow container
+            .slideshow-container {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+
+                //Hide the images by default
+                .mySlides {
+                      display: none;
+                }
+
+                //Next & previous buttons
+                .prev,
+                .next {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    width: auto;
+                    margin-top: -22px;
+                    padding: 16px;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 18px;
+                    transition: 0.6s ease;
+                    border-radius: 3px;
+                    user-select: none;
+
+                    background-color: $tertiaryColor;
+                }
+
+                //Position the "next button" to the right
+                .next {
+                    right: 0;
+                    border-radius: 3px;
+                }
+
+                // On hover, add a black background color with a little bit see-through
+                .prev:hover,
+                .next:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                }
+
+                // Number text (1/3 etc)
+                .numbertext {
+                    color: black;
+                    font-size: 12px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    top: 0;
+                }
+
+                // Fading animation
+                .fade {
+                    animation-name: fade;
+                    animation-duration: 1.5s;
+                }
+
+                @keyframes fade {
+                    from {
+                        opacity: 0.4;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            // The dots/bullets/indicators
+            .dot {
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: $tertiaryColor;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active,
+            .dot:hover {
+                background-color: #717171;
+            }
+        }
+
+        .shop { // right area of grid, style for stock indicator price and scopig card
+            grid-area: shop;
+            display: grid;
+            grid-template-rows: 25% 25% 25%;
+
+            align-items: center;
+
+            .price{
+                display: inline;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: red;
+            }
+
+            .stock{
+                text-align: center;
+                padding: 1rem;
+
+                color: #009824;
+                font-weight: bold;
+
+                border-top: 1px solid $tertiaryColor;
+                border-bottom: 1px solid $tertiaryColor;
+            }
+
+            .stock.out{
+                color: red;
+            }
+
+            .winkelMand{
+                width: 100%;
+                display: flex;
+                gap: 1rem;
+
+                align-items: center;
+                justify-content: center;
+
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+
+                background-color: $tertiaryColor;
+                text-align: left;
+
+                color: white;
+                font-size: 1rem;
+
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .detailsDiscription {// style container with detais and discription of product
+        border: 1px solid $tertiaryColor;
+        border-radius: 0.5rem;
+        
+        padding: 1rem;
+        margin-top: 1rem;
+
+        height: max-content;
+
+        .buttons {
+            height: fit-content;
+            margin-bottom: 1rem;
+
+            #discription-button,
+            #details-button {
+
+                display: inline;
+                cursor: pointer;
+
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+
+                background-color: $secondaryColor;
+            }
+
+            #discription-button.active,
+            #details-button.active {
+                border-bottom: 1px solid $tertiaryColor;
+            }
+        }
+
+        p,
+        div.details { //display: none; for when not active, see js for change code
+            display: none;
+        }
+
+        .active,
+        .details.active {
+            display: block;
+
+            p {
+                display: block;
+            }
+        }
+
+        .details.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            p {
+                display: inline;
+            }
+        }
+    }
+}
