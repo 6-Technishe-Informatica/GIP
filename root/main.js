@@ -67,6 +67,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         })
     }
+
+    //check if body id is admin
+    if (document.body.id == 'admin') {
+        const btnCPU = document.getElementById("Cpu");
+        const btnGPU = document.getElementById("Gpu");
+        const btnRAM = document.getElementById("Ram");
+        const btnPSU = document.getElementById("PowerSupply");
+        const btnMOBO = document.getElementById("Motherboard");
+        const btnSTORAGE = document.getElementById("Storage");
+        const btnCASE = document.getElementById("Case");
+        const btnMonitor = document.getElementById("Monitor");
+        const btnKeyboard = document.getElementById("Keyboard");
+        const btnMouse = document.getElementById("Mouse");
+        const btnHeadset = document.getElementById("Headset");
+
+    }
 });
 
 //check if body id is product
