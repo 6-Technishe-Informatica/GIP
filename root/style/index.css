@@ -639,11 +639,11 @@ main#signup .gridSignup form .required.show {
   height: 1rem;
 }
 
-main#admin {
+body#admin main {
   margin-left: 10%;
   margin-right: 10%;
 }
-main#admin h2 {
+body#admin main h2 {
   margin-left: 5%;
   padding: 2px;
   font-size: 2rem;
@@ -651,7 +651,37 @@ main#admin h2 {
   width: 90%;
   border-bottom: 1px solid #6B7D7D;
 }
-main#admin .gridSignup {
+body#admin main .gridArtikelsButtons {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+body#admin main .gridArtikelsButtons .buttons {
+  display: grid;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  background-color: #F5F5F7;
+  border: 1px solid #6B7D7D;
+  border-radius: 0.5rem;
+}
+body#admin main .gridArtikelsButtons .buttons button {
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
+body#admin main .gridArtikelsButtons .buttons button:hover {
+  background-color: #6B7D7D;
+}
+body#admin main .gridArtikelsButtons .buttons button:first-of-type {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+body#admin main .gridArtikelsButtons .buttons button:last-of-type {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+body#admin main .form {
   background-color: #F5F5F7;
   justify-content: center;
   align-items: center;
@@ -659,7 +689,7 @@ main#admin .gridSignup {
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
-main#admin .gridSignup form {
+body#admin main .form form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
@@ -667,11 +697,11 @@ main#admin .gridSignup form {
   align-items: center;
   padding: 1rem;
 }
-main#admin .gridSignup form .message {
+body#admin main .form form .message {
   grid-column: span 2;
   text-align: left;
 }
-main#admin .gridSignup form .messageArea {
+body#admin main .form form .messageArea {
   grid-column: span 2;
   width: 100%;
   height: 10rem;
@@ -679,20 +709,20 @@ main#admin .gridSignup form .messageArea {
   border: 1px solid #6B7D7D;
   padding: 0.5rem;
 }
-main#admin .gridSignup form label::before {
+body#admin main .form form label::before {
   content: "*";
   color: #147CE5;
 }
-main#admin .gridSignup form .noRequire::before {
+body#admin main .form form .noRequire::before {
   content: " ";
 }
-main#admin .gridSignup form input {
+body#admin main .form form input {
   height: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid #6B7D7D;
   padding: 0.5rem;
 }
-main#admin .gridSignup form input[type=submit] {
+body#admin main .form form button[type=submit] {
   grid-column: span 2;
   width: 100%;
   height: 2rem;
@@ -703,14 +733,21 @@ main#admin .gridSignup form input[type=submit] {
   color: #F5F5F7;
   cursor: pointer;
 }
-main#admin .gridSignup form input:focus, main#admin .gridSignup form textarea:focus {
+body#admin main .form form input:focus,
+body#admin main .form form textarea:focus {
   outline-color: #6B7D7D;
 }
-main#admin .gridSignup form .required {
+body#admin main .form form .required {
   grid-column: span 2;
   color: red;
   font-size: 0.8rem;
 }
-main#admin .gridSignup form .required.show {
+body#admin main .form form .required.show {
   height: 1rem;
+}
+body#admin main .form form #spec {
+  grid-column: span 2;
+  padding-left: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }/*# sourceMappingURL=index.css.map */

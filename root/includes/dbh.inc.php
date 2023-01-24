@@ -6,9 +6,11 @@
     $dbUserName = "root";
     $dbPassword = "usbw";
     $dbName = "loginsystem";
+    $dbName2 = "gip";
 
     // maakt connectie met de database
     $conn = mysqli_connect($serverName, $dbUserName, $dbPassword, $dbName);
+    $conn2 = mysqli_connect($serverName, $dbUserName, $dbPassword, $dbName2);
 
     // checkt connectie, geeft error als er geen connectie is
     if (!$conn) {

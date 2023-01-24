@@ -18,11 +18,6 @@
     <main>
         <article class="hero">
             <h2>Tech <span>Point</span></h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil accusantium corporis quidem, aut cupiditate voluptatum, adipisci ea consequuntur officiis temporibus eveniet perferendis laborum sunt fuga placeat sequi pariatur non impedit!</p>
-        </article>
-
-        <h2 class="dealsText">Special deals</h2>
-        <div class="deals">
             <?php
                 //connect to database
                 $servername = "localhost";
@@ -30,12 +25,27 @@
                 $password = "usbw";
 
                 $conn = new mysqli($servername, $username, $password, "gip");
-
+                
                 if (!$conn) {
                     echo "Fout: geen connectie naar database. <br>";
                     echo "Error: " . mysqli_connect_error() . "<br>";
                     exit();
                 }
+
+                $text = mysqli_query($conn, "SELECT * FROM admintext");
+
+                $textValue = mysqli_fetch_assoc($text);
+
+                echo "<p>" . $textValue["frontpage"] . "</p>";
+            ?>
+        </article>
+
+        <h2 class="dealsText">Special deals</h2>
+        <div class="deals">
+            <?php
+
+
+                
 
                 $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
 

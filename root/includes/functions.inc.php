@@ -2,7 +2,7 @@
 
     // functie dat kijkt of de input fields ingevuld zijn.
     function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         // empty kijkt na of de variabele leeg is, als de variabele leeg is dan is de resultaat true.
         if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
             $result = true; // geeft true terug wat zegt dat er een variabele leeg is.
@@ -14,7 +14,7 @@
     }
     // functie dat kijkt of de gebruikersnaam de juiste character bevat.
     function invalidUid($username){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) { // !preg_match kijkt na of de gebruikersnaam alleen letters en cijfers bevat.
             $result = true; // geeft true terug wat zegt dat de gebruikersnaam niet de juiste character bevat.
         }
@@ -25,7 +25,7 @@
     }
     // functie dat kijkt of de email een geldig email adres is.
     function invalidEmail($email){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // !filter_var kijkt na of de email een geldig email adres is, FILTER_VALIDATE_EMAIL is een standaard functie van php dat de email nakijkt.
             $result = true; // geeft true terug wat zegt dat de email niet geldig is.
         }
@@ -36,7 +36,7 @@
     }
     // functie dat kijkt of de wachtwoorden overeen komen.
     function pwdMatch($pwd, $pwdRepeat){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
         // kijkt na of de wachtwoorden overeen komen.
         if ($pwd !== $pwdRepeat) { // !== kijkt na of de wachtwoorden niet overeen komen.
             $result = true; // geeft true terug wat zegt dat de wachtwoorden niet overeen komen.
@@ -100,7 +100,7 @@
 
     // kijkt na of de input fields ingevuld zijn.
     function emptyInputLogin($username, $pwd){
-        $result; // gaat true or false terug geven
+        $result = null; // gaat true or false terug geven
 
         if (empty($username) || empty($pwd)) { // kijkt na of de input fields leeg zijn.
             $result = true; // geeft true terug als de input fields leeg zijn.
@@ -145,4 +145,33 @@
             header("location: ../pages/login.php?error=wronglogin"); // stuurt de gebruiker terug naar de login pagina met een error.
             exit(); // zorgt ervoor dat de code stopt.
         }
+    }
+
+    // -------------------- ADMIN PAGE -------------------------
+
+    function emptyInput($text){
+        $result = null; // gaat true or false terug geven
+        // empty kijkt na of de variabele leeg is, als de variabele leeg is dan is de resultaat true.
+        if (empty($text)) {
+            $result = true; // geeft true terug wat zegt dat er een variabele leeg is.
+        }
+        else{
+            $result = false; // geeft false terug wat zegt dat er geen variabele leeg is.
+        }
+        return $result; // geeft het resultaat terug.
+    }
+
+    function editText($conn2, $text){
+        // stmt = statement
+        // $sql is een variabele die de sql statement bevat, deze maakt de gebruiker aan in de database
+        $sql = "UPDATE admintext SET frontpage = '". $text ."';"; // ? is een placeholder voor de variabelen hieronder.
+        $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
+        if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
+            header("location: ../pages/admin.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
+            exit(); // zorgt ervoor dat de code stopt.
+        }
+        mysqli_stmt_execute($stmt); // voert de statement uit.
+        mysqli_stmt_close($stmt); // sluit de statement.
+        header("location: ../pages/admin.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
+        exit(); // zorgt ervoor dat de code stopt.
     }
