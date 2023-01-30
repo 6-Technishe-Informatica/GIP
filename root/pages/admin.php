@@ -71,7 +71,7 @@
             </nav>
 
             <div class="form">
-                <form action="#">
+                <form action="../includes/admin.inc.php" method="POST">
                     <label for="naam">Artikel naam:</label>
                     <input type="text" name="naam" id="naam" placeholder="Naam" require>
 

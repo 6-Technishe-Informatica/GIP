@@ -161,6 +161,18 @@
         return $result; // geeft het resultaat terug.
     }
 
+    function emptyInputArtikel($artikelnaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover){
+        $result = null; // gaat true or false terug geven
+        // empty kijkt na of de variabele leeg is, als de variabele leeg is dan is de resultaat true.
+        if (empty($artikelnaam) ||empty($beschrijving) ||empty($teprijsxt) ||empty($promotieprijs) ||empty($vooraad) ||empty($merk) ||empty($specialDeal) ||empty($discover)) {
+            $result = true; // geeft true terug wat zegt dat er een variabele leeg is.
+        }
+        else{
+            $result = false; // geeft false terug wat zegt dat er geen variabele leeg is.
+        }
+        return $result; // geeft het resultaat terug.
+    }
+
     function editText($conn2, $text){
         // stmt = statement
         // $sql is een variabele die de sql statement bevat, deze maakt de gebruiker aan in de database
@@ -175,3 +187,23 @@
         header("location: ../pages/admin.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
         exit(); // zorgt ervoor dat de code stopt.
     }
+
+
+// maakt de gebruiker aan in de database
+    function createProduct($conn2, $artikelnaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover){
+        // stmt = statement
+        // $sql is een variabele die de sql statement bevat, deze maakt de gebruiker aan in de database
+        $sql = "INSERT INTO artikelen (artikelNaam, artikelBeschrijving, prijs, prijsNieuw, beschikbaarheid, brand, specialDeal, discover) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
+        $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
+        if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
+            header("location: ../pages/signup.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
+            exit(); // zorgt ervoor dat de code stopt.
+        }
+        
+        mysqli_stmt_bind_param($stmt, "ssssssss", $artikelnaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_execute($stmt); // voert de statement uit.
+        mysqli_stmt_close($stmt); // sluit de statement.
+        header("location: ../pages/login.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
+        exit(); // zorgt ervoor dat de code stopt.
+    }
+
