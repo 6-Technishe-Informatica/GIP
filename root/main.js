@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="cpuType">CPU type</label>';
             spec.innerHTML += '<input type="text" name="cpuType" id="cpuType" placeholder="Cpu type">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="cpu">'
+
         });
 
         btnGPU.addEventListener('click', function () {
@@ -115,6 +117,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="gpuCores">GPU cores</label>';
             spec.innerHTML += '<input type="number" name="gpuCores" id="gpuCores" placeholder="Gpu cores">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="gpu">'
+
         });
 
         btnRAM.addEventListener('click', function () {
@@ -127,6 +131,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="ramSize">RAM size</label>';
             spec.innerHTML += '<input type="number" name="ramSize" id="ramSize" placeholder="Ram size">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="ram">'
+
         });
 
         btnPSU.addEventListener('click', function () {
@@ -135,6 +141,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             spec.innerHTML += '<label for="psuModular">PSU modular</label>';
             spec.innerHTML += '<input type="text" name="psuModular" id="psuModular" placeholder="Psu modular">';
+
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="psu">'
 
         });
 
@@ -151,6 +159,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="moboRamSlots">MOBO ram slots</label>';
             spec.innerHTML += '<input type="number" name="moboRamSlots" id="moboRamSlots" placeholder="Mobo ram slots">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="moederbord">'
+
         });
 
         btnSTORAGE.addEventListener('click', function () {
@@ -163,6 +173,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="storageSpeed">STORAGE speed</label>';
             spec.innerHTML += '<input type="number" name="storageSpeed" id="storageSpeed" placeholder="Storage speed">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="storage">'
+
         });
 
         btnCASE.addEventListener('click', function () {
@@ -171,6 +183,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             spec.innerHTML += '<label for="caseSize">CASE size</label>';
             spec.innerHTML += '<input type="text" name="caseSize" id="caseSize" placeholder="Case size">';
+
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="case">'
 
         });
 
@@ -181,6 +195,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="keyboardSwitch">KEYBOARD switch</label>';
             spec.innerHTML += '<input type="text" name="keyboardSwitch" id="keyboardSwitch" placeholder="Keyboard switch">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="keyboard">'
+
         });
 
         btnMouse.addEventListener('click', function () {
@@ -189,6 +205,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             spec.innerHTML += '<label for="mouseSensor">MOUSE sensor</label>';
             spec.innerHTML += '<input type="text" name="mouseSensor" id="mouseSensor" placeholder="Mouse sensor">';
+
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="mouse">'
 
         });
 
@@ -202,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<label for="monitorResolution">MONITOR resolution</label>';
             spec.innerHTML += '<input type="text" name="monitorResolution" id="monitorResolution" placeholder="Monitor resolution">';
 
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="monitor">'
+
         });
 
         btnHeadset.addEventListener('click', function () {
@@ -210,6 +230,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             spec.innerHTML += '<label for="headphonesMic">HEADPHONES mic</label>';
             spec.innerHTML += '<input type="text" name="headphonesMic" id="headphonesMic" placeholder="Headphones mic">';
+
+            spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="headphones">'
 
         });
 

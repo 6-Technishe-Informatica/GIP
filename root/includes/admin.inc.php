@@ -87,6 +87,73 @@ if (isset($_POST["artikelSubmit"])) {
     // $headphonestype = $_POST["headphonesType"];
     // $headphonesmic = $_POST["headphonesMic"];
 
+    $categorie = $_POST["categorie"];
+
+    //kijk als de post bestaat
+    if (isset($_POST["cpuCores"])) {
+        $cpucore = $_POST["cpuCores"];
+    } elseif (isset($_POST["cpuSpeed"])) {
+        $cpuspeed = $_POST["cpuSpeed"];
+    } elseif (isset($_POST["cpuSocket"])) {
+        $cpusocket = $_POST["cpuSocket"];
+    } elseif (isset($_POST["cpuType"])) {
+        $cputype = $_POST["cpuType"];
+    } elseif (isset($_POST["gpuType"])) {
+        $gputype = $_POST["gpuType"];
+    } elseif (isset($_POST["gpuCores"])) {
+        $gpucores = $_POST["gpuCores"];
+    } elseif (isset($_POST["gpuMemoryType"])) {
+        $gpumemorytype = $_POST["gpuMemoryType"];
+    } elseif (isset($_POST["gpuMemory"])) {
+        $gpumemory = $_POST["gpuMemory"];
+    } elseif (isset($_POST["ramType"])) {
+        $ramtype = $_POST["ramType"];
+    } elseif (isset($_POST["ramSpeed"])) {
+        $ramspeed = $_POST["ramSpeed"];
+    } elseif (isset($_POST["ramSize"])) {
+        $ramsize = $_POST["ramSize"];
+    } elseif (isset($_POST["psuPower"])) {
+        $psupower = $_POST["psuPower"];
+    } elseif (isset($_POST["psuModular"])) {
+        $psumodular = $_POST["psuModular"];
+    } elseif (isset($_POST["moboSocket"])) {
+        $mobosocket = $_POST["moboSocket"];
+    } elseif (isset($_POST["moboFormFactor"])) {
+        $moboformfactor = $_POST["moboFormFactor"];
+    } elseif (isset($_POST["moboRamType"])) {
+        $moboramtype = $_POST["moboRamType"];
+    } elseif (isset($_POST["moboRamSlots"])) {
+        $moboramslots = $_POST["moboRamSlots"];
+    } elseif (isset($_POST["storageType"])) {
+        $storagetype = $_POST["storageType"];
+    } elseif (isset($_POST["storageSize"])) {
+        $storagesize = $_POST["storageSize"];
+    } elseif (isset($_POST["storageSpeed"])) {
+        $storagespeed = $_POST["storageSpeed"];
+    } elseif (isset($_POST["caseFormFactor"])) {
+        $caseformfactor = $_POST["caseFormFactor"];
+    } elseif (isset($_POST["caseSize"])) {
+        $casesize = $_POST["caseSize"];
+    } elseif (isset($_POST["keyboardType"])) {
+        $keyboardtype = $_POST["keyboardType"];
+    } elseif (isset($_POST["keyboardSwitch"])) {
+        $keyboardswitch = $_POST["keyboardSwitch"];
+    } elseif (isset($_POST["mouseType"])) {
+        $mousetype = $_POST["mouseType"];
+    } elseif (isset($_POST["mouseSensor"])) {
+        $mousesensor = $_POST["mouseSensor"];
+    } elseif (isset($_POST["monitorSize"])) {
+        $monitorsize = $_POST["monitorSize"];
+    } elseif (isset($_POST["monitorRefreshRate"])) {
+        $monitorrefreshrate = $_POST["monitorRefreshRate"];
+    } elseif (isset($_POST["monitorResolution"])) {
+        $monitorresolution = $_POST["monitorResolution"];
+    } elseif (isset($_POST["headphonesType"])) {
+        $headphonestype = $_POST["headphonesType"];
+    } elseif (isset($_POST["headphonesMic"])) {
+        $headphonesmic = $_POST["headphonesMic"];
+    }
+
     // zorgt ervoor dat de code uit de andere pagina's kan gebruikt worden door de code hier in te laden.
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
@@ -97,7 +164,34 @@ if (isset($_POST["artikelSubmit"])) {
         exit(); // zorgt ervoor dat de code stopt.
     }
 
-    createProduct($conn2, $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover);
+    $id = createProduct($conn2, $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover);
+
+    // kijkt welke categorie het is en voegt de specs toe aan de juiste tabel.
+    
+    if ($categorie = "cpu"){
+        addSpecs($conn2, $categorie, $id, $cpucore, $cpuspeed, $cpusocket, $cputype, 0);
+    }elseif ($categorie = "gpu"){
+        addSpecs($conn2, $id, $categorie, $gputype, $gpucores, $gpumemorytype, $gpumemory, 0);
+    }elseif ($categorie = "ram"){
+        addSpecs($conn2, $id, $categorie, $ramtype, $ramspeed, $ramsize, 0, 0);
+    }elseif ($categorie = "psu"){
+        addSpecs($conn2, $id, $categorie, $psupower, $psumodular, 0, 0, 0);
+    }elseif ($categorie = "mobo"){
+        addSpecs($conn2, $id, $categorie, $mobosocket, $moboformfactor, $moboramtype, $moboramslots, 0);
+    }elseif ($categorie = "storage"){
+        addSpecs($conn2, $id, $categorie, $storagetype, $storagesize, $storagespeed, 0, 0);
+    }elseif ($categorie = "case"){
+        addSpecs($conn2, $id, $categorie, $caseformfactor, $casesize, 0, 0, 0);
+    }elseif ($categorie = "keyboard"){
+        addSpecs($conn2, $id, $categorie, $keyboardtype, $keyboardswitch, 0, 0, 0);
+    }elseif ($categorie = "mouse"){
+        addSpecs($conn2, $id, $categorie, $mousetype, $mousesensor, 0, 0, 0);
+    }elseif ($categorie = "monitor"){
+        addSpecs($conn2, $id, $categorie, $monitorsize, $monitorrefreshrate, $monitorresolution, 0, 0);
+    }elseif ($categorie = "headphones"){
+        addSpecs($conn2, $id, $categorie, $headphonestype, $headphonesmic, 0, 0, 0);
+    }
+    
 }
 // checked of de gebruiker een admin is
 if (isset($_POST["addAdminUser"])) {
@@ -127,9 +221,6 @@ if (isset($_POST["addAdminUser"])) {
     }
 
     createUser($conn, $name, $email, $username, $password, 1);
-} else {
-    header("location: ../pages/admin.php"); // toont de error code in de url
-    exit(); // zorgt ervoor dat de code stopt.
 }
 
 //SELECT LAST_INSERT_ID()

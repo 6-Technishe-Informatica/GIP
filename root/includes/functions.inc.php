@@ -207,16 +207,32 @@
         $sql = "INSERT INTO artikelen (artikelNaam, artikelBeschrijving, prijs, prijsNieuw, beschikbaarheid, brand, specialDeal, discover) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
         $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
         if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
-            header("location: ../pages/signup.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
+            header("location: ../pages/admin.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
             exit(); // zorgt ervoor dat de code stopt.
         }
         
         mysqli_stmt_bind_param($stmt, "ssssssss", $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
+        $id = mysqli_insert_id($conn2); // haalt de laatste id op uit de database.
+        
+        return $id; // geeft de id terug.
+    }
 
-        $res = mysqli_query($conn2, "SELECT LAST_INSERT_ID()");
+    function addSpecs ($conn2, $id, $categorie, $val1, $val2, $val3, $val4, $val5){
+
+        $sql = "INSERT INTO specificaties (referentieNummer, soort, val1, val2, val3, val4, val5) VALUES (?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
+
+        // stmt = statement
+        $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
+        if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
+            header("location: ../pages/admin.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
+            exit(); // zorgt ervoor dat de code stopt.
+        }
+        
+        mysqli_stmt_bind_param($stmt, "sssssss", $id, $categorie, $val1, $val2, $val3, $val4, $val5); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_execute($stmt); // voert de statement uit.
+        mysqli_stmt_close($stmt); // sluit de statement.
 
         header("location: ../pages/admin.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
-        exit(); // zorgt ervoor dat de code stopt.
     }

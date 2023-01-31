@@ -754,4 +754,16 @@ body#admin main .form form #spec {
   padding-left: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+#profile {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 5%;
+}
+#profile form h2 {
+  margin-bottom: 5%;
 }/*# sourceMappingURL=index.css.map */
