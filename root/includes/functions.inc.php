@@ -77,10 +77,10 @@
     }
 
     // maakt de gebruiker aan in de database
-    function createUser($conn, $name, $email, $username, $pwd){
+    function createUser($conn, $name, $email, $username, $pwd, $admin){
         // stmt = statement
         // $sql is een variabele die de sql statement bevat, deze maakt de gebruiker aan in de database
-        $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
+        $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd, admin) VALUES (?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
         $stmt = mysqli_stmt_init($conn); // maakt een statement aan
         if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
             header("location: ../pages/signup.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
@@ -89,12 +89,22 @@
 
         // hashing werkt nog niet, eens dit wel werkt verander de $pwd naar $hashedPwd op derde lijn hier onder
         // $pwd is de wachtwoord variabele die hierboven word meegegeven, PASSWORD_DEFAULT is een standaard functie van php die het wachtwoord hash version 5.5, in 5.2 werkt crypt.
-        $hashedPwd = crypt($pwd); 
+        $hashedPwd = crypt($pwd); // $hashedPwd is de variabele die de hashed wachtwoord bevat.
         
-        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $username, $hashedPwd, $admin); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
-        header("location: ../pages/login.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
+        
+        // stuurt de gebruiker terug naar de signup pagina met een error = none.
+
+        if ($admin == 1) {
+            header("location: ../pages/admin.php?error=none");
+            exit(); // zorgt ervoor dat de code stopt.
+        }
+        else{
+            header("location: ../pages/login.php?error=none");;
+            exit(); // zorgt ervoor dat de code stopt.
+        }
         exit(); // zorgt ervoor dat de code stopt.
     }
 
@@ -131,12 +141,13 @@
             session_start(); // start een sessie
             $_SESSION["userid"] = $uidExists["usersId"]; // zet de gebruikersId in de sessie
             $_SESSION["useruid"] = $uidExists["usersUid"]; // zet de gebruikersUid in de sessie
+            $_SESSION["admin"] = $uidExists["admin"]; // zet de gebruikersName in de sessie
 
-            if ($username === "Manu" || $username = "Quinten"){
+            if ($_SESSION["admin"] == 1){ // kijkt na of de gebruiker admin is? zoja stuurt hij de gebruiker naar de admin pagina.
                 header("location: ../pages/admin.php");
-                exit();
+                exit(); 
             }
-            else{
+            else{ 
                 header("location: ../index.php"); // stuurt de gebruiker naar de index pagina.
                 exit(); // zorgt ervoor dat de code stopt. 
             }
@@ -189,10 +200,10 @@
     }
 
 
-// maakt de gebruiker aan in de database
-    function createProduct($conn2, $artikelnaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover){
+    // voegt een artikel toe in de database
+    function createProduct($conn2, $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover){
         // stmt = statement
-        // $sql is een variabele die de sql statement bevat, deze maakt de gebruiker aan in de database
+        // $sql is een variabele die de sql statement bevat, voegt een artikel toe in de database
         $sql = "INSERT INTO artikelen (artikelNaam, artikelBeschrijving, prijs, prijsNieuw, beschikbaarheid, brand, specialDeal, discover) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
         $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
         if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
@@ -200,10 +211,9 @@
             exit(); // zorgt ervoor dat de code stopt.
         }
         
-        mysqli_stmt_bind_param($stmt, "ssssssss", $artikelnaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_bind_param($stmt, "ssssssss", $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
         header("location: ../pages/login.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
         exit(); // zorgt ervoor dat de code stopt.
     }
-

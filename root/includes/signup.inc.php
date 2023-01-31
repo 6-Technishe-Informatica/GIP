@@ -43,7 +43,7 @@
         }
 
         // maakt de gebruiker aan
-        createUser($conn, $name, $email, $username, $pwd);
+        createUser($conn, $name, $email, $username, $pwd, 0);
     } // gaat terug naar de signup.php pagina als de registratie goed is gegaan.
     else{
         header("location: ../pages/signup.php"); // toont de error code in de url

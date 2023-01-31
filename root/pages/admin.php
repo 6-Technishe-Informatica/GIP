@@ -17,10 +17,11 @@
 
         <?php
 
-            if ($_SESSION["useruid"] != "Manu" || $_SESSION["useruid"] != "Quinten"){
-                $conn= mysqli_connect("localhost", "root", "usbw", "gip");
+            if ($_SESSION["admin"] == 1){
+                require_once '../includes/dbh.inc.php';
             }else{
                 header("location: ../index.php");
+                exit();
             }
         ?>
     </header>
@@ -34,7 +35,7 @@
             <form action="../includes/admin.inc.php" method="POST">
                 <label for="text">verandering: </label>
                 <textarea name="text" id="text" cols="30" rows="10"><?php
-                        $text = mysqli_query($conn, "SELECT * FROM admintext");
+                        $text = mysqli_query($conn2, "SELECT * FROM admintext");
                         $textValue = mysqli_fetch_assoc($text);
 
                         echo $textValue["frontpage"];
@@ -96,6 +97,9 @@
                     <label class="noRequire" for="discover">discover:</label>
                     <input type="checkbox" name="discover" id="discover">
 
+                    <label for="images">3 images van het product:</label>
+                    <input type="file" name="images" id="images" multiple>
+
                     <label for="specs">Specificaties:</label>
                     <div id="spec">
 
@@ -104,6 +108,26 @@
                     <button type="submit" name="artikelSubmit">Voeg een artikel toe</button>
                 </form>
             </div>
+        </div>
+
+        <h2>Add admin user</h2>
+
+        <div class="form">
+            <form action="../includes/adminsignup.inc.php" method="POST">
+                <label for="naam">Volledige naam</label>
+                <input type="text" name="naam" id="naam" placeholder="Volledige naam" require>
+
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Username" require>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Email" require>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Password" require>
+
+                <button type="submit" name="addAdminUser">Add admin user</button>
+            </form>
         </div>
     </main>
     <footer>
