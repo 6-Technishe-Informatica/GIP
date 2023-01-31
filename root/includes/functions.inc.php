@@ -214,6 +214,9 @@
         mysqli_stmt_bind_param($stmt, "ssssssss", $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
-        header("location: ../pages/login.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
+
+        $res = mysqli_query($conn2, "SELECT LAST_INSERT_ID()");
+
+        header("location: ../pages/admin.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
         exit(); // zorgt ervoor dat de code stopt.
     }

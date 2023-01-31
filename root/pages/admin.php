@@ -113,7 +113,7 @@
         <h2>Add admin user</h2>
 
         <div class="form">
-            <form action="../includes/adminsignup.inc.php" method="POST">
+            <form action="../includes/admin.inc.php" method="POST">
                 <label for="naam">Volledige naam</label>
                 <input type="text" name="naam" id="naam" placeholder="Volledige naam" require>
 
