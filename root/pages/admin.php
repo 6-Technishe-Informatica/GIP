@@ -17,12 +17,12 @@
 
         <?php
 
-            if ($_SESSION["admin"] == 1){
-                require_once '../includes/dbh.inc.php';
-            }else{
-                header("location: ../index.php");
-                exit();
-            }
+        if ($_SESSION["admin"] == 1) {
+            require_once '../includes/dbh.inc.php';
+        } else {
+            header("location: ../index.php");
+            exit();
+        }
         ?>
     </header>
     <main>
@@ -35,24 +35,24 @@
             <form action="../includes/admin.inc.php" method="POST">
                 <label for="text">verandering: </label>
                 <textarea name="text" id="text" cols="30" rows="10"><?php
-                        $text = mysqli_query($conn2, "SELECT * FROM admintext");
-                        $textValue = mysqli_fetch_assoc($text);
+                                                                    $text = mysqli_query($conn2, "SELECT * FROM admintext");
+                                                                    $textValue = mysqli_fetch_assoc($text);
 
-                        echo $textValue["frontpage"];
-                    ?></textarea>
+                                                                    echo $textValue["frontpage"];
+                                                                    ?></textarea>
                 <button type="submit" name="submit-text">pas aan</button>
             </form>
             <!-- foutcode -->
             <?php
-                if(isset($_GET["error"])) {
-                    if($_GET["error"] == "emptyinput") {
-                        echo "<p>Vul alle velden in!</p>";
-                    }
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyinput") {
+                    echo "<p>Vul alle velden in!</p>";
                 }
+            }
             ?>
         </div>
 
-        
+
         <!-- einde test -->
         <h2>Voeg artikel toe</h2>
 
@@ -72,24 +72,24 @@
             </nav>
 
             <div class="form">
-                <form action="../includes/admin.inc.php" method="POST">
+                <form action="../includes/admin.inc.php" method="POST" multipart="" enctype="multipart/form-data">
                     <label for="naam">Artikel naam:</label>
-                    <input type="text" name="naam" id="naam" placeholder="Naam" require>
+                    <input type="text" name="naam" id="naam" placeholder="Naam" >
 
                     <label for="prijs">Prijs:</label>
-                    <input type="number" name="prijs" id="prijs" placeholder="Prijs" require>
+                    <input type="number" name="prijs" id="prijs" placeholder="Prijs" >
 
                     <label class="noRequire" for="promotiePrijs">Promotie Prijs:</label>
                     <input type="number" name="promotiePrijs" id="promotiePrijs" placeholder="Promotie prijs">
 
                     <label for="beschrijving">Beschrijving:</label>
-                    <textarea name="beschrijving" id="beschrijving" cols="30" rows="10" require></textarea>
+                    <textarea name="beschrijving" id="beschrijving" cols="30" rows="10" ></textarea>
 
                     <label for="vooraad">Vooraad:</label>
-                    <input type="number" name="vooraad" id="vooraad" placeholder="Vooraad" require>
+                    <input type="number" name="vooraad" id="vooraad" placeholder="Vooraad" >
 
                     <label for="brand">Merk:</label>
-                    <input type="text" name="brand" id="brand" placeholder="Brand" require>
+                    <input type="text" name="brand" id="brand" placeholder="Brand" >
 
                     <label class="noRequire" for="specialDeals">Special deal:</label>
                     <input type="checkbox" name="specialDeals" id="specialDeals">
@@ -98,7 +98,7 @@
                     <input type="checkbox" name="discover" id="discover">
 
                     <label for="images">3 images van het product:</label>
-                    <input type="file" name="images" id="images" multiple>
+                    <input type="file" name="img[]" id="images" multiple>
 
                     <label for="specs">Specificaties:</label>
                     <div id="spec">

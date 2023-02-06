@@ -58,17 +58,17 @@
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 3</div>
-                        <img src="../images/productPicture.webp" style="width:100%">
+                        <?php echo '<img src="../images/productImages/' . $referentieNummer . '_1.webp' . '" alt="productPicture">'; ?>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 3</div>
-                        <img src="../images/productPicture.webp" style="width:100%">
+                        <?php echo '<img src="../images/productImages/' . $referentieNummer . '_2.webp' . '" alt="productPicture">'; ?>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 3</div>
-                        <img src="../images/productPicture.webp" style="width:100%">
+                        <?php echo '<img src="../images/productImages/' . $referentieNummer . '_3.webp' . '" alt="productPicture">'; ?>
                     </div>
 
                     <!-- Next and previous buttons -->
@@ -89,11 +89,11 @@
                 <p class="price"><?php echo $prijs ?></p>
 
                 <?php
-                    if ($stock > 0) {
-                        echo "<p class='stock'>Op vooraad</p>";
-                    } else {
-                        echo "<p class='stock out'>Niet op vooraad</p>";
-                    }
+                if ($stock > 0) {
+                    echo "<p class='stock'>Op vooraad</p>";
+                } else {
+                    echo "<p class='stock out'>Niet op vooraad</p>";
+                }
                 ?>
 
                 <button class="winkelMand"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</button>
@@ -109,14 +109,37 @@
             <p id="discription" class="discription active"><?php echo $productDiscription; ?></p>
             <div id="details" class="details">
                 <?php
-                foreach ($details as $key => $value) {
-                    echo "<strong>" . $key . "</strong><p>" . $value . "</p>";
+                $result = mysqli_query($conn, "SELECT * FROM specificaties WHERE referentieNummer = $referentieNummer");
+
+                while ($row = mysqli_fetch_array($result)) {
+                    $val1 = $row['val1'];
+                    $val2 = $row['val2'];
+                    $val3 = $row['val3'];
+                    $val4 = $row['val4'];
+                    $val5 = $row['val5'];
+                    $soort = $row['soort'];
                 }
+
+                // fix this part of the code
+
+                $result2 = mysqli_query($conn, "SELECT * FROM soorten WHERE soort = $soort");
+
+                while ($row = mysqli_fetch_array($result2)) {
+                    $spec1 = $row['spec1'];
+                    $spec2 = $row['spec2'];
+                    $spec3 = $row['spec3'];
+                    $spec4 = $row['spec4'];
+                    $spec5 = $row['spec5'];
+                }
+
+                
+
+                echo "<p>$spec1: $val1</p>";
                 ?>
             </div>
         </div>
     </main>
-    
+
     <footer>
         <?php include '../siteParts/contact.php'; ?>
     </footer>

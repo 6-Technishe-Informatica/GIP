@@ -204,7 +204,7 @@
     function createProduct($conn2, $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover){
         // stmt = statement
         // $sql is een variabele die de sql statement bevat, voegt een artikel toe in de database
-        $sql = "INSERT INTO artikelen (artikelNaam, artikelBeschrijving, prijs, prijsNieuw, beschikbaarheid, brand, specialDeal, discover) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
+        $sql = "INSERT INTO artikelen (artikelNaam, artikelBeschrijving, brand, prijs, prijsNieuw, beschikbaarheid, specialDeal, discover) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"; // ? is een placeholder voor de variabelen hieronder.
         $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
         if (!mysqli_stmt_prepare($stmt, $sql)) { // kijkt of de statement mogelijk is.
             header("location: ../pages/admin.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
@@ -216,7 +216,7 @@
         mysqli_stmt_close($stmt); // sluit de statement.
         $id = mysqli_insert_id($conn2); // haalt de laatste id op uit de database.
         
-        return $id; // geeft de id terug.
+        return $id;
     }
 
     function addSpecs ($conn2, $id, $categorie, $val1, $val2, $val3, $val4, $val5){
@@ -235,4 +235,18 @@
         mysqli_stmt_close($stmt); // sluit de statement.
 
         header("location: ../pages/admin.php?error=none"); // stuurt de gebruiker terug naar de signup pagina met een error = none.
+    }
+
+    function reArrayFiles($file) // zorgt ervoor dat de files in een array kunnen worden opgeslagen.
+    {
+        $file_ary = array(); // maakt een array aan
+        $file_count = count($file['name']); // telt het aantal files
+        $file_key = array_keys($file); // haalt de keys op uit de files
+
+        for ($i = 0; $i < $file_count; $i++) { // loopt door de files heen
+            foreach ($file_key as $val) { // loopt door de keys heen
+                $file_ary[$i][$val] = $file[$val][$i]; // zet de files in de array
+            }
+        }
+        return $file_ary; // geeft de array terug
     }

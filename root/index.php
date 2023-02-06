@@ -55,7 +55,7 @@
                 while ($productDeal = mysqli_fetch_assoc($res)) {
                     echo '<a href="pages/product.php?productName=' . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] .'">';
                     echo '<article>';
-                    echo '<img src="images/productPicture.webp" alt="productPicture">';
+                    echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
                     echo '<p>' . $productDeal['brand'] . '</p>';
                     echo '<div class="gridNamePrice dealsPrice">';
                     echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
@@ -84,7 +84,7 @@
                 while ($productDiscover = mysqli_fetch_assoc($res2)) {
                     echo '<a href="pages/product.php?productName=' . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] .'">';
                     echo '<article>';
-                    echo '<img src="images/productPicture.webp" alt="productPicture">';
+                    echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
                     echo '<p>' . $productDiscover['brand'] . '</p>';
                     echo '<div class="gridNamePrice dealsPrice">';
                     echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
