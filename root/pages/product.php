@@ -8,8 +8,6 @@
 
     <link rel="stylesheet" href="../style/index.css">
 
-    <script src="http://code.jquery.com/jquery-3.6.3.min.js"></script>
-
     <title><?php echo $_GET['productName'] ?></title>
 </head>
 
@@ -21,25 +19,11 @@
         <article>
             <?php
             //connect to database
-            $servername = "localhost";
-            $username = "root";
-            $password = "usbw";
-
-            $prijs = 0;
-            $stock = 0;
-            $productDiscription = "";
-
-            $conn = new mysqli($servername, $username, $password, "gip");
-
-            if (!$conn) {
-                echo "Fout: geen connectie naar database. <br>";
-                echo "Error: " . mysqli_connect_error() . "<br>";
-                exit();
-            }
+            require '../includes/dbh.inc.php';
 
             $referentieNummer = $_GET['referentieNummer'];
 
-            $result = mysqli_query($conn, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer");
+            $result = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer");
 
             while ($row = mysqli_fetch_array($result)) {
                 $productDiscription = $row['artikelBeschrijving'];
@@ -109,7 +93,8 @@
             <p id="discription" class="discription active"><?php echo $productDiscription; ?></p>
             <div id="details" class="details">
                 <?php
-                $result = mysqli_query($conn, "SELECT * FROM specificaties WHERE referentieNummer = $referentieNummer");
+
+                $result = mysqli_query($conn2, "SELECT * FROM specificaties WHERE referentieNummer = $referentieNummer");
 
                 while ($row = mysqli_fetch_array($result)) {
                     $val1 = $row['val1'];
@@ -120,9 +105,11 @@
                     $soort = $row['soort'];
                 }
 
-                // fix this part of the code
+                $result2 = mysqli_query($conn2, "SELECT * FROM soorten WHERE soort = '$soort'");
 
-                $result2 = mysqli_query($conn, "SELECT * FROM soorten WHERE soort = $soort");
+                if (!$result2) {
+                    trigger_error(mysqli_error($conn2), E_USER_ERROR);
+                }
 
                 while ($row = mysqli_fetch_array($result2)) {
                     $spec1 = $row['spec1'];
@@ -132,9 +119,23 @@
                     $spec5 = $row['spec5'];
                 }
 
-                
 
-                echo "<p>$spec1: $val1</p>";
+
+                if ($spec1 != "") {
+                    echo "<strong>$spec1:</strong>" . "<p>$val1</p>";
+                }
+                if ($spec2 != "") {
+                    echo "<strong>$spec2:</strong>" . "<p>$val2</p>";
+                }
+                if ($spec3 != "") {
+                    echo "<strong>$spec3:</strong>" . "<p>$val3</p>";
+                }
+                if ($spec4 != "") {
+                    echo "<strong>$spec4:</strong>" . "<p>$val4</p>";
+                }
+                if ($spec5 != "") {
+                    echo "<strong>$spec5:</strong>" . "<p>$val5</p>";
+                }
                 ?>
             </div>
         </div>

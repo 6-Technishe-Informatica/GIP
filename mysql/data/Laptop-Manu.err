@@ -307,3 +307,60 @@
 2023-02-13 13:05:21 15780 [Note] IPv6 is available.
 2023-02-13 13:05:21 15780 [Note]   - '::' resolves to '::';
 2023-02-13 13:05:21 15780 [Note] Server socket created on IP: '::'.
+2023-02-14 08:52:01 8336 [Note] Plugin 'FEDERATED' is disabled.
+2023-02-14 08:52:01 8336 [Note] InnoDB: The InnoDB memory heap is disabled
+2023-02-14 08:52:01 8336 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2023-02-14 08:52:01 8336 [Note] InnoDB: Compressed tables use zlib 1.2.3
+2023-02-14 08:52:01 8336 [Note] InnoDB: Not using CPU crc32 instructions
+2023-02-14 08:52:01 8336 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2023-02-14 08:52:01 8336 [Note] InnoDB: Completed initialization of buffer pool
+2023-02-14 08:52:01 8336 [ERROR] InnoDB: C:\Users\devlo\Documents\GitHub\GIP\mysql\data\ibdata1 can't be opened in read-write mode
+2023-02-14 08:52:01 8336 [ERROR] InnoDB: The system tablespace must be writable!
+2023-02-14 08:52:01 8336 [ERROR] Plugin 'InnoDB' init function returned error.
+2023-02-14 08:52:01 8336 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2023-02-14 08:52:01 8336 [ERROR] Unknown/unsupported storage engine: InnoDB
+2023-02-14 08:52:01 8336 [ERROR] Aborting
+
+2023-02-14 08:52:01 8336 [Note] Binlog end
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'partition'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_METRICS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_CMP'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_LOCKS'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'INNODB_TRX'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'BLACKHOLE'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'ARCHIVE'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'MRG_MYISAM'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'MyISAM'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'MEMORY'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'CSV'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'sha256_password'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'mysql_old_password'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'mysql_native_password'
+2023-02-14 08:52:01 8336 [Note] Shutting down plugin 'binlog'
+2023-02-14 08:52:01 8336 [Note] C:\Users\devlo\Documents\GitHub\GIP/mysql/bin/mysqld_usbwv8.exe: Shutdown complete
+

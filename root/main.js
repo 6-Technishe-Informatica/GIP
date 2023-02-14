@@ -236,6 +236,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
     }
+
+    if (document.body.id == 'Artikelen') {
+        const btn = document.querySelectorAll("button#button");
+        const btnSoort = document.querySelectorAll('button#buttonSoort');
+
+        btn.forEach(button => {
+            var nextElement = button.nextElementSibling;
+
+            button.addEventListener('click', function () {
+
+
+                if (nextElement.style.display == "grid") {
+                    nextElement.style.display = "none";
+                } else {
+                    nextElement.style.display = "grid";
+                }
+            });
+        })
+
+        btnSoort.forEach(button => {
+            var nextElement = button.nextElementSibling;
+
+            button.addEventListener('click', function () {
+
+
+                if (nextElement.style.display == "block") {
+                    nextElement.style.display = "none";
+                } else {
+                    nextElement.style.display = "block";
+                }
+            });
+        })
+    }
 });
 
 //check if body id is product

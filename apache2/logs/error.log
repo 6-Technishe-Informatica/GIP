@@ -1,9 +1,0 @@
-[Mon Feb 13 13:05:23.674732 2023] [mpm_winnt:notice] [pid 16428:tid 784] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Mon Feb 13 13:05:23.675733 2023] [mpm_winnt:notice] [pid 16428:tid 784] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Mon Feb 13 13:05:23.675733 2023] [core:notice] [pid 16428:tid 784] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
-[Mon Feb 13 13:05:23.679524 2023] [mpm_winnt:notice] [pid 16428:tid 784] AH00418: Parent: Created child process 14048
-[Mon Feb 13 13:05:24.630527 2023] [mpm_winnt:notice] [pid 14048:tid 784] AH00354: Child: Starting 64 worker threads.
-[Mon Feb 13 13:06:16.126083 2023] [:error] [pid 14048:tid 1308] [client 127.0.0.1:55847] PHP Notice:  Undefined variable: soort in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\pages\\product.php on line 125, referer: http://localhost:8080/
-[Mon Feb 13 13:06:16.129100 2023] [:error] [pid 14048:tid 1308] [client 127.0.0.1:55847] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\pages\\product.php on line 127, referer: http://localhost:8080/
-[Mon Feb 13 13:06:16.129100 2023] [:error] [pid 14048:tid 1308] [client 127.0.0.1:55847] PHP Notice:  Undefined variable: spec1 in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\pages\\product.php on line 137, referer: http://localhost:8080/
-[Mon Feb 13 13:06:16.129100 2023] [:error] [pid 14048:tid 1308] [client 127.0.0.1:55847] PHP Notice:  Undefined variable: val1 in C:\\Users\\devlo\\Documents\\GitHub\\GIP\\root\\pages\\product.php on line 137, referer: http://localhost:8080/

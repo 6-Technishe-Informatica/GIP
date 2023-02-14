@@ -296,6 +296,7 @@ footer .socialMedia a img {
 }
 
 main#contact {
+  padding-top: 5%;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -305,12 +306,15 @@ main#contact h2 {
 main#contact .gridContact {
   background-color: #F5F5F7;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 60% 1fr;
   justify-content: center;
   align-items: center;
   border: 1px solid #6B7D7D;
   border-radius: 0.5rem;
   margin-top: 1rem;
+}
+main#contact .gridContact li {
+  list-style-type: none;
 }
 main#contact .gridContact form {
   display: grid;
@@ -371,12 +375,6 @@ main#contact .gridContact .map {
   width: 100%;
   height: 100%;
 }
-main#contact .gridContact .map iframe {
-  width: 100%;
-  height: 100%;
-  border: 1px solid #6B7D7D;
-  border-radius: 0.5rem;
-}
 
 main#products {
   margin-left: 10%;
@@ -423,7 +421,6 @@ main#products article .images .slideshow-container .next {
   border-radius: 3px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   background-color: #6B7D7D;
 }
@@ -443,18 +440,8 @@ main#products article .images .slideshow-container .numbertext {
   top: 0;
 }
 main#products article .images .slideshow-container .fade {
-  -webkit-animation-name: fade;
-          animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-}
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 @keyframes fade {
   from {
@@ -524,12 +511,10 @@ main#products .detailsDiscription {
   border-radius: 0.5rem;
   padding: 1rem;
   margin-top: 1rem;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
 }
 main#products .detailsDiscription .buttons {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 1rem;
@@ -766,4 +751,24 @@ body#admin main .form form #spec {
 }
 #profile form h2 {
   margin-bottom: 5%;
+}
+
+body#Artikelen .container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+body#Artikelen .container .sort form .sortField button {
+  width: 100%;
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+}
+body#Artikelen .container .sort form .sortField .input {
+  display: none;
+  grid-template-columns: 44% 10% 44%;
+  gap: 1%;
+}
+body#Artikelen .container .sort form .sortField .input input {
+  display: inline-block;
+  width: 100%;
 }/*# sourceMappingURL=index.css.map */
