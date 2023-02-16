@@ -6,9 +6,10 @@ body{
 }
 
 footer {
-    background-color: $secondaryColor;
+    background-color: $primaryColor;
     margin-bottom: -1.5rem;
     padding: 2rem;
+    color: $secondaryColor;
 
     position: absolute;
     bottom: 0;
@@ -29,7 +30,7 @@ footer {
         font-size: 2rem;
         grid-area: logo;
         span {
-            color: black;
+            color: $secondaryColor;
         }
     }
 
@@ -57,6 +58,7 @@ footer {
         align-items: center;
         margin-top: 2rem;
         gap: 5rem;
+        
 
         a {
             img {
