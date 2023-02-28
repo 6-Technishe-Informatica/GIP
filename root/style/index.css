@@ -17,7 +17,7 @@ main {
 }
 
 header nav {
-  background-color: #01303f;
+  background-color: rgb(1, 48, 63);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,11 +29,11 @@ header nav h2 {
 }
 header nav h2 a {
   text-decoration: none;
-  color: #02a9f7;
+  color: rgb(2, 169, 247);
   font-size: 2rem;
 }
 header nav h2 a span {
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
 }
 header nav ul {
   display: flex;
@@ -41,25 +41,25 @@ header nav ul {
 header nav ul li {
   list-style-type: none;
   list-style: none;
-  border-left: 1px solid #02577a;
+  border-left: 1px solid rgb(2, 87, 122);
 }
 header nav ul li a {
   text-decoration: none;
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
 }
 header nav ul li a img {
   text-align: center;
   height: 20px;
 }
 header nav ul li input {
-  background-color: #01303f;
+  background-color: rgb(1, 48, 63);
   border: 0;
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
   font-size: 1rem;
 }
 header nav ul li input:focus {
   outline: none;
-  caret-color: #02a9f7;
+  caret-color: rgb(2, 169, 247);
 }
 header nav ul li:last-child {
   margin-right: 30px;
@@ -75,7 +75,7 @@ header nav ul .underline-hover-effect::before {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #02a9f7;
+  background-color: rgb(2, 169, 247);
   transition: width 0.25s ease-out;
 }
 header nav ul .underline-hover-effect:hover::before {
@@ -87,7 +87,7 @@ header nav ul li {
 }
 header hr {
   margin-top: 0;
-  color: #02577a;
+  color: rgb(2, 87, 122);
   height: 2px;
 }
 header table {
@@ -104,23 +104,23 @@ header table {
   border-radius: 0.5rem;
   margin-top: 0;
   margin-bottom: 0;
-  background-color: #01303f;
+  background-color: rgb(1, 48, 63);
 }
 header table th, header table td {
   padding: 0.5rem;
   text-align: left;
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
   width: 100%;
 }
 header table th a, header table td a {
   text-decoration: none;
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
   transition: color 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
 }
 header table th a:hover, header table td a:hover {
-  color: #02a9f7;
+  color: rgb(2, 169, 247);
   text-decoration: underline;
 }
 header table tr {
@@ -130,8 +130,8 @@ header table tr td:nth-child(2) {
   padding-right: 1rem;
 }
 header table th {
-  border-bottom: 1px solid #02577a;
-  color: #02a9f7;
+  border-bottom: 1px solid rgb(2, 87, 122);
+  color: rgb(2, 169, 247);
 }
 
 main {
@@ -139,17 +139,17 @@ main {
 }
 main .hero {
   width: 80%;
-  border: 2px solid #02577a;
+  border: 2px solid rgb(2, 87, 122);
   margin: auto;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #d4f0fc;
+  background-color: rgb(212, 240, 252);
 }
 main .hero h2 {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  color: #02a9f7;
+  color: rgb(2, 169, 247);
 }
 main .hero h2 span {
   color: black;
@@ -164,31 +164,33 @@ main .dealsText {
 }
 main .deals {
   overflow-x: scroll;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
   margin-left: 10%;
   margin-right: 10%;
   padding-bottom: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
 }
 main .deals a {
   text-decoration: none;
   color: inherit;
-  height: 100%;
+  display: inline-block;
 }
 main .deals a article {
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #02577a;
+  box-shadow: 0 0 0.5rem rgb(2, 87, 122);
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   white-space: nowrap;
   height: 100%;
+  width: 15rem;
 }
 main .deals a article img {
   aspect-ratio: 1/1;
+  width: 100%;
 }
 main .deals a article .gridNamePrice {
   display: grid;
@@ -243,10 +245,10 @@ body {
 }
 
 footer {
-  background-color: #01303f;
+  background-color: rgb(1, 48, 63);
   margin-bottom: -1.5rem;
   padding: 2rem;
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -255,16 +257,16 @@ footer {
   grid-template-areas: "contact contact logo logo" "contact contact socialMedia socialMedia";
   justify-items: center;
   align-items: center;
-  border-top: 2px solid #02577a;
+  border-top: 2px solid rgb(2, 87, 122);
 }
 footer h2 {
-  color: #02a9f7;
+  color: rgb(2, 169, 247);
   text-align: center;
   font-size: 2rem;
   grid-area: logo;
 }
 footer h2 span {
-  color: #d4f0fc;
+  color: rgb(212, 240, 252);
 }
 footer .contact {
   grid-area: contact;
@@ -273,13 +275,13 @@ footer .contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 1px solid #02a9f7;
+  border-right: 1px solid rgb(2, 169, 247);
 }
 footer .contact p {
   text-align: center;
 }
 footer .contact p a {
-  color: #02a9f7;
+  color: rgb(2, 169, 247);
 }
 footer .socialMedia {
   grid-area: socialMedia;
@@ -293,7 +295,7 @@ footer .socialMedia {
 footer .socialMedia a img {
   width: 2rem;
   height: 2rem;
-  fill: #02a9f7;
+  fill: rgb(2, 169, 247);
 }
 
 main#contact {
@@ -305,12 +307,12 @@ main#contact h2 {
   font-size: 2rem;
 }
 main#contact .gridContact {
-  background-color: #d4f0fc;
+  background-color: rgb(212, 240, 252);
   display: grid;
   grid-template-columns: 60% 1fr;
   justify-content: center;
   align-items: center;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
@@ -334,17 +336,17 @@ main#contact .gridContact form .messageArea {
   width: 100%;
   height: 10rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#contact .gridContact form label::before {
   content: "*";
-  color: #89d6fb;
+  color: rgb(137, 214, 251);
 }
 main#contact .gridContact form input {
   height: 1.5rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#contact .gridContact form input[type=submit] {
@@ -352,16 +354,16 @@ main#contact .gridContact form input[type=submit] {
   width: 100%;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
-  background-color: #01303f;
-  color: #d4f0fc;
+  background-color: rgb(1, 48, 63);
+  color: rgb(212, 240, 252);
   cursor: pointer;
 }
 main#contact .gridContact form input:focus, main#contact .gridContact form textarea:focus {
   outline: none;
-  border: 2px solid #02577a;
-  caret-color: #02a9f7;
+  border: 2px solid rgb(2, 87, 122);
+  caret-color: rgb(2, 169, 247);
 }
 main#contact .gridContact form .required {
   grid-column: span 2;
@@ -389,7 +391,7 @@ main#products article {
   display: grid;
   grid-template-areas: "productName productName productName productName" "productImage shop shop shop";
   gap: 2rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -398,6 +400,10 @@ main#products article h2 {
 }
 main#products article .images {
   grid-area: productImage;
+}
+main#products article .images img {
+  width: 100%;
+  height: 100%;
 }
 main#products article .images .slideshow-container {
   max-width: 1000px;
@@ -423,7 +429,7 @@ main#products article .images .slideshow-container .next {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  background-color: #02577a;
+  background-color: rgb(2, 87, 122);
 }
 main#products article .images .slideshow-container .next {
   right: 0;
@@ -457,7 +463,7 @@ main#products article .images .dot {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #02577a;
+  background-color: rgb(2, 87, 122);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
@@ -483,8 +489,8 @@ main#products article .shop .stock {
   padding: 1rem;
   color: #009824;
   font-weight: bold;
-  border-top: 1px solid #02577a;
-  border-bottom: 1px solid #02577a;
+  border-top: 1px solid rgb(2, 87, 122);
+  border-bottom: 1px solid rgb(2, 87, 122);
 }
 main#products article .shop .stock.out {
   color: red;
@@ -497,7 +503,7 @@ main#products article .shop .winkelMand {
   justify-content: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #02577a;
+  background-color: rgb(2, 87, 122);
   text-align: left;
   color: white;
   font-size: 1rem;
@@ -508,7 +514,7 @@ main#products article .shop .winkelMand img {
   text-align: right;
 }
 main#products .detailsDiscription {
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   padding: 1rem;
   margin-top: 1rem;
@@ -526,11 +532,11 @@ main#products .detailsDiscription .buttons #details-button {
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background-color: #d4f0fc;
+  background-color: rgb(212, 240, 252);
 }
 main#products .detailsDiscription .buttons #discription-button.active,
 main#products .detailsDiscription .buttons #details-button.active {
-  border-bottom: 1px solid #02577a;
+  border-bottom: 1px solid rgb(2, 87, 122);
 }
 main#products .detailsDiscription p,
 main#products .detailsDiscription div.details {
@@ -562,13 +568,13 @@ main#signup h2 {
   font-size: 2rem;
   text-align: center;
   width: 90%;
-  border-bottom: 1px solid #02577a;
+  border-bottom: 1px solid rgb(2, 87, 122);
 }
 main#signup .gridSignup {
-  background-color: #d4f0fc;
+  background-color: rgb(212, 240, 252);
   justify-content: center;
   align-items: center;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
@@ -589,17 +595,17 @@ main#signup .gridSignup form .messageArea {
   width: 100%;
   height: 10rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#signup .gridSignup form label::before {
   content: "*";
-  color: #89d6fb;
+  color: rgb(137, 214, 251);
 }
 main#signup .gridSignup form input {
   height: 1.5rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#signup .gridSignup form input[type=submit] {
@@ -607,14 +613,14 @@ main#signup .gridSignup form input[type=submit] {
   width: 100%;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
-  background-color: #01303f;
-  color: #d4f0fc;
+  background-color: rgb(1, 48, 63);
+  color: rgb(212, 240, 252);
   cursor: pointer;
 }
 main#signup .gridSignup form input:focus, main#signup .gridSignup form textarea:focus {
-  outline-color: #02577a;
+  outline-color: rgb(2, 87, 122);
 }
 main#signup .gridSignup form .required {
   grid-column: span 2;
@@ -635,7 +641,7 @@ body#admin main h2 {
   font-size: 2rem;
   text-align: center;
   width: 90%;
-  border-bottom: 1px solid #02577a;
+  border-bottom: 1px solid rgb(2, 87, 122);
 }
 body#admin main .gridArtikelsButtons {
   display: grid;
@@ -648,8 +654,8 @@ body#admin main .gridArtikelsButtons .buttons {
   display: grid;
   box-sizing: border-box;
   margin-top: 1rem;
-  background-color: #d4f0fc;
-  border: 1px solid #02577a;
+  background-color: rgb(212, 240, 252);
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
 }
 body#admin main .gridArtikelsButtons .buttons button {
@@ -659,7 +665,7 @@ body#admin main .gridArtikelsButtons .buttons button {
   background-color: transparent;
 }
 body#admin main .gridArtikelsButtons .buttons button:hover {
-  background-color: #02577a;
+  background-color: rgb(2, 87, 122);
 }
 body#admin main .gridArtikelsButtons .buttons button:first-of-type {
   border-radius: 0.5rem 0.5rem 0 0;
@@ -668,10 +674,10 @@ body#admin main .gridArtikelsButtons .buttons button:last-of-type {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 body#admin main .form {
-  background-color: #d4f0fc;
+  background-color: rgb(212, 240, 252);
   justify-content: center;
   align-items: center;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
@@ -692,12 +698,12 @@ body#admin main .form form .messageArea {
   width: 100%;
   height: 10rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 body#admin main .form form label::before {
   content: "*";
-  color: #89d6fb;
+  color: rgb(137, 214, 251);
 }
 body#admin main .form form .noRequire::before {
   content: " ";
@@ -705,7 +711,7 @@ body#admin main .form form .noRequire::before {
 body#admin main .form form input {
   height: 1.5rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 body#admin main .form form input[type=file] {
@@ -717,15 +723,15 @@ body#admin main .form form button[type=submit] {
   width: 100%;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1px solid #02577a;
+  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
-  background-color: #01303f;
-  color: #d4f0fc;
+  background-color: rgb(1, 48, 63);
+  color: rgb(212, 240, 252);
   cursor: pointer;
 }
 body#admin main .form form input:focus,
 body#admin main .form form textarea:focus {
-  outline-color: #02577a;
+  outline-color: rgb(2, 87, 122);
 }
 body#admin main .form form .required {
   grid-column: span 2;
@@ -772,4 +778,53 @@ body#Artikelen .container .sort form .sortField .input {
 body#Artikelen .container .sort form .sortField .input input {
   display: inline-block;
   width: 100%;
+}
+body#Artikelen .container .artikelen ul li {
+  list-style-type: none;
+  padding: 1rem;
+}
+body#Artikelen .container .artikelen ul li a {
+  text-decoration: none;
+  color: black;
+}
+body#Artikelen .container .artikelen ul li a .artikel {
+  display: grid;
+  grid-template-areas: "img titel prijs" "img beschrijving beschrijving";
+  gap: 1rem;
+  border: 1px solid rgb(2, 87, 122);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(212, 240, 252);
+}
+body#Artikelen .container .artikelen ul li a .artikel img {
+  grid-area: img;
+  width: 100%;
+  max-width: 200px;
+  mix-blend-mode: darken;
+}
+body#Artikelen .container .artikelen ul li a .artikel .titel {
+  grid-area: titel;
+}
+body#Artikelen .container .artikelen ul li a .artikel .beschrijving {
+  grid-area: beschrijving;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+body#Artikelen .container .artikelen ul li a .artikel .prijs {
+  grid-area: prijs;
+}
+body#Artikelen .container .artikelen ul li a .artikel .prijs p {
+  display: inline;
+  text-align: right;
+  margin-right: 1rem;
+  color: red;
+  font-weight: bold;
+  text-transform: lowercase;
+  font-size: larger;
+  text-align: center;
+  text-decoration: none;
+}
+body#Artikelen .container .artikelen ul li a .artikel .prijs .ouldPrice {
+  text-decoration: line-through;
+  color: grey;
 }/*# sourceMappingURL=index.css.map */

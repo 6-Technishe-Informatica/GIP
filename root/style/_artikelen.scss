@@ -28,5 +28,71 @@ body#Artikelen{
                 }
             }
         }
+
+        .artikelen{
+            ul{
+                li{
+                    list-style-type: none;
+                    padding: 1rem;
+
+                    a{
+                        text-decoration: none;
+                        color: black;
+
+                        .artikel{
+                            display: grid;
+                            grid-template-areas: "img titel prijs" "img beschrijving beschrijving";
+                            gap: 1rem;
+
+                            border: 1px solid $tertiaryColor;
+                            border-radius: 0.5rem;
+                            padding: 1rem;
+
+                            background-color: $secondaryColor;
+    
+                            img{
+                                grid-area: img;
+                                width: 100%;
+                                max-width: 200px;
+
+                                mix-blend-mode: darken;
+                            }
+    
+                            .titel{
+                                grid-area: titel;
+                            }
+    
+                            .beschrijving{
+                                grid-area: beschrijving;
+                                padding-left: 1rem;
+                                padding-right: 1rem;
+                            }
+    
+                            .prijs{
+                                grid-area: prijs;
+    
+                                p{
+                                    display: inline;
+                                    text-align: right;
+                                    margin-right: 1rem;
+
+                                    color: red;
+                                    font-weight: bold;
+                                    text-transform: lowercase;
+                                    font-size: larger;
+                                    text-align: center;
+                                    text-decoration: none;
+                                }
+                
+                                .ouldPrice {
+                                    text-decoration: line-through;
+                                    color: grey;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

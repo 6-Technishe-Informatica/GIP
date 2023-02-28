@@ -211,7 +211,7 @@
             exit(); // zorgt ervoor dat de code stopt.
         }
         
-        mysqli_stmt_bind_param($stmt, "ssssssss", $artikelNaam, $beschrijving, $prijs, $promotieprijs, $vooraad, $merk, $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_bind_param($stmt, "ssssssss", $artikelNaam, $beschrijving, $merk, $prijs, $promotieprijs, $vooraad,  $specialDeal, $discover); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.
         $id = mysqli_insert_id($conn2); // haalt de laatste id op uit de database.

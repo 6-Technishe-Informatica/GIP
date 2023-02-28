@@ -33,12 +33,13 @@ main {
 
     .deals {
         overflow-x: scroll;
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 1rem;
         margin-left: 10%;
         margin-right: 10%;
         padding-bottom: 20px;
+
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1rem;
 
         //hide scrollbar chrome, safari, opera
         // &::-webkit-scrollbar {
@@ -52,8 +53,7 @@ main {
         a{
             text-decoration: none;
             color: inherit;
-
-            height: 100%;
+            display: inline-block;
 
             article {
                 border: 1px solid $tertiaryColor;
@@ -68,9 +68,12 @@ main {
                 white-space: nowrap;
 
                 height: 100%;
+                width: 15rem;
     
                 img {
                     aspect-ratio: 1/1;
+
+                    width: 100%;
                 }
     
                 .gridNamePrice {

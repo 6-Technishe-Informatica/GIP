@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<input type="number" name="cpuCores" id="cpuCores" placeholder="Cpu cores">';
 
             spec.innerHTML += '<label for="cpuSpeed"> CPU speed</label>';
-            spec.innerHTML += '<input type="number" name="cpuSpeed" id="cpuSpeed" placeholder="Cpu speed">';
+            spec.innerHTML += '<input type="number" name="cpuSpeed" id="cpuSpeed" placeholder="Cpu speed" step="any">';
 
             spec.innerHTML += '<label for="cpuSocket">CPU socket</label>';
             spec.innerHTML += '<input type="text" name="cpuSocket" id="cpuSocket" placeholder="Cpu socket">';
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<input type="text" name="ramType" id="ramType" placeholder="Ram type">';
 
             spec.innerHTML += '<label for="ramSpeed">RAM speed</label>';
-            spec.innerHTML += '<input type="number" name="ramSpeed" id="ramSpeed" placeholder="Ram speed">';
+            spec.innerHTML += '<input type="number" name="ramSpeed" id="ramSpeed" placeholder="Ram speed"  step="any">';
 
             spec.innerHTML += '<label for="ramSize">RAM size</label>';
             spec.innerHTML += '<input type="number" name="ramSize" id="ramSize" placeholder="Ram size">';
@@ -168,10 +168,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<input type="text" name="storageType" id="storageType" placeholder="Storage type">';
 
             spec.innerHTML += '<label for="storageSize">STORAGE size</label>';
-            spec.innerHTML += '<input type="number" name="storageSize" id="storageSize" placeholder="Storage size">';
+            spec.innerHTML += '<input type="text" name="storageSize" id="storageSize" placeholder="Storage size">';
 
             spec.innerHTML += '<label for="storageSpeed">STORAGE speed</label>';
-            spec.innerHTML += '<input type="number" name="storageSpeed" id="storageSpeed" placeholder="Storage speed">';
+            spec.innerHTML += '<input type="number" name="storageSpeed" id="storageSpeed" placeholder="Storage speed" step="any">';
 
             spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="storage">'
 

@@ -61,7 +61,7 @@
                     echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
 
                     //check if there is a new price
-                    if ($productDeal['prijsNieuw'] != 0) {
+                    if ($productDeal['prijsNieuw'] !== "") {
                         echo '<p class="ouldPrice">' . $productDeal['prijs'] . '</p>';
                         echo '<p class="newPrice">' . $productDeal['prijsNieuw'] . '</p>';
                     }else{
@@ -89,12 +89,13 @@
                     echo '<div class="gridNamePrice dealsPrice">';
                     echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
 
-                    //check if there is a new price
-                    if ($productDiscover['prijsNieuw'] != 0) {
-                        echo '<p class="ouldPrice">' . $productDiscover['prijs'] . '</p>';
-                        echo '<p class="newPrice">' . $productDiscover['prijsNieuw'] . '</p>';
+                    //check if there is a new price is not empty
+
+                    if ($productDiscover['prijsNieuw'] !== "") {
+                        echo '<p class="ouldPrice">€ ' . $productDiscover['prijs'] . '</p>';
+                        echo '<p class="newPrice">€ ' . $productDiscover['prijsNieuw'] . '</p>';
                     }else{
-                        echo '<p class="newPrice">' . $productDiscover['prijs'] . '</p>';
+                        echo '<p class="newPrice">€ ' . $productDiscover['prijs'] . '</p>';
                     }
 
                     echo '</div>';

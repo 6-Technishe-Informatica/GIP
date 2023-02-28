@@ -42,7 +42,7 @@
                     <div class="sortSoort">
                         <div class="sortField">
                             <button id="buttonSoort">Cpu</button>
-                            <div class="input" >
+                            <div class="input">
 
                             </div>
                         </div>
@@ -51,7 +51,46 @@
             </div>
 
             <div class="artikelen">
+                <ul>
 
+                    <?php
+                    // get data from database conn2 = database gip and put them in a list
+                    $result = mysqli_query($conn2, "SELECT * FROM artikelen");
+
+                    // put result in a list
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<li>';
+                        echo '<a href="../pages/product.php?productName=' . $row['artikelNaam'] . '&referentieNummer=' . $row["referentieNummer"] . '">';
+                        echo '<div class="artikel">';
+                        echo '<img src="../images/productImages/' . $row["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
+                        echo '<h2 class="titel">' . $row['artikelNaam'] . '</h2>';
+
+                        $artikelBeschrijving = $row['artikelBeschrijving'];
+
+                        if (strlen($artikelBeschrijving) > 300) // if you want to show 15 characters
+                        {
+                            $maxLength = 300;
+                            $artikelBeschrijving = substr($artikelBeschrijving, 0, $maxLength);
+                            $artikelBeschrijving .= " ...";
+                        }
+
+
+                        echo '<p class="beschrijving">' . $artikelBeschrijving . '</p>';
+                        echo '<div class="prijs">';
+                        if ($row['prijsNieuw'] !== "") {
+                            echo '<p class="ouldPrice">€ ' . $row['prijs'] . '</p>';
+                            echo '<p class="newPrice">€ ' . $row['prijsNieuw'] . '</p>';
+                        } else {
+                            echo '<p class="newPrice">€ ' . $row['prijs'] . '</p>';
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
+                        echo '</li>';
+                    }
+                    ?>
+
+                </ul>
             </div>
         </div>
     </main>
