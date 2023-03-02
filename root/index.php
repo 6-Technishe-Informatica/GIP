@@ -53,7 +53,7 @@
                 
 
                 while ($productDeal = mysqli_fetch_assoc($res)) {
-                    echo '<a href="pages/product.php?productName=' . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] .'">';
+                    echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] ."'>";
                     echo '<article>';
                     echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
                     echo '<p>' . $productDeal['brand'] . '</p>';
@@ -62,10 +62,10 @@
 
                     //check if there is a new price
                     if ($productDeal['prijsNieuw'] !== "") {
-                        echo '<p class="ouldPrice">' . $productDeal['prijs'] . '</p>';
-                        echo '<p class="newPrice">' . $productDeal['prijsNieuw'] . '</p>';
+                        echo '<p class="ouldPrice">€ ' . $productDeal['prijs'] . '</p>';
+                        echo '<p class="newPrice">€ ' . $productDeal['prijsNieuw'] . '</p>';
                     }else{
-                        echo '<p class="newPrice">' . $productDeal['prijs'] . '</p>';
+                        echo '<p class="newPrice">€ ' . $productDeal['prijs'] . '</p>';
                     }
 
                     echo '</div>';
@@ -82,7 +82,7 @@
                 $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
 
                 while ($productDiscover = mysqli_fetch_assoc($res2)) {
-                    echo '<a href="pages/product.php?productName=' . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] .'">';
+                    echo "<a href='pages/product.php?productName=" . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] ."'>";
                     echo '<article>';
                     echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
                     echo '<p>' . $productDiscover['brand'] . '</p>';

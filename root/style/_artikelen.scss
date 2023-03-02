@@ -30,6 +30,18 @@ body#Artikelen{
         }
 
         .artikelen{
+            #myInput{
+                width: 80%;
+                padding: 1rem;
+                border: 1px solid $tertiaryColor;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
             ul{
                 li{
                     list-style-type: none;

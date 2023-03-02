@@ -402,8 +402,11 @@ main#products article .images {
   grid-area: productImage;
 }
 main#products article .images img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 main#products article .images .slideshow-container {
   max-width: 1000px;
@@ -478,11 +481,19 @@ main#products article .shop {
   grid-template-rows: 25% 25% 25%;
   align-items: center;
 }
-main#products article .shop .price {
-  display: inline;
-  font-size: 1.5rem;
-  font-weight: bold;
+main#products article .shop .productPrice p {
   color: red;
+  font-weight: bold;
+  text-transform: lowercase;
+  font-size: larger;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  margin-right: 1rem;
+}
+main#products article .shop .productPrice .ouldPrice {
+  text-decoration: line-through;
+  color: grey;
 }
 main#products article .shop .stock {
   text-align: center;
@@ -553,6 +564,7 @@ main#products .detailsDiscription .details.active p {
 main#products .detailsDiscription .details.active {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
 }
 main#products .detailsDiscription .details.active p {
   display: inline;
@@ -778,6 +790,16 @@ body#Artikelen .container .sort form .sortField .input {
 body#Artikelen .container .sort form .sortField .input input {
   display: inline-block;
   width: 100%;
+}
+body#Artikelen .container .artikelen #myInput {
+  width: 80%;
+  padding: 1rem;
+  border: 1px solid rgb(2, 87, 122);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 body#Artikelen .container .artikelen ul li {
   list-style-type: none;

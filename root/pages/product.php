@@ -27,7 +27,13 @@
 
             while ($row = mysqli_fetch_array($result)) {
                 $productDiscription = $row['artikelBeschrijving'];
-                $prijs = $row['prijs'];
+                $prijsNieuw = "";
+                if ($row['prijsNieuw'] !== "") {
+                    $prijs = $row['prijs'];
+                    $prijsNieuw = $row['prijsNieuw'];
+                } else {
+                    $prijs = $row['prijs'];
+                }
                 $stock = $row['beschikbaarheid'];
             }
 
@@ -70,9 +76,17 @@
             </div>
 
             <div class="shop">
-                <p class="price"><?php echo $prijs ?></p>
-
                 <?php
+                echo '<div class="productPrice">';
+                if ($prijsNieuw !== "") {
+                    echo '<p class="ouldPrice">€ ' . $prijs . '</p>';
+                    echo '<p class="newPrice">€ ' . $prijsNieuw . '</p>';
+                } else {
+                    echo '<p class="newPrice">€ ' . $prijs . '</p>';
+                }
+
+                echo '</div>';
+
                 if ($stock > 0) {
                     echo "<p class='stock'>Op vooraad</p>";
                 } else {
