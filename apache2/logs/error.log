@@ -1,5 +1,5 @@
-[Thu Mar 02 11:33:55.926057 2023] [mpm_winnt:notice] [pid 4532:tid 12] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Thu Mar 02 11:33:55.927079 2023] [mpm_winnt:notice] [pid 4532:tid 12] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Thu Mar 02 11:33:55.927079 2023] [core:notice] [pid 4532:tid 12] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
-[Thu Mar 02 11:33:55.931062 2023] [mpm_winnt:notice] [pid 4532:tid 12] AH00418: Parent: Created child process 4628
-[Thu Mar 02 11:33:56.653175 2023] [mpm_winnt:notice] [pid 4628:tid 796] AH00354: Child: Starting 64 worker threads.
+[Mon Mar 20 14:27:01.931853 2023] [mpm_winnt:notice] [pid 22196:tid 772] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Mon Mar 20 14:27:01.931853 2023] [mpm_winnt:notice] [pid 22196:tid 772] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Mon Mar 20 14:27:01.931853 2023] [core:notice] [pid 22196:tid 772] AH00094: Command line: 'C:\\Users\\devlo\\Documents\\GitHub\\GIP/apache2/bin/httpd_usbwv8.exe -d C:/Users/devlo/Documents/GitHub/GIP/apache2'
+[Mon Mar 20 14:27:01.952023 2023] [mpm_winnt:notice] [pid 22196:tid 772] AH00418: Parent: Created child process 13156
+[Mon Mar 20 14:27:03.302096 2023] [mpm_winnt:notice] [pid 13156:tid 584] AH00354: Child: Starting 64 worker threads.
