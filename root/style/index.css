@@ -144,12 +144,13 @@ main .hero {
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: rgb(212, 240, 252);
+  opacity: 1;
 }
 main .hero h2 {
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  color: rgb(2, 169, 247);
+  color: #008aca;
 }
 main .hero h2 span {
   color: black;

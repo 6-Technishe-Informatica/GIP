@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#01303f">
+    <meta name="description" content="This is an example of a
+meta description. This will often show up in search results.">
+
     <link rel="stylesheet" href="style/index.css">
 
     <title>Tech point</title>
@@ -19,24 +23,24 @@
         <article class="hero">
             <h2>Tech <span>Point</span></h2>
             <?php
-                //connect to database
-                $servername = "localhost";
-                $username = "root";
-                $password = "usbw";
+            //connect to database
+            $servername = "localhost";
+            $username = "root";
+            $password = "usbw";
 
-                $conn = new mysqli($servername, $username, $password, "gip");
-                
-                if (!$conn) {
-                    echo "Fout: geen connectie naar database. <br>";
-                    echo "Error: " . mysqli_connect_error() . "<br>";
-                    exit();
-                }
+            $conn = new mysqli($servername, $username, $password, "gip");
 
-                $text = mysqli_query($conn, "SELECT * FROM admintext");
+            if (!$conn) {
+                echo "Fout: geen connectie naar database. <br>";
+                echo "Error: " . mysqli_connect_error() . "<br>";
+                exit();
+            }
 
-                $textValue = mysqli_fetch_assoc($text);
+            $text = mysqli_query($conn, "SELECT * FROM admintext");
 
-                echo "<p>" . $textValue["frontpage"] . "</p>";
+            $textValue = mysqli_fetch_assoc($text);
+
+            echo "<p>" . $textValue["frontpage"] . "</p>";
             ?>
         </article>
 
@@ -45,33 +49,33 @@
             <?php
 
 
-                
-
-                $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
 
 
-                
+            $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
 
-                while ($productDeal = mysqli_fetch_assoc($res)) {
-                    echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] .'&referentieNummer=' . $productDeal["referentieNummer"] ."'>";
-                    echo '<article>';
-                    echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
-                    echo '<p>' . $productDeal['brand'] . '</p>';
-                    echo '<div class="gridNamePrice dealsPrice">';
-                    echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
 
-                    //check if there is a new price
-                    if ($productDeal['prijsNieuw'] !== "") {
-                        echo '<p class="ouldPrice">€ ' . $productDeal['prijs'] . '</p>';
-                        echo '<p class="newPrice">€ ' . $productDeal['prijsNieuw'] . '</p>';
-                    }else{
-                        echo '<p class="newPrice">€ ' . $productDeal['prijs'] . '</p>';
-                    }
 
-                    echo '</div>';
-                    echo '</article>';
-                    echo '</a>';
+
+            while ($productDeal = mysqli_fetch_assoc($res)) {
+                echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] . '&referentieNummer=' . $productDeal["referentieNummer"] . "'>";
+                echo '<article>';
+                echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
+                echo '<p>' . $productDeal['brand'] . '</p>';
+                echo '<div class="gridNamePrice dealsPrice">';
+                echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
+
+                //check if there is a new price
+                if ($productDeal['prijsNieuw'] !== "") {
+                    echo '<p class="ouldPrice">€ ' . $productDeal['prijs'] . '</p>';
+                    echo '<p class="newPrice">€ ' . $productDeal['prijsNieuw'] . '</p>';
+                } else {
+                    echo '<p class="newPrice">€ ' . $productDeal['prijs'] . '</p>';
                 }
+
+                echo '</div>';
+                echo '</article>';
+                echo '</a>';
+            }
             ?>
         </div>
 
@@ -79,31 +83,31 @@
         <div class="deals">
             <?php
 
-                $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
+            $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
 
-                while ($productDiscover = mysqli_fetch_assoc($res2)) {
-                    echo "<a href='pages/product.php?productName=" . $productDiscover['artikelNaam'] .'&referentieNummer=' . $productDiscover["referentieNummer"] ."'>";
-                    echo '<article>';
-                    echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' .'" alt="productPicture">';
-                    echo '<p>' . $productDiscover['brand'] . '</p>';
-                    echo '<div class="gridNamePrice dealsPrice">';
-                    echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
+            while ($productDiscover = mysqli_fetch_assoc($res2)) {
+                echo "<a href='pages/product.php?productName=" . $productDiscover['artikelNaam'] . '&referentieNummer=' . $productDiscover["referentieNummer"] . "'>";
+                echo '<article>';
+                echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
+                echo '<p>' . $productDiscover['brand'] . '</p>';
+                echo '<div class="gridNamePrice dealsPrice">';
+                echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
 
-                    //check if there is a new price is not empty
+                //check if there is a new price is not empty
 
-                    if ($productDiscover['prijsNieuw'] !== "") {
-                        echo '<p class="ouldPrice">€ ' . $productDiscover['prijs'] . '</p>';
-                        echo '<p class="newPrice">€ ' . $productDiscover['prijsNieuw'] . '</p>';
-                    }else{
-                        echo '<p class="newPrice">€ ' . $productDiscover['prijs'] . '</p>';
-                    }
-
-                    echo '</div>';
-                    echo '</article>';
-                    echo '</a>';
+                if ($productDiscover['prijsNieuw'] !== "") {
+                    echo '<p class="ouldPrice">€ ' . $productDiscover['prijs'] . '</p>';
+                    echo '<p class="newPrice">€ ' . $productDiscover['prijsNieuw'] . '</p>';
+                } else {
+                    echo '<p class="newPrice">€ ' . $productDiscover['prijs'] . '</p>';
                 }
 
-                mysqli_close($conn);
+                echo '</div>';
+                echo '</article>';
+                echo '</a>';
+            }
+
+            mysqli_close($conn);
             ?>
         </div>
 

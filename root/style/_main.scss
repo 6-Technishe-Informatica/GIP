@@ -8,12 +8,13 @@ main {
         padding: 1rem;
         border-radius: 0.5rem;
         background-color: $secondaryColor;
+        opacity: 1;
 
         h2 {
             font-size: 2rem;
             font-weight: 600;
             text-align: center;
-            color: $secondAccentColor;
+            color: #008aca;
             span{
                 color: black;
             }
