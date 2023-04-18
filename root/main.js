@@ -238,8 +238,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     if (document.body.id == 'Artikelen') {
-        const btn = document.querySelectorAll("button#button");
-        const btnSoort = document.querySelectorAll('button#buttonSoort');
+        const btn = document.querySelectorAll("label#button");
+        const btnSoort = document.querySelectorAll('label#buttonSoort');
 
         btn.forEach(button => {
             var nextElement = button.nextElementSibling;

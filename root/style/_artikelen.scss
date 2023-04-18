@@ -4,26 +4,25 @@ body#Artikelen{
         grid-template-columns: 20% 80%;
 
         .sort{
-            form{
-                .sortField{
+            .sortField{
 
-                    button{
+                label{
+                    width: 100%;
+                    border: 0;
+                    background-color: inherit;
+                    text-align: center;
+
+                    cursor: pointer;
+                }
+
+                .input{
+                    display: none;
+                    grid-template-columns: 44% 10% 44%;
+                    gap: 1%;
+
+                    input{
+                        display: inline-block;
                         width: 100%;
-                        border: 0;
-                        background-color: inherit;
-
-                        cursor: pointer;
-                    }
-
-                    .input{
-                        display: none;
-                        grid-template-columns: 44% 10% 44%;
-                        gap: 1%;
-
-                        input{
-                            display: inline-block;
-                            width: 100%;
-                        }
                     }
                 }
             }

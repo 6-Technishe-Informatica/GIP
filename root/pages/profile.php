@@ -16,19 +16,18 @@
         <?php include '../siteParts/nav.php'; ?>
     </header>
     <main id="profile">
-        <aside>
+        <aside id="navigatie">
             <nav>
-                <ul>
+                <h2>
                     <!-- toont de naam van de persoon boven de navigatie -->
-                    <li>
+                    
                         <?php echo $_SESSION["useruid"]; ?>
-                    </li>
-                </ul>
+                </h2>
                 <ul>
                     <li><a href="#gegevens">Account details</a></li>
                 </ul>
                 <ul>
-                    <li><a href="">Wijzig Wachtwoord</a></li>
+                    <li><a href="">Beveiliging</a></li>
                 </ul>
                 <ul>
                     <li><a href="">Facturen</a></li>
@@ -49,7 +48,7 @@
             <br>
             <label for="email">e-mail<br>
                 <input type="text" name="email" id="email">
-            </label>
+            </label><br>
 
             <label for="gebruikersnaam">Gebruikersnaam<br>
                 <input type="text" name="gebruikersnaam" id="gebruikersnaam">

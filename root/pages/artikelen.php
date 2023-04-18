@@ -21,18 +21,18 @@
     <main>
         <div class="container">
             <div class="sort">
-                <form action="#">
+                <form action="?sort=true">
                     <div class="sortField">
-                        <button id="button">Prijs</button>
+                        <label id="button" for="prijsMin">Prijs</label>
                         <div class="input">
                             <input name="prijsMin" class="inputPrijs" type="number">
-                            <p id="paragraaf">tot</p>
+                            <label id="paragraaf" for="prijsMax">tot</label>
                             <input name="prijsMax" class="inputPrijs" type="number">
                         </div>
                     </div>
 
                     <div class="sortField">
-                        <button id="button">beschikbaarheid</button>
+                        <label id="button" for="voorraad">beschikbaarheid</label>
                         <div class="input">
                             <input type="checkbox" name="voorraad">
                             <label for="voorraad">Op voorraad</label>
@@ -41,12 +41,16 @@
 
                     <div class="sortSoort">
                         <div class="sortField">
-                            <button id="buttonSoort">Cpu</button>
+                            <label id="buttonSoort">Cpu</label>
                             <div class="input">
 
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" value="True" name="sort">
+
+                    <input type="submit" value="zoek">
                 </form>
             </div>
 
@@ -56,8 +60,33 @@
                 <ul id="myUL">
 
                     <?php
+
                     // get data from database conn2 = database gip and put them in a list
-                    $result = mysqli_query($conn2, "SELECT * FROM artikelen");
+                    if (isset($_GET['sort'])){
+                        $minPrijs = $_GET['prijsMin'];
+                        $maxPrijs = $_GET['prijsMax'];
+
+                        $addAND = 0;
+
+                        $sql = "SELECT * FROM artikelen WHERE";
+
+                        if ($minPrijs != NULL){
+                            $sql .= " prijs BETWEEN $minPrijs AND $maxPrijs";
+                            $addAND++;
+                        }
+
+                        if(isset($_GET['voorraad'])) {
+                            if ($addAND > 0){
+                                $addAND--;
+                                $sql += "AND";
+                            }
+                            $sql .= " beschikbaarheid > 0";
+                        }
+
+                        $result = mysqli_query($conn2, $sql);
+                    }else{
+                        $result = mysqli_query($conn2, "SELECT * FROM artikelen");
+                    }
 
                     // put result in a list
                     while ($row = mysqli_fetch_assoc($result)) {

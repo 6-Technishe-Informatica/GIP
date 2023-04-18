@@ -761,34 +761,46 @@ body#admin main .form form #spec {
   grid-template-columns: 1fr 1fr;
 }
 
-#profile {
+main#profile {
   display: grid;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 10% 1fr;
   width: 80%;
   margin: auto;
   padding: 1rem;
   margin-top: 5%;
 }
-#profile form h2 {
+main#profile h2 {
   margin-bottom: 5%;
+}
+main#profile aside#navigatie nav {
+  padding-right: 25px;
+}
+main#profile aside#navigatie nav li {
+  list-style-type: none;
+  padding-bottom: 10px;
+}
+main#profile form#gegevens {
+  padding-left: 25px;
+  border-left: 1px solid black;
 }
 
 body#Artikelen .container {
   display: grid;
   grid-template-columns: 20% 80%;
 }
-body#Artikelen .container .sort form .sortField button {
+body#Artikelen .container .sort .sortField label {
   width: 100%;
   border: 0;
   background-color: inherit;
+  text-align: center;
   cursor: pointer;
 }
-body#Artikelen .container .sort form .sortField .input {
+body#Artikelen .container .sort .sortField .input {
   display: none;
   grid-template-columns: 44% 10% 44%;
   gap: 1%;
 }
-body#Artikelen .container .sort form .sortField .input input {
+body#Artikelen .container .sort .sortField .input input {
   display: inline-block;
   width: 100%;
 }

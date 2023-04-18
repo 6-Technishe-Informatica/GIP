@@ -1,5 +1,4 @@
 <?php
-
     // functie dat kijkt of de input fields ingevuld zijn.
     function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat){
         $result = null; // gaat true or false terug geven
@@ -86,10 +85,9 @@
             header("location: ../pages/signup.php?error=stmtfailed"); // stuurt de gebruiker terug naar de signup pagina met een error.
             exit(); // zorgt ervoor dat de code stopt.
         }
+        $salt = '$6$rounds=5000$gipmanuenquinten$'; // $salt is de variabele die de salt bevat voor het hashen van het wachtwoord.
 
-        // hashing werkt nog niet, eens dit wel werkt verander de $pwd naar $hashedPwd op derde lijn hier onder
-        // $pwd is de wachtwoord variabele die hierboven word meegegeven, PASSWORD_DEFAULT is een standaard functie van php die het wachtwoord hash version 5.5, in 5.2 werkt crypt.
-        $hashedPwd = crypt($pwd); // $hashedPwd is de variabele die de hashed wachtwoord bevat.
+        $hashedPwd = crypt($pwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.
         
         mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $username, $hashedPwd, $admin); // koppelt de ? in de sql statement aan de variabelen hieronder.
         mysqli_stmt_execute($stmt); // voert de statement uit.
