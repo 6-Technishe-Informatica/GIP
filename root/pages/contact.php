@@ -37,7 +37,7 @@
             </form>
 
             <div class="map">
-                <img src="../images/form.jpg" alt="#">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.4842324710858!2d4.094553778023916!3d51.02567664577879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3912d6048fc7f%3A0xbfd724b61f6cb36a!2sGO*21%20talent!5e0!3m2!1snl!2sbe!4v1682700582898!5m2!1snl!2sbe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </main>

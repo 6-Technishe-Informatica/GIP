@@ -35,6 +35,9 @@ header nav h2 a {
 header nav h2 a span {
   color: rgb(212, 240, 252);
 }
+header nav #burger {
+  display: none;
+}
 header nav ul {
   display: flex;
 }
@@ -106,20 +109,23 @@ header table {
   margin-bottom: 0;
   background-color: rgb(1, 48, 63);
 }
-header table th, header table td {
+header table th,
+header table td {
   padding: 0.5rem;
   text-align: left;
   color: rgb(212, 240, 252);
   width: 100%;
 }
-header table th a, header table td a {
+header table th a,
+header table td a {
   text-decoration: none;
   color: rgb(212, 240, 252);
   transition: color 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out, -webkit-text-decoration 0.2s ease-in-out;
 }
-header table th a:hover, header table td a:hover {
+header table th a:hover,
+header table td a:hover {
   color: rgb(2, 169, 247);
   text-decoration: underline;
 }
@@ -132,6 +138,42 @@ header table tr td:nth-child(2) {
 header table th {
   border-bottom: 1px solid rgb(2, 87, 122);
   color: rgb(2, 169, 247);
+}
+@media only screen and (max-width: 1250px) {
+  header nav {
+    flex-direction: row;
+  }
+  header nav #burger {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    z-index: 1000;
+  }
+  header nav ul {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(1, 48, 63);
+  }
+  header nav ul .search {
+    display: none;
+  }
+  header nav ul li {
+    border-left: none;
+    border-bottom: 1px solid rgb(2, 87, 122);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 5rem;
+  }
+  header nav ul.active {
+    display: flex;
+  }
 }
 
 main {
@@ -237,6 +279,76 @@ main .overOns {
 main .overOns p {
   margin-left: 10%;
   margin-right: 10%;
+}
+main .mobileCategorie {
+  display: none;
+}
+@media only screen and (max-width: 1250px) {
+  main .deals {
+    display: none;
+  }
+  main .dealsText {
+    display: none;
+  }
+  main .dealsText:nth-child(3) {
+    display: block;
+  }
+  main .mobileCategorie {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 80%;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+  main .mobileCategorie a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(2, 87, 122);
+    border-radius: 0.5rem;
+    background-color: rgb(212, 240, 252);
+    background-blend-mode: darken;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+  }
+  main .mobileCategorie a div {
+    background-color: rgb(2, 87, 122);
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  main .mobileCategorie a:hover {
+    background-color: rgb(2, 87, 122);
+    color: white;
+  }
+  main .mobileCategorie a:nth-child(1) {
+    background-image: url(../images/cpu.png);
+  }
+  main .mobileCategorie a:nth-child(2) {
+    background-image: url(../images/gpu.png);
+  }
+  main .mobileCategorie a:nth-child(3) {
+    background-image: url(../images/moederbord.png);
+  }
+  main .mobileCategorie a:nth-child(4) {
+    background-image: url(../images/ram.png);
+  }
+  main .mobileCategorie a:nth-child(5) {
+    background-image: url(../images/case.png);
+  }
+  main .mobileCategorie a:nth-child(6) {
+    background-image: url(../images/storage.png);
+  }
 }
 
 body {
@@ -361,7 +473,8 @@ main#contact .gridContact form input[type=submit] {
   color: rgb(212, 240, 252);
   cursor: pointer;
 }
-main#contact .gridContact form input:focus, main#contact .gridContact form textarea:focus {
+main#contact .gridContact form input:focus,
+main#contact .gridContact form textarea:focus {
   outline: none;
   border: 2px solid rgb(2, 87, 122);
   caret-color: rgb(2, 169, 247);
@@ -378,6 +491,17 @@ main#contact .gridContact .map {
   padding: 1rem;
   width: 100%;
   height: 100%;
+}
+main#contact .gridContact .map iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(2, 87, 122);
+}
+@media only screen and (max-width: 1250px) {
+  main#contact .gridContact {
+    grid-template-columns: 1fr;
+  }
 }
 
 main#products {
@@ -621,7 +745,7 @@ main#signup .gridSignup form input {
   border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
-main#signup .gridSignup form input[type=submit] {
+main#signup .gridSignup form input[type=submit], main#signup .gridSignup form button[type=submit] {
   grid-column: span 2;
   width: 100%;
   height: 2rem;
@@ -760,49 +884,145 @@ body#admin main .form form #spec {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+@media only screen and (max-width: 1250px) {
+  body#admin main .gridArtikelsButtons {
+    grid-template-columns: 1fr;
+  }
+  body#admin main .gridArtikelsButtons .buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+  body#admin main .form form {
+    grid-template-columns: 1fr;
+  }
+}
 
-main#profile {
+main#profile .container {
   display: grid;
-  grid-template-columns: 10% 1fr;
-  width: 80%;
-  margin: auto;
+  grid-template-columns: 20% 80%;
+  gap: 1rem;
+  max-width: 80%;
+  margin-top: 1rem;
   padding: 1rem;
-  margin-top: 5%;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-main#profile h2 {
-  margin-bottom: 5%;
+main#profile .container h2 {
+  margin-bottom: 1rem;
 }
-main#profile aside#navigatie nav {
-  padding-right: 25px;
+main#profile .container aside#navigatie {
+  background-color: rgb(212, 240, 252);
+  border: 1px solid rgb(2, 87, 122);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
-main#profile aside#navigatie nav li {
+main#profile .container aside#navigatie nav {
+  text-align: center;
+}
+main#profile .container aside#navigatie nav li {
   list-style-type: none;
   padding-bottom: 10px;
 }
-main#profile form#gegevens {
-  padding-left: 25px;
-  border-left: 1px solid black;
+main#profile .container form#gegevens {
+  background-color: rgb(212, 240, 252);
+  border: 1px solid rgb(2, 87, 122);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+main#profile .container form#gegevens label {
+  display: block;
+}
+main#profile .container form#gegevens input {
+  height: 2rem;
+  width: 50%;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(2, 87, 122);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+main#profile .container form#gegevens button[type=submit] {
+  width: 50%;
+  height: 2rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(2, 87, 122);
+  padding: 0.5rem;
+  background-color: rgb(1, 48, 63);
+  color: rgb(212, 240, 252);
+  cursor: pointer;
+}
+@media only screen and (max-width: 1250px) {
+  main#profile .container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+  }
+  main#profile .container aside#navigatie {
+    background-color: rgb(212, 240, 252);
+    border: 1px solid rgb(2, 87, 122);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  main#profile .container aside#navigatie nav {
+    text-align: center;
+    padding-right: 0px;
+  }
+  main#profile .container form#gegevens {
+    background-color: rgb(212, 240, 252);
+    border: 1px solid rgb(2, 87, 122);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
 }
 
 body#Artikelen .container {
   display: grid;
   grid-template-columns: 20% 80%;
 }
-body#Artikelen .container .sort .sortField label {
-  width: 100%;
-  border: 0;
-  background-color: inherit;
-  text-align: center;
-  cursor: pointer;
+body#Artikelen .container .sort {
+  padding: 1rem;
+  font-size: larger;
 }
-body#Artikelen .container .sort .sortField .input {
-  display: none;
-  grid-template-columns: 44% 10% 44%;
-  gap: 1%;
+body#Artikelen .container .sort input[type=checkbox] {
+  width: 1rem;
+  height: 1rem;
 }
-body#Artikelen .container .sort .sortField .input input {
+body#Artikelen .container .sort .generalSort {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+body#Artikelen .container .sort .generalSort div:nth-child(1) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.1rem;
+}
+body#Artikelen .container .sort .sortSoort {
+  padding: 1rem;
+  border-color: rgb(2, 87, 122);
+  border-style: solid;
+  border-radius: 0.5rem;
+}
+body#Artikelen .container .sort .sortSoort label {
   display: inline-block;
+}
+body#Artikelen .container .sort input[type=submit] {
+  padding: 0.5rem;
+  margin-top: 1rem;
   width: 100%;
+  font-size: large;
+  border: 1px solid rgb(2, 87, 122);
+  border-radius: 0.5rem;
+  background-color: rgb(212, 240, 252);
+}
+body#Artikelen .container .sort input[type=submit]:hover {
+  background-color: rgb(2, 87, 122);
+  color: rgb(212, 240, 252);
 }
 body#Artikelen .container .artikelen #myInput {
   width: 80%;
@@ -862,4 +1082,9 @@ body#Artikelen .container .artikelen ul li a .artikel .prijs p {
 body#Artikelen .container .artikelen ul li a .artikel .prijs .ouldPrice {
   text-decoration: line-through;
   color: grey;
+}
+@media only screen and (max-width: 1250px) {
+  body#Artikelen .container {
+    display: block;
+  }
 }/*# sourceMappingURL=index.css.map */

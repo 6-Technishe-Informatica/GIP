@@ -54,3 +54,10 @@ function myFunction() {
         }
     });
 }
+
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+
+burger.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+});

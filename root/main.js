@@ -234,40 +234,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             spec.innerHTML += '<input type="hidden" name="categorie" id="categorie" value="headphones">'
 
         });
-
-    }
-
-    if (document.body.id == 'Artikelen') {
-        const btn = document.querySelectorAll("label#button");
-        const btnSoort = document.querySelectorAll('label#buttonSoort');
-
-        btn.forEach(button => {
-            var nextElement = button.nextElementSibling;
-
-            button.addEventListener('click', function () {
-
-
-                if (nextElement.style.display == "grid") {
-                    nextElement.style.display = "none";
-                } else {
-                    nextElement.style.display = "grid";
-                }
-            });
-        })
-
-        btnSoort.forEach(button => {
-            var nextElement = button.nextElementSibling;
-
-            button.addEventListener('click', function () {
-
-
-                if (nextElement.style.display == "block") {
-                    nextElement.style.display = "none";
-                } else {
-                    nextElement.style.display = "block";
-                }
-            });
-        })
     }
 });
 

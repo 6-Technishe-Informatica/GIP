@@ -4,12 +4,14 @@
     box-sizing: border-box;
 }
 
-main { // creates white space for nav placement
+main {
+    // creates white space for nav placement
     margin-top: 2rem;
 }
 
 header {
-    nav { // nav style
+    nav {
+        // nav style
         background-color: $primaryColor;
         display: flex;
         justify-content: space-between;
@@ -23,13 +25,17 @@ header {
             padding-left: 50px;
             a {
                 text-decoration: none;
-    
+
                 color: $secondAccentColor;
                 font-size: 2rem;
                 span {
                     color: $secondaryColor;
                 }
             }
+        }
+
+        #burger {
+            display: none;
         }
 
         // nav links style
@@ -49,31 +55,30 @@ header {
                     color: $secondaryColor;
 
                     // winkelmandje opmaak
-                    img{
+                    img {
                         text-align: center;
                         height: 20px;
                     }
                 }
 
-                input{
+                input {
                     background-color: $primaryColor;
                     border: 0;
                     color: $secondaryColor;
                     font-size: 1rem;
 
-                    &:focus{
+                    &:focus {
                         outline: none;
                         caret-color: $secondAccentColor;
                     }
                 }
-                
             }
 
             // ruimte voor de eerste en laatste li
             // li:first-child{
             //     margin-left: 30px;
             // }
-            li:last-child{
+            li:last-child {
                 margin-right: 30px;
             }
 
@@ -83,9 +88,9 @@ header {
                 // display: inline-block;
                 padding-bottom: 0.25rem; // defines the space between text and underline
                 position: relative;
-              }
-              
-              .underline-hover-effect::before {
+            }
+
+            .underline-hover-effect::before {
                 content: "";
                 position: absolute;
                 left: 0;
@@ -94,10 +99,10 @@ header {
                 height: 2px;
                 background-color: $secondAccentColor;
                 transition: width 0.25s ease-out;
-              }
-              .underline-hover-effect:hover::before {
+            }
+            .underline-hover-effect:hover::before {
                 width: 100%;
-              }
+            }
 
             // ruimte tussen items
             li {
@@ -115,7 +120,7 @@ header {
         height: 2px;
     }
 
-    table{
+    table {
         width: 45vw;
         max-width: 650px;
         max-height: 50vh;
@@ -134,7 +139,8 @@ header {
         margin-bottom: 0;
         background-color: $primaryColor;
 
-        th, td {
+        th,
+        td {
             padding: 0.5rem;
             text-align: left;
 
@@ -142,30 +148,79 @@ header {
 
             width: 100%;
 
-            a{
+            a {
                 text-decoration: none;
                 color: $secondaryColor;
 
                 transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
 
-                &:hover{
+                &:hover {
                     color: $secondAccentColor;
                     text-decoration: underline;
                 }
             }
         }
 
-        tr{
+        tr {
             width: 100%;
 
-            td:nth-child(2){
+            td:nth-child(2) {
                 padding-right: 1rem;
             }
         }
 
-        th{
+        th {
             border-bottom: 1px solid $tertiaryColor;
-            color: $secondAccentColor;;  
+            color: $secondAccentColor;
+        }
+    }
+
+    @media only screen and (max-width: 1250px) {
+        nav {
+            flex-direction: row;
+
+            #burger {
+                display: block;
+
+                position: absolute;
+                top: 0.5rem;
+                right: 1.5rem;
+
+                width: 3rem;
+
+                z-index: 1000;
+            }
+
+            ul {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                display: none;
+
+                flex-direction: column;
+                justify-content: center;
+
+                height: 100vh;
+
+                background-color: $primaryColor;
+
+                .search {
+                    display: none;
+                }
+
+                li {
+                    border-left: none;
+                    border-bottom: 1px solid $tertiaryColor;
+                    width: 100%;
+                    text-align: center;
+                    padding: 1rem 5rem;
+                }
+            }
+
+            ul.active {
+                display: flex;
+            }
         }
     }
 }

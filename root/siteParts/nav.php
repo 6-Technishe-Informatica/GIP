@@ -3,17 +3,20 @@ session_start();
 ?>
 
 <nav>
-    <!-- <li><a href=""><img src="../images/burger.svg" alt="burger menu"></a></li> -->
     <h2>
         <a href="../index.php" class="logo"> Tech <span>Point</span></a>
     </h2>
-    <ul>
+
+    <img id="burger" src="../images/burger.svg" alt="burger menu">
+
+    <ul id="navLinks">
+
         <?php
         //check if the page is artikelen.php
         $paginaNaam =  basename($_SERVER['PHP_SELF']); //geeft pagina naam weer
 
-        if($paginaNaam != "artikelen.php"){
-            echo "<li><input type='text' id='myInput' onkeyup='myFunction()' onclick='hide()' placeholder='Search for artikelen..'></li>";
+        if ($paginaNaam != "artikelen.php") {
+            echo "<li class='search'><input type='text' id='myInput' onkeyup='myFunction()' onclick='hide()' placeholder='Search for artikelen..'></li>";
         }
 
         ?>

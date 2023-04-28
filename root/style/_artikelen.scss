@@ -1,35 +1,64 @@
-body#Artikelen{
-    .container{
+body#Artikelen {
+    .container {
         display: grid;
         grid-template-columns: 20% 80%;
 
-        .sort{
-            .sortField{
+        .sort {
+            padding: 1rem;
 
-                label{
-                    width: 100%;
-                    border: 0;
-                    background-color: inherit;
-                    text-align: center;
+            font-size: larger;
 
-                    cursor: pointer;
+            input[type="checkbox"] {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .generalSort {
+                display: grid;
+                gap: 0.5rem;
+
+                margin-bottom: 1rem;
+
+                div:nth-child(1) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.1rem;
                 }
+            }
 
-                .input{
-                    display: none;
-                    grid-template-columns: 44% 10% 44%;
-                    gap: 1%;
+            .sortSoort {
+                padding: 1rem;
 
-                    input{
-                        display: inline-block;
-                        width: 100%;
-                    }
+                border-color: $tertiaryColor;
+                border-style: solid;
+                border-radius: 0.5rem;
+
+                label {
+                    display: inline-block;
+                }
+            }
+
+            input[type="submit"] {
+                padding: 0.5rem;
+                margin-top: 1rem;
+
+                width: 100%;
+                font-size: large;
+
+                border: 1px solid $tertiaryColor;
+                border-radius: 0.5rem;
+
+                background-color: $secondaryColor;
+
+                &:hover {
+                    background-color: $tertiaryColor;
+                    color: $secondaryColor;
                 }
             }
         }
 
-        .artikelen{
-            #myInput{
+        .artikelen {
+            #myInput {
                 width: 80%;
                 padding: 1rem;
                 border: 1px solid $tertiaryColor;
@@ -41,16 +70,16 @@ body#Artikelen{
                 margin-right: auto;
             }
 
-            ul{
-                li{
+            ul {
+                li {
                     list-style-type: none;
                     padding: 1rem;
 
-                    a{
+                    a {
                         text-decoration: none;
                         color: black;
 
-                        .artikel{
+                        .artikel {
                             display: grid;
                             grid-template-areas: "img titel prijs" "img beschrijving beschrijving";
                             gap: 1rem;
@@ -60,29 +89,29 @@ body#Artikelen{
                             padding: 1rem;
 
                             background-color: $secondaryColor;
-    
-                            img{
+
+                            img {
                                 grid-area: img;
                                 width: 100%;
                                 max-width: 200px;
 
                                 mix-blend-mode: darken;
                             }
-    
-                            .titel{
+
+                            .titel {
                                 grid-area: titel;
                             }
-    
-                            .beschrijving{
+
+                            .beschrijving {
                                 grid-area: beschrijving;
                                 padding-left: 1rem;
                                 padding-right: 1rem;
                             }
-    
-                            .prijs{
+
+                            .prijs {
                                 grid-area: prijs;
-    
-                                p{
+
+                                p {
                                     display: inline;
                                     text-align: right;
                                     margin-right: 1rem;
@@ -94,7 +123,7 @@ body#Artikelen{
                                     text-align: center;
                                     text-decoration: none;
                                 }
-                
+
                                 .ouldPrice {
                                     text-decoration: line-through;
                                     color: grey;
@@ -104,6 +133,10 @@ body#Artikelen{
                     }
                 }
             }
+        }
+
+        @media only screen and (max-width: 1250px) {
+            display: block;
         }
     }
 }

@@ -1,18 +1,16 @@
-main#contact{
+main#contact {
     padding-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
 
-    h2{
+    h2 {
         font-size: 2rem;
     }
 
-    .gridContact{
-        
+    .gridContact {
         background-color: $secondaryColor;
         display: grid;
         grid-template-columns: 60% 1fr;
-
 
         justify-content: center;
         align-items: center;
@@ -22,11 +20,11 @@ main#contact{
 
         margin-top: 1rem;
 
-        li{
+        li {
             list-style-type: none;
         }
 
-        form{
+        form {
             display: grid;
             grid-template-columns: 0.1fr 1fr;
 
@@ -37,12 +35,12 @@ main#contact{
 
             padding: 1rem;
 
-            .message{
+            .message {
                 grid-column: span 2;
                 text-align: left;
             }
 
-            .messageArea{
+            .messageArea {
                 grid-column: span 2;
                 width: 100%;
                 height: 10rem;
@@ -52,19 +50,19 @@ main#contact{
                 padding: 0.5rem;
             }
 
-            label::before{
+            label::before {
                 content: "*";
                 color: $firstAccentColor;
             }
 
-            input{
+            input {
                 height: 1.5rem;
                 border-radius: 0.5rem;
                 border: 1px solid $tertiaryColor;
                 padding: 0.5rem;
             }
 
-            input[type="submit"]{
+            input[type="submit"] {
                 grid-column: span 2;
                 width: 100%;
                 height: 2rem;
@@ -79,32 +77,42 @@ main#contact{
                 cursor: pointer;
             }
 
-            input:focus, textarea:focus{
+            input:focus,
+            textarea:focus {
                 outline: none;
                 border: 2px solid $tertiaryColor;
 
                 caret-color: $secondAccentColor;
             }
 
-            .required{
+            .required {
                 grid-column: span 2;
 
                 color: red;
                 font-size: 0.8rem;
             }
 
-            .required.show{
+            .required.show {
                 height: 1rem;
             }
         }
 
-        .map{
+        .map {
             padding: 1rem;
             width: 100%;
             height: 100%;
 
-            
-            
+            iframe {
+                width: 100%;
+                height: 100%;
+
+                border-radius: 0.5rem;
+                border: 1px solid $tertiaryColor;
+            }
+        }
+
+        @media only screen and (max-width: 1250px) {
+            grid-template-columns: 1fr;
         }
     }
 }

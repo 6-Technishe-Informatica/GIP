@@ -44,17 +44,20 @@ meta description. This will often show up in search results.">
             ?>
         </article>
 
+        <div class="mobileCategorie">
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&cpu=on&sort=True"><div>CPU</div></a>
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&gpu=on&sort=True"><div>GPU</div></a>
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&moederbord=on&sort=True"><div>Moederbord</div></a>
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&ram=on&sort=True"><div>RAM</div></a>
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&case=on&sort=True"><div>Behuizing</div></a>
+            <a href="pages/artikelen.php?prijsMin=&prijsMax=&opslag=on&sort=True"><div>Opslag</div></a>
+        </div>
+
         <h2 class="dealsText">Special deals</h2>
         <div class="deals">
             <?php
 
-
-
-
             $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
-
-
-
 
             while ($productDeal = mysqli_fetch_assoc($res)) {
                 echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] . '&referentieNummer=' . $productDeal["referentieNummer"] . "'>";

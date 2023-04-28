@@ -1,31 +1,118 @@
-main#profile{
-    display: grid;
-    grid-template-columns: 10% 1fr;
-    width: 80%;
-    margin: auto;
-    padding: 1rem;
-    margin-top: 5%;
+main#profile {
+    .container {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        gap: 1rem;
 
-    h2{
-        margin-bottom: 5%;
-    }
+        max-width: 80%;
 
-    aside#navigatie{
-        nav{
-            padding-right: 25px;
-            li{
-                list-style-type: none;
-                padding-bottom: 10px;
+        margin-top: 1rem;
+        padding: 1rem;
+
+        justify-content: center;
+        align-items: center;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        aside#navigatie {
+            background-color: $secondaryColor;
+
+            border: 1px solid $tertiaryColor;
+            border-radius: 0.5rem;
+
+            padding: 1rem;
+
+            nav {
+                text-align: center;
+                li {
+                    list-style-type: none;
+                    padding-bottom: 10px;
+                }
             }
         }
 
+        form#gegevens {
+            background-color: $secondaryColor;
+
+            border: 1px solid $tertiaryColor;
+            border-radius: 0.5rem;
+
+            padding: 1rem;
+
+            text-align: center;
+
+            label {
+                display: block;
+            }
+
+            input {
+                height: 2rem;
+                width: 50%;
+
+                border-radius: 0.5rem;
+                border: 1px solid $tertiaryColor;
+                padding: 0.5rem;
+
+                margin-bottom: 0.5rem;
+            }
+
+            button[type="submit"] {
+                width: 50%;
+                height: 2rem;
+
+                margin-top: 1rem;
+
+                border-radius: 0.5rem;
+                border: 1px solid $tertiaryColor;
+                padding: 0.5rem;
+
+                background-color: $primaryColor;
+                color: $secondaryColor;
+
+                cursor: pointer;
+            }
+        }
     }
 
-    form#gegevens{
-        padding-left: 25px;
-        border-left: 1px solid black;
-        
-    }
+    @media only screen and (max-width: 1250px) {
+        .container {
+            grid-template-columns: 1fr;
 
-    
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background-color: transparent;
+
+            border: none;
+
+            aside#navigatie {
+                background-color: $secondaryColor;
+
+                border: 1px solid $tertiaryColor;
+                border-radius: 0.5rem;
+
+                padding: 1rem;
+
+                nav {
+                    text-align: center;
+                    padding-right: 0px;
+                }
+            }
+
+            form#gegevens {
+                background-color: $secondaryColor;
+
+                border: 1px solid $tertiaryColor;
+                border-radius: 0.5rem;
+
+                padding: 1rem;
+            }
+        }
+    }
 }

@@ -16,50 +16,48 @@
         <?php include '../siteParts/nav.php'; ?>
     </header>
     <main id="profile">
-        <aside id="navigatie">
-            <nav>
-                <h2>
-                    <!-- toont de naam van de persoon boven de navigatie -->
-                    
+        <div class="container">
+            <aside id="navigatie">
+                <nav>
+                    <h2>
+                        <!-- toont de naam van de persoon boven de navigatie -->
+
                         <?php echo $_SESSION["useruid"]; ?>
-                </h2>
-                <ul>
-                    <li><a href="#gegevens">Account details</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">Beveiliging</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">Facturen</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">Bestellingen</a></li>
-                </ul>
-            </nav>
-        </aside>
+                    </h2>
+                    <ul>
+                        <li><a href="#gegevens">Account details</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="">Beveiliging</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="">Facturen</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="">Bestellingen</a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-        <form id="gegevens" action="../profile.inc.php" method="POST">
+            <form id="gegevens" action="../profile.inc.php" method="POST">
 
-            <h2>Pas jouw gegevens aan</h2>
+                <h2>Pas jouw gegevens aan</h2>
 
-            <label for="naam">Naam <br>
+                <label for="naam">Naam</label>
                 <input type="text" name="naam" id="naam">
-            </label>
-            <br>
-            <label for="email">e-mail<br>
+
+                <label for="email">e-mail</label>
                 <input type="text" name="email" id="email">
-            </label><br>
 
-            <label for="gebruikersnaam">Gebruikersnaam<br>
+                <label for="gebruikersnaam">Gebruikersnaam</label>
                 <input type="text" name="gebruikersnaam" id="gebruikersnaam">
-            </label><br>
 
-            <label for="wachtwoord">Wachtwoord:<br>
+                <label for="wachtwoord">Wachtwoord:</label>
                 <input type="text" name="wachtwoord" id="wachtwoord">
-            </label><br>
 
-            <button type="submit" name="account-gegevens">Pas aan</button>
-        </form>
+                <button type="submit" name="account-gegevens">Pas aan</button>
+            </form>
+        </div>
 
     </main>
     <footer>

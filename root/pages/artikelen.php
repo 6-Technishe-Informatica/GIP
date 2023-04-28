@@ -22,31 +22,52 @@
         <div class="container">
             <div class="sort">
                 <form action="?sort=true">
-                    <div class="sortField">
-                        <label id="button" for="prijsMin">Prijs</label>
-                        <div class="input">
+
+                    <div class="generalSort">
+                        <div>
+                            <label for="prijsMin">Prijs</label>
                             <input name="prijsMin" class="inputPrijs" type="number">
-                            <label id="paragraaf" for="prijsMax">tot</label>
+                            <label for="prijsMax">tot</label>
                             <input name="prijsMax" class="inputPrijs" type="number">
                         </div>
-                    </div>
 
-                    <div class="sortField">
-                        <label id="button" for="voorraad">beschikbaarheid</label>
-                        <div class="input">
+                        <div>
                             <input type="checkbox" name="voorraad">
                             <label for="voorraad">Op voorraad</label>
                         </div>
                     </div>
 
-                    <div class="sortSoort">
-                        <div class="sortField">
-                            <label id="buttonSoort">Cpu</label>
-                            <div class="input">
+                    <fieldset class="sortSoort">
+                        <legend>Soorten</legend>
 
-                            </div>
-                        </div>
-                    </div>
+                        <input type="checkbox" name="cpu">
+                        <label for="cpu">Cpu</label>
+
+                        <br>
+
+                        <input type="checkbox" name="gpu">
+                        <label for="gpu">Gpu</label>
+
+                        <br>
+
+                        <input type="checkbox" name="moederbord">
+                        <label for="moederbord">Moederbord</label>
+
+                        <br>
+
+                        <input type="checkbox" name="ram">
+                        <label for="ram">Ram</label>
+
+                        <br>
+
+                        <input type="checkbox" name="opslag">
+                        <label for="opslag">Opslag</label>
+
+                        <br>
+
+                        <input type="checkbox" name="case">
+                        <label for="case">Case</label>
+                    </fieldset>
 
                     <input type="hidden" value="True" name="sort">
 
@@ -62,29 +83,132 @@
                     <?php
 
                     // get data from database conn2 = database gip and put them in a list
-                    if (isset($_GET['sort'])){
+                    if (isset($_GET['sort'])) {
                         $minPrijs = $_GET['prijsMin'];
                         $maxPrijs = $_GET['prijsMax'];
 
                         $addAND = 0;
+                        $addOR = 0;
+                        $soort = false;
 
                         $sql = "SELECT * FROM artikelen WHERE";
 
-                        if ($minPrijs != NULL){
+                        $sql2 = "SELECT * FROM specificaties WHERE";
+
+                        if ($minPrijs != NULL) {
                             $sql .= " prijs BETWEEN $minPrijs AND $maxPrijs";
                             $addAND++;
                         }
 
-                        if(isset($_GET['voorraad'])) {
-                            if ($addAND > 0){
+                        if (isset($_GET['voorraad'])) {
+                            if ($addAND > 0) {
                                 $addAND--;
-                                $sql += "AND";
+                                $sql .= " AND ";
                             }
+
                             $sql .= " beschikbaarheid > 0";
                         }
 
-                        $result = mysqli_query($conn2, $sql);
-                    }else{
+                        //soorten artikelen sort
+
+                        if (isset($_GET['cpu'])) {
+                            $soort = true;
+                            $sql2 .= " soort = 'cpu'";
+                            $addOR++;
+                        }
+
+                        if (isset($_GET['gpu'])) {
+                            if ($addOR > 0) {
+                                $addOR--;
+                                $sql2 .= " OR ";
+                            }
+
+                            $addOR++;
+                            $soort = true;
+
+                            $sql2 .= " soort = 'gpu'";
+                        }
+
+                        if (isset($_GET['moederbord'])) {
+                            if ($addOR > 0) {
+                                $addOR--;
+                                $sql2 .= " OR ";
+                            }
+
+                            $addOR++;
+                            $soort = true;
+
+                            $sql2 .= " soort = 'mobo'";
+                        }
+
+                        if (isset($_GET['ram'])) {
+                            if ($addOR > 0) {
+                                $addOR--;
+                                $sql2 .= " OR ";
+                            }
+
+                            $addOR++;
+                            $soort = true;
+
+                            $sql2 .= " soort = 'ram'";
+                        }
+
+                        if (isset($_GET['opslag'])) {
+                            if ($addOR > 0) {
+                                $addOR--;
+                                $sql2 .= " OR ";
+                            }
+
+                            $addOR++;
+                            $soort = true;
+
+                            $sql2 .= " soort = 'storage'";
+                        }
+
+                        if (isset($_GET['case'])) {
+                            if ($addOR > 0) {
+                                $addOR--;
+                                $sql2 .= " OR ";
+                            }
+
+                            $addOR++;
+                            $soort = true;
+
+                            $sql2 .= " soort = 'case'";
+                        }
+
+                        if ($soort == true) {
+
+                            $result2 = mysqli_query($conn2, $sql2);
+
+                            $referentieNummers = array();
+
+                            while ($row = mysqli_fetch_assoc($result2)) {
+                                array_push($referentieNummers, $row['referentieNummer']);
+                            }
+
+                            if ($addAND > 0) {
+                                $addAND--;
+                                $sql .= " AND ";
+                            }
+
+                            $sql .= " referentieNummer IN (";
+
+                            for ($i = 0; $i < count($referentieNummers); $i++) {
+                                if ($i == count($referentieNummers) - 1) {
+                                    $sql .= $referentieNummers[$i];
+                                } else {
+                                    $sql .= $referentieNummers[$i] . ", ";
+                                }
+                            }
+
+                            $sql .= ")";
+
+                            $result = mysqli_query($conn2, $sql);
+                        } else {
+                            $result = mysqli_query($conn2, $sql);
+                        }
+                    } else {
                         $result = mysqli_query($conn2, "SELECT * FROM artikelen");
                     }
 
