@@ -94,7 +94,7 @@
                 }
                 ?>
 
-                <button class="winkelMand"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</button>
+                <button class="winkelMand" id="btnAddToCart"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</button>
             </div>
         </article>
         <div class="detailsDiscription">

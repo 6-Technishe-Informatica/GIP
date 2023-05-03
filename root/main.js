@@ -287,4 +287,13 @@ if (document.body.id == 'product') {
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
     }
+
+    const btnAddToCart = document.getElementById('btnAddToCart');
+
+    btnAddToCart.addEventListener('click', function () {
+        // get product id from url 
+        let url = window.location.href;
+        let id = url.substring(url.lastIndexOf('/') + 1);
+    });
+
 }
