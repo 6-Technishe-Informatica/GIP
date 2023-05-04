@@ -1,0 +1,102 @@
+main#winkelWagen {
+    max-width: 80%;
+    margin: auto;
+
+    .order{
+        h1, h2, h3{
+            font-weight: bold;
+            text-align: center;
+
+            color: $primaryColor;
+
+            padding: 1rem;
+        }
+    }
+
+    .error{
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+
+        color: $firstAccentColor;
+        text-decoration: underline;
+
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 0.2rem solid $firstAccentColor;
+        background-color: $primaryColor;
+    }
+
+    .product{
+        display: grid;
+        grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
+        gap: 0.5rem;
+
+        justify-content: center;
+        align-items: center;
+
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid $firstAccentColor;
+        border-radius: 0.5rem;
+        background-color: $secondaryColor;
+
+        img{
+            width: 100%;
+            mix-blend-mode: darken;
+        }
+
+        a{
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid $firstAccentColor;
+            background-color: $primaryColor;
+            color: $firstAccentColor;
+
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $firstAccentColor;
+                color: $primaryColor;
+            }
+        }
+    }
+
+    .checkout{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid $firstAccentColor;
+        border-radius: 0.5rem;
+        background-color: $secondaryColor;
+
+        .checkoutButton{
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid $firstAccentColor;
+            background-color: $primaryColor;
+            color: $firstAccentColor;
+            text-align: center;
+
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $firstAccentColor;
+                color: $primaryColor;
+            }
+        }
+
+        p{
+           text-align: right;
+           font-size: larger;
+
+            span{
+                color: $primaryColor;
+            }
+        }
+    }
+}

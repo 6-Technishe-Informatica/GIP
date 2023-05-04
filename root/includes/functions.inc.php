@@ -264,31 +264,53 @@ function addToShoppingCard($conn2) // voegt een artikel toe aan de shoppingcard
         mysqli_stmt_execute($stmt); // voert de statement uit.
         mysqli_stmt_close($stmt); // sluit de statement.   
     } else {
-        echo "U moet ingelogd zijn om een product te kunnen kopen.";
+        echo "<p class='error'>U moet ingelogd zijn om een product te kunnen kopen.</p>";
     }
 }
 
-function showShoppingCard($conn2){
-    $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $_SESSION['userid'] . ";");
+function showShoppingCard($conn2)
+{
+    if (isset($_SESSION['userid'])) {
+        $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $_SESSION['userid'] . ";");
 
-    while ($row = mysqli_fetch_array($result)) {
-        $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";");
-        while ($row2 = mysqli_fetch_array($result2)) {
-            echo "<div class='product'>";
-            echo '<img src="../images/productImages/' . $row['referentieNummer'] . '_1.webp' . '" alt="productPicture">';
-            echo "<div class='product-info'>";
-            echo "<h3 class='product-name'>" . $row2['artikelNaam'] . "</h3>";
+        $totaalPrijs = 0;
 
-            if ($row2['prijsNieuw'] != 0) {
-                echo "<p class='product-price'>€" . $row2['prijsNieuw'] . "</p>";
-            } else {
-                echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
+        //check if there are any records
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";");
+                while ($row2 = mysqli_fetch_array($result2)) {
+                    echo "<div class='product'>";
+                    echo '<img src="../images/productImages/' . $row['referentieNummer'] . '_1.webp' . '" alt="productPicture">';
+                    echo "<h3 class='product-name'>" . $row2['artikelNaam'] . "</h3>";
+    
+                    if ($row2['prijsNieuw'] != "") {
+                        echo "<p class='product-price'>€" . $row2['prijsNieuw'] . "</p>";
+                        $totaalPrijs += $row2['prijsNieuw'];
+                    } else {
+                        echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
+                        $totaalPrijs += $row2['prijs'];
+                    }
+
+                    echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "'>Verwijderen</a>";
+                    echo "</div>";
+                }
             }
-            echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
-            echo "</div>";
-            echo "</div>";
+
+            return $totaalPrijs;
+        } else {
+            echo "<p class='error'>Uw winkelwagen is leeg.</p>";
         }
+
+    } else {
+        echo "<p class='error'>Log u in om uw winkelwagen te kunnen bekijken.</p>";
     }
+}
+
+function clearShoppingcard($conn2, $klantNummer)
+{
+    $sql = "DELETE FROM winkelwagen WHERE klantNummer = $klantNummer";
+    mysqli_query($conn2, $sql);  
 }
 
 // -------------------- PROFILE PAGE -------------------------

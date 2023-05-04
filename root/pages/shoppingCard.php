@@ -13,22 +13,29 @@
 
 <body id="card">
     <header>
-        <?php 
-        include '../siteParts/nav.php'; 
+        <?php
+        include '../siteParts/nav.php';
         include '../includes/dbh.inc.php';
         include '../includes/functions.inc.php';
         ?>
     </header>
-    <main>
+    <main id="winkelWagen">
         <?php
-            //check if get referentieNummer is set
+        //check if get referentieNummer is set
+        $totaalPrijs = 0;
 
-            if (isset($_GET['referentieNummer'])) {
-                addToShoppingCard($conn2);
-            } else {
-                showShoppingCard($conn2);
-            }
+        if (isset($_GET['referentieNummer'])) {
+            addToShoppingCard($conn2);
+            $totaalPrijs = showShoppingCard($conn2);
+        } else {
+            $totaalPrijs = showShoppingCard($conn2);
+        }
         ?>
+
+        <div class="checkout">
+            <a href="../pages/checkout.php?klantNummer=<?php echo $_SESSION['userid']; ?>&totaal=<?php echo $totaalPrijs; ?>" class="checkoutButton">Checkout</a>
+            <p>Totaal: €<span><?php echo $totaalPrijs; ?></span></p>
+        </div>
     </main>
     <footer>
         <?php include '../siteParts/contact.php'; ?>
