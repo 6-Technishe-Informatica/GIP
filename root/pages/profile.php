@@ -26,15 +26,15 @@
                         <?php echo $_SESSION["useruid"]; ?>
                     </h2>
 
-                    <ul><li><a href="#gegevens">Naam</a></li></ul>
-                    <ul><li><a href="">Gebruikersnaam</a></li></ul>
-                    <ul><li><a href="">Email</a></li></ul>
-                    <ul><li><a href="">Wachtwoord</a></li></ul>
+                    <ul><li><a href="#naam" onclick="hideShow()">Naam</a></li></ul>
+                    <ul><li><a href="#gebruikersnaam" onclick="ShowGebruikersnaam()">Gebruikersnaam</a></li></ul>
+                    <ul><li><a href="#email" onclick="ShowEmail()">Email</a></li></ul>
+                    <ul><li><a href="#wachtwoord" onclick="ShowWachtwoord()"s>Wachtwoord</a></li></ul>
                 </nav>
             </aside>
 
             <div id="gegevens">
-                <div id="naam">
+                <div id="naam" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
                         
                         <label for="name">Naam</label>
@@ -43,7 +43,7 @@
                         <button type="submit" name="submit-naam">Pas aan</button>
                     </form>
                 </div>
-                <div id="gebruikersnaam">
+                <div id="gebruikersnaam" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
                     
                     <label for="name">Gebruikersnaam</label>
@@ -52,7 +52,7 @@
                     <button type="submit" name="submit-gebruikersnaam">Pas aan</button>
                     </form>
                 </div>
-                <div id="email">
+                <div id="email" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
                     
                     <label for="name">Email address</label>
@@ -61,7 +61,7 @@
                     <button type="submit" name="submit-email">Pas aan</button>
                     </form>
                 </div>
-                <div id="wachtwoord">
+                <div id="wachtwoord" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
                     
                     <label for="name">Oud Wachtwoord</label>
@@ -85,6 +85,7 @@
     <footer>
         <?php include '../siteParts/contact.php'; ?>
     </footer>
+    <script src="profile.js"></script>
 </body>
 
 </html>
