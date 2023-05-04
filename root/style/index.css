@@ -924,17 +924,17 @@ main#profile .container aside#navigatie nav li {
   list-style-type: none;
   padding-bottom: 10px;
 }
-main#profile .container form#gegevens {
+main#profile .container div#gegevens {
   background-color: rgb(212, 240, 252);
   border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   padding: 1rem;
   text-align: center;
 }
-main#profile .container form#gegevens label {
+main#profile .container div#gegevens label {
   display: block;
 }
-main#profile .container form#gegevens input {
+main#profile .container div#gegevens input {
   height: 2rem;
   width: 50%;
   border-radius: 0.5rem;
@@ -942,7 +942,7 @@ main#profile .container form#gegevens input {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
-main#profile .container form#gegevens button[type=submit] {
+main#profile .container div#gegevens button[type=submit] {
   width: 50%;
   height: 2rem;
   margin-top: 1rem;
@@ -972,7 +972,7 @@ main#profile .container form#gegevens button[type=submit] {
     text-align: center;
     padding-right: 0px;
   }
-  main#profile .container form#gegevens {
+  main#profile .container div#gegevens {
     background-color: rgb(212, 240, 252);
     border: 1px solid rgb(2, 87, 122);
     border-radius: 0.5rem;

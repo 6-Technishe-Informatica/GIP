@@ -255,3 +255,80 @@ function addToShoppingCard() // voegt een artikel toe aan de shoppingcard
 {
     
 }
+
+// -------------------- PROFILE PAGE -------------------------
+
+// vervangt de gerbuikersnaam van in de database met de nieuwe gebruikersnaam
+
+function update_name($conn, $name, $usersId){
+    
+    $query = "UPDATE users SET usersName = '$name' WHERE usersId = '$usersId'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("location: ../pages/profile.php?error=data-saved");
+    }else{
+        header("location: ../pages/profile.php?error=data-not-saved");
+    }
+}
+
+function update_username($conn, $usersUid, $usersId){
+    
+    $query = "UPDATE users SET usersUid = '$usersUid' WHERE usersId = '$usersId'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("location: ../pages/profile.php?error=data-saved");
+    }else{
+        header("location: ../pages/profile.php?error=data-not-saved");
+    }
+}
+
+function update_email($conn, $usersUid, $usersId){
+    
+    $query = "UPDATE users SET usersEmail = '$usersUid' WHERE usersId = '$usersId'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("location: ../pages/profile.php?error=data-saved");
+    }else{
+        header("location: ../pages/profile.php?error=data-not-saved");
+    }
+}
+
+function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId){
+
+    
+    // check if the $pwd and $usersPwd_repeat are the same
+    if($pwd == $usersPwd_repeat){
+
+        $salt = '$6$rounds=5000$gipmanuenquinten$'; // $salt is de variabele die de salt bevat voor het hashen van het wachtwoord.
+
+        $hashedPwd = crypt($pwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.
+        
+        // get pwd from database
+        $query = "SELECT usersPwd FROM users WHERE usersId = '$usersId'";
+        $query_run = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($query_run);
+        $pwdFromDatabase = $row['usersPwd'];
+
+        // check if the $pwd and $pwdFromDatabase are the same
+        if($hashedPwd == $pwdFromDatabase){
+
+            $newPwd = crypt($newPwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.s
+
+            $query = "UPDATE users SET usersPwd = '$newPwd' WHERE usersId = '$usersId'";
+            $query_run = mysqli_query($conn, $query);
+
+            if($query_run){
+                header("location: ../pages/profile.php?error=data-saved");
+            }else{
+                header("location: ../pages/profile.php?error=data-not-saved");
+            }
+        }
+
+    }else{
+        header("location: ../pages/profile.php?error=passwords-dont-match");
+        exit();
+    }
+}
