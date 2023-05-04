@@ -20,7 +20,7 @@
         <p>Wij zijn te vinden in Dendermonde, België.</p>
 
         <div class="gridContact">
-            <form id="form" action="#" method="get">
+            <form id="form" action="../includes/form.inc.php" method="post">
                 <label for="name">Naam</label>
                 <input id="name" type="text" name="name" id="name" placeholder="Naam">
                 <div class="required"></div>
@@ -33,7 +33,7 @@
                 <textarea id="text" class="messageArea" name="message" id="message" cols="30" rows="10" placeholder="Bericht"></textarea>
                 <div class="required"></div>
 
-                <input type="submit" value="Verzenden">
+                <input type="submit" name="submit" value="Submit">
             </form>
 
             <div class="map">

@@ -15,8 +15,14 @@ main#profile {
         margin-left: auto;
         margin-right: auto;
 
-        h2 {
+        h2,
+        h1 {
             margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            grid-column: span 2;
         }
 
         aside#navigatie {
@@ -32,6 +38,14 @@ main#profile {
                 li {
                     list-style-type: none;
                     padding-bottom: 10px;
+
+                    button {
+                        all: unset;
+
+                        cursor: pointer;
+                        color: $tertiaryColor;
+                        border-bottom: 1px solid $tertiaryColor;
+                    }
                 }
             }
         }
@@ -53,6 +67,7 @@ main#profile {
             input {
                 height: 2rem;
                 width: 50%;
+                margin-top: 0.5rem;
 
                 border-radius: 0.5rem;
                 border: 1px solid $tertiaryColor;
@@ -106,6 +121,9 @@ main#profile {
                 nav {
                     text-align: center;
                     padding-right: 0px;
+
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
                 }
             }
 
@@ -116,6 +134,10 @@ main#profile {
                 border-radius: 0.5rem;
 
                 padding: 1rem;
+
+                input{
+                    width: 100%;
+                }
             }
         }
     }

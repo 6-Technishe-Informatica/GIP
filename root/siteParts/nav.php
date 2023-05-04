@@ -36,7 +36,7 @@ session_start();
             echo "<li class='nav-item' ><a href='../pages/login.php' class='underline-hover-effect'>Log in</a></li>";
         }
         ?>
-        <li><a href="#"><img width="20px" height="20px" src="../images/winkelwagen.svg" alt="winkelwagen"></a></li>
+        <li><a href="../pages/shoppingCard.php"><img width="20px" height="20px" src="../images/winkelwagen.svg" alt="winkelwagen"></a></li>
     </ul>
 </nav>
 <hr>

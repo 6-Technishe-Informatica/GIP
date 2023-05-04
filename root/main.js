@@ -291,9 +291,120 @@ if (document.body.id == 'product') {
     const btnAddToCart = document.getElementById('btnAddToCart');
 
     btnAddToCart.addEventListener('click', function () {
-        // get product id from url 
-        let url = window.location.href;
-        let id = url.substring(url.lastIndexOf('/') + 1);
+        let params = new URLSearchParams(location.search);
+        let referentieNummer = params.get('referentieNummer');
+
+        //redirect to cart page
+        window.location.href = "../pages/shoppingCard.php?referentieNummer=" + referentieNummer;
     });
 
+}
+
+if (document.body.id == 'profile') {
+    const btnNaam = document.getElementById('btnNaam');
+    const btnEmail = document.getElementById('btnEmail');
+    const btnWachtwoord = document.getElementById('btnWachtwoord');
+    const btnGebruikersnaam = document.getElementById('btnGebruikersnaam');
+
+    const naam = document.getElementById('naam');
+    const email = document.getElementById('email');
+    const wachtwoord = document.getElementById('wachtwoord');
+    const gebruikersnaam = document.getElementById('gebruikersnaam');
+    const start = document.getElementById('start');
+
+    btnNaam.addEventListener('click', function () {
+        naam.classList.toggle('hidden');
+
+        if (!email.classList.contains('hidden')) {
+            email.classList.toggle('hidden');
+        }
+
+        if (!wachtwoord.classList.contains('hidden')) {
+            wachtwoord.classList.toggle('hidden');
+        }
+
+        if (!gebruikersnaam.classList.contains('hidden')) {
+            gebruikersnaam.classList.toggle('hidden');
+        }
+
+        if (!start.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+
+        if (naam.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+    });
+
+    btnEmail.addEventListener('click', function () {
+        email.classList.toggle('hidden');
+
+        if (!naam.classList.contains('hidden')) {
+            naam.classList.toggle('hidden');
+        }
+
+        if (!wachtwoord.classList.contains('hidden')) {
+            wachtwoord.classList.toggle('hidden');
+        }
+
+        if (!gebruikersnaam.classList.contains('hidden')) {
+            gebruikersnaam.classList.toggle('hidden');
+        }
+
+        if (!start.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+
+        if (email.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+    });
+
+    btnWachtwoord.addEventListener('click', function () {
+        wachtwoord.classList.toggle('hidden');
+
+        if (!naam.classList.contains('hidden')) {
+            naam.classList.toggle('hidden');
+        }
+
+        if (!email.classList.contains('hidden')) {
+            email.classList.toggle('hidden');
+        }
+
+        if (!gebruikersnaam.classList.contains('hidden')) {
+            gebruikersnaam.classList.toggle('hidden');
+        }
+
+        if (!start.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+
+        if (wachtwoord.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+    });
+
+    btnGebruikersnaam.addEventListener('click', function () {
+        gebruikersnaam.classList.toggle('hidden');
+
+        if (!naam.classList.contains('hidden')) {
+            naam.classList.toggle('hidden');
+        }
+
+        if (!email.classList.contains('hidden')) {
+            email.classList.toggle('hidden');
+        }
+
+        if (!wachtwoord.classList.contains('hidden')) {
+            wachtwoord.classList.toggle('hidden');
+        }
+
+        if (!start.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+
+        if (gebruikersnaam.classList.contains('hidden')) {
+            start.classList.toggle('hidden');
+        }
+    });
 }

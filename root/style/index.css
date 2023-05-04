@@ -908,8 +908,13 @@ main#profile .container {
   margin-left: auto;
   margin-right: auto;
 }
-main#profile .container h2 {
+main#profile .container h2,
+main#profile .container h1 {
   margin-bottom: 1rem;
+}
+main#profile .container h1 {
+  font-size: 2rem;
+  grid-column: span 2;
 }
 main#profile .container aside#navigatie {
   background-color: rgb(212, 240, 252);
@@ -924,6 +929,12 @@ main#profile .container aside#navigatie nav li {
   list-style-type: none;
   padding-bottom: 10px;
 }
+main#profile .container aside#navigatie nav li button {
+  all: unset;
+  cursor: pointer;
+  color: rgb(2, 87, 122);
+  border-bottom: 1px solid rgb(2, 87, 122);
+}
 main#profile .container div#gegevens {
   background-color: rgb(212, 240, 252);
   border: 1px solid rgb(2, 87, 122);
@@ -937,6 +948,7 @@ main#profile .container div#gegevens label {
 main#profile .container div#gegevens input {
   height: 2rem;
   width: 50%;
+  margin-top: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
@@ -974,12 +986,17 @@ main#profile .container div#gegevens .hidden {
   main#profile .container aside#navigatie nav {
     text-align: center;
     padding-right: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   main#profile .container div#gegevens {
     background-color: rgb(212, 240, 252);
     border: 1px solid rgb(2, 87, 122);
     border-radius: 0.5rem;
     padding: 1rem;
+  }
+  main#profile .container div#gegevens input {
+    width: 100%;
   }
 }
 

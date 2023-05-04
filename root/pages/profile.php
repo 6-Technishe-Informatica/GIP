@@ -11,7 +11,7 @@
     <title>Tech point</title>
 </head>
 
-<body>
+<body id="profile">
     <header>
         <?php include '../siteParts/nav.php'; ?>
     </header>
@@ -21,22 +21,27 @@
 
             <aside id="navigatie">
                 <nav>
-                    <h2>
+                    <h1>
                         <!-- toont de naam van de persoon boven de navigatie -->
-                        <?php echo $_SESSION["useruid"]; ?>
-                    </h2>
+                        <?php echo "Hallo, " . $_SESSION["useruid"]; ?>
+                    </h1>
 
-                    <ul><li><a href="#naam" onclick="hideShow()">Naam</a></li></ul>
-                    <ul><li><a href="#gebruikersnaam" onclick="ShowGebruikersnaam()">Gebruikersnaam</a></li></ul>
-                    <ul><li><a href="#email" onclick="ShowEmail()">Email</a></li></ul>
-                    <ul><li><a href="#wachtwoord" onclick="ShowWachtwoord()"s>Wachtwoord</a></li></ul>
+                    <ul><li><button id="btnNaam">Naam</button></li></ul>
+                    <ul><li><button id="btnGebruikersnaam">Gebruikersnaam</button></li></ul>
+                    <ul><li><button id="btnEmail">Email</button></li></ul>
+                    <ul><li><button id="btnWachtwoord">Wachtwoord</button></li></ul>
                 </nav>
             </aside>
 
             <div id="gegevens">
+                <div id="start">
+                    <h2>Pas jouw gegevens aan</h2>
+
+                    <p>Kies 1 van de opties uit de navigatiebalk en pas je gegvens aan. Bij problemen kan je altijd terecht bij ons via de <a href="../pages/contact.php">contact pagina</a>.</p>
+                </div>
                 <div id="naam" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
-                        
+                        <h2>Wijzig je naam</h2>
                         <label for="name">Naam</label>
                         <input type="text" name="name" placeholder="Volledige naam">
                         <!-- <input type="submit" value="Registreer"> -->
@@ -45,35 +50,35 @@
                 </div>
                 <div id="gebruikersnaam" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
-                    
-                    <label for="name">Gebruikersnaam</label>
-                    <input type="text" name="usersUid" placeholder="Volledige naam">
-                    <!-- <input type="submit" value="Registreer"> -->
-                    <button type="submit" name="submit-gebruikersnaam">Pas aan</button>
+                        <h2>Wijzig je gebruikersnaam</h2>
+                        <label for="name">Gebruikersnaam</label>
+                        <input type="text" name="usersUid" placeholder="Volledige naam">
+                        <!-- <input type="submit" value="Registreer"> -->
+                        <button type="submit" name="submit-gebruikersnaam">Pas aan</button>
                     </form>
                 </div>
                 <div id="email" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
-                    
-                    <label for="name">Email address</label>
-                    <input type="text" name="usersEmail" placeholder="Volledige naam">
-                    <!-- <input type="submit" value="Registreer"> -->
-                    <button type="submit" name="submit-email">Pas aan</button>
+                        <h2>Wijzig je email address</h2>
+                        <label for="name">Email address</label>
+                        <input type="text" name="usersEmail" placeholder="Volledige naam">
+                        <!-- <input type="submit" value="Registreer"> -->
+                        <button type="submit" name="submit-email">Pas aan</button>
                     </form>
                 </div>
                 <div id="wachtwoord" class="hidden">
                     <form action="../includes/profile.inc.php" method="post">
-                    
-                    <label for="name">Oud Wachtwoord</label>
-                    <input type="text" name="usersPwd" placeholder="Volledige naam">
+                        <h2>Wijzig je wachtwoord</h2>
+                        <label for="name">Oud Wachtwoord</label>
+                        <input type="text" name="usersPwd" placeholder="Volledige naam">
 
-                    <label for="name">Herhaal oud wachtwoord</label>
-                    <input type="text" name="usersPwd-repeat" placeholder="Volledige naam">
+                        <label for="name">Herhaal oud wachtwoord</label>
+                        <input type="text" name="usersPwd-repeat" placeholder="Volledige naam">
 
-                    <label for="name">Nieuw wachtwoord</label>
-                    <input type="text" name="usersNewPwd" placeholder="Volledige naam">
-                    <!-- <input type="submit" value="Registreer"> -->
-                    <button type="submit" name="submit-password">Pas aan</button>
+                        <label for="name">Nieuw wachtwoord</label>
+                        <input type="text" name="usersNewPwd" placeholder="Volledige naam">
+                        <!-- <input type="submit" value="Registreer"> -->
+                        <button type="submit" name="submit-password">Pas aan</button>
                     </form>
                 </div>
                 
@@ -85,7 +90,7 @@
     <footer>
         <?php include '../siteParts/contact.php'; ?>
     </footer>
-    <script src="profile.js"></script>
+    <script src="../main.js"></script>
 </body>
 
 </html>

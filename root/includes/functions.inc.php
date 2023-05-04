@@ -251,61 +251,100 @@ function reArrayFiles($file) // zorgt ervoor dat de files in een array kunnen wo
     return $file_ary; // geeft de array terug
 }
 
-function addToShoppingCard() // voegt een artikel toe aan de shoppingcard
+function addToShoppingCard($conn2) // voegt een artikel toe aan de shoppingcard
 {
-    
+    if (isset($_SESSION['userid'])) {
+        $referentieNummer = $_GET['referentieNummer'];
+
+        $sql = "INSERT INTO winkelwagen (klantNummer, referentieNummer) VALUES (?, ?);";
+        $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
+        mysqli_stmt_prepare($stmt, $sql); // bereid een statement voor
+
+        mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userid'], $referentieNummer); // koppelt de ? in de sql statement aan de variabelen hieronder.
+        mysqli_stmt_execute($stmt); // voert de statement uit.
+        mysqli_stmt_close($stmt); // sluit de statement.   
+    } else {
+        echo "U moet ingelogd zijn om een product te kunnen kopen.";
+    }
+}
+
+function showShoppingCard($conn2){
+    $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $_SESSION['userid'] . ";");
+
+    while ($row = mysqli_fetch_array($result)) {
+        $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";");
+        while ($row2 = mysqli_fetch_array($result2)) {
+            echo "<div class='product'>";
+            echo '<img src="../images/productImages/' . $row['referentieNummer'] . '_1.webp' . '" alt="productPicture">';
+            echo "<div class='product-info'>";
+            echo "<h3 class='product-name'>" . $row2['artikelNaam'] . "</h3>";
+
+            if ($row2['prijsNieuw'] != 0) {
+                echo "<p class='product-price'>€" . $row2['prijsNieuw'] . "</p>";
+            } else {
+                echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
+            }
+            echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+    }
 }
 
 // -------------------- PROFILE PAGE -------------------------
 
 // vervangt de gerbuikersnaam van in de database met de nieuwe gebruikersnaam
 
-function update_name($conn, $name, $usersId){
-    
+function update_name($conn, $name, $usersId)
+{
+
     $query = "UPDATE users SET usersName = '$name' WHERE usersId = '$usersId'";
     $query_run = mysqli_query($conn, $query);
 
-    if($query_run){
+    if ($query_run) {
         header("location: ../pages/profile.php?error=data-saved");
-    }else{
+    } else {
         header("location: ../pages/profile.php?error=data-not-saved");
     }
 }
 
-function update_username($conn, $usersUid, $usersId){
-    
+function update_username($conn, $usersUid, $usersId)
+{
+
     $query = "UPDATE users SET usersUid = '$usersUid' WHERE usersId = '$usersId'";
     $query_run = mysqli_query($conn, $query);
 
-    if($query_run){
+    if ($query_run) {
         header("location: ../pages/profile.php?error=data-saved");
-    }else{
+    } else {
         header("location: ../pages/profile.php?error=data-not-saved");
     }
 }
 
-function update_email($conn, $usersUid, $usersId){
-    
+function update_email($conn, $usersUid, $usersId)
+{
+
     $query = "UPDATE users SET usersEmail = '$usersUid' WHERE usersId = '$usersId'";
     $query_run = mysqli_query($conn, $query);
 
-    if($query_run){
+    if ($query_run) {
         header("location: ../pages/profile.php?error=data-saved");
-    }else{
+    } else {
         header("location: ../pages/profile.php?error=data-not-saved");
     }
 }
 
-function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId){
+function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId)
+{
 
-    
+
     // check if the $pwd and $usersPwd_repeat are the same
-    if($pwd == $usersPwd_repeat){
+    if ($pwd == $usersPwd_repeat) {
 
         $salt = '$6$rounds=5000$gipmanuenquinten$'; // $salt is de variabele die de salt bevat voor het hashen van het wachtwoord.
 
         $hashedPwd = crypt($pwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.
-        
+
         // get pwd from database
         $query = "SELECT usersPwd FROM users WHERE usersId = '$usersId'";
         $query_run = mysqli_query($conn, $query);
@@ -313,21 +352,20 @@ function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId){
         $pwdFromDatabase = $row['usersPwd'];
 
         // check if the $pwd and $pwdFromDatabase are the same
-        if($hashedPwd == $pwdFromDatabase){
+        if ($hashedPwd == $pwdFromDatabase) {
 
             $newPwd = crypt($newPwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.s
 
             $query = "UPDATE users SET usersPwd = '$newPwd' WHERE usersId = '$usersId'";
             $query_run = mysqli_query($conn, $query);
 
-            if($query_run){
+            if ($query_run) {
                 header("location: ../pages/profile.php?error=data-saved");
-            }else{
+            } else {
                 header("location: ../pages/profile.php?error=data-not-saved");
             }
         }
-
-    }else{
+    } else {
         header("location: ../pages/profile.php?error=passwords-dont-match");
         exit();
     }
