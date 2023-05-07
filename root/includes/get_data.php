@@ -1,20 +1,16 @@
-<?php
+<?php // maakt connectie met de database en selecteert alles van de artikelen tabel en zet het in een array en zet het om naar json voor de zoekbalk
 $servername = "localhost";
 $username = "root";
 $password = "usbw";
 
-$conn = new mysqli($servername, $username, $password, "gip");
-$result = mysqli_query($conn, "SELECT * FROM artikelen");
+$conn = new mysqli($servername, $username, $password, "gip"); // connectie met de gip database
+$result = mysqli_query($conn, "SELECT * FROM artikelen"); // selecteert alles van de artikelen tabel
 
-
-//create an array
-$emparray = array();
-while($row =mysqli_fetch_assoc($result)){
+$emparray = array(); // maakt een array
+while($row =mysqli_fetch_assoc($result)){ // zet de resultaten in een array
     $emparray[] = $row;
 }
 
-// Convert JSON data from an array to a string
-echo json_encode($emparray);
+echo json_encode($emparray); // zet de array om naar json
 
-//close the db connection
-mysqli_close($conn);
+mysqli_close($conn); // sluit de connectie

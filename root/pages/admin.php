@@ -17,7 +17,7 @@
 
         <?php
 
-        if ($_SESSION["admin"] == 1) {
+        if ($_SESSION["admin"] == 1) { // checked of de gebruiker een admin is
             require_once '../includes/dbh.inc.php';
         } else {
             header("location: ../index.php");
@@ -35,16 +35,16 @@
             <form action="../includes/admin.inc.php" method="POST">
                 <label for="text">verandering: </label>
                 <textarea name="text" id="text" cols="30" rows="10"><?php
-                                                                    $text = mysqli_query($conn2, "SELECT * FROM admintext");
-                                                                    $textValue = mysqli_fetch_assoc($text);
+                                                                    $text = mysqli_query($conn2, "SELECT * FROM admintext"); // haalt de text op
+                                                                    $textValue = mysqli_fetch_assoc($text); // zet de text in een array
 
-                                                                    echo $textValue["frontpage"];
+                                                                    echo $textValue["frontpage"]; // laat de text zien
                                                                     ?></textarea>
                 <button type="submit" name="submit-text">pas aan</button>
             </form>
             <!-- foutcode -->
             <?php
-            if (isset($_GET["error"])) {
+            if (isset($_GET["error"])) { // kijkt of er een error is
                 if ($_GET["error"] == "emptyinput") {
                     echo "<p>Vul alle velden in!</p>";
                 }

@@ -24,11 +24,11 @@
         //check if get referentieNummer is set
         $totaalPrijs = 0;
 
-        if (isset($_GET['referentieNummer'])) {
-            addToShoppingCard($conn2);
-            $totaalPrijs = showShoppingCard($conn2);
+        if (isset($_GET['referentieNummer'])) { // als er een referentieNummer is
+            addToShoppingCard($conn2); // voeg het product toe aan de winkelwagen
+            $totaalPrijs = showShoppingCard($conn2); // laat de winkelwagen zien
         } else {
-            $totaalPrijs = showShoppingCard($conn2);
+            $totaalPrijs = showShoppingCard($conn2); // laat de winkelwagen zien
         }
         ?>
 

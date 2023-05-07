@@ -131,8 +131,6 @@ function loginUser($conn, $username, $pwd)
 
     // haalt het wachtwoord op uit de database
     $pwdHashed = $uidExists["usersPwd"];
-    // kijkt of de hashes overeen komen, werkt niet dus de pwdHashed moet nadien chechPwd worden in de if statement hier onder.
-    // $checkPwd = password_verify($pwd, $pwdHashed);
 
     if (crypt($pwd, $pwdHashed)) { // kijkt na of de hashes overeen komen, zoniet stuurt hij de gebruiker terug naar de login pagina met een error.  
         echo "loginUser";
@@ -155,9 +153,7 @@ function loginUser($conn, $username, $pwd)
     }
 }
 
-// -------------------- ADMIN PAGE -------------------------
-
-function emptyInput($text)
+function emptyInput($text) // kijkt na of de input fields leeg zijn.
 {
     $result = null; // gaat true or false terug geven
     // empty kijkt na of de variabele leeg is, als de variabele leeg is dan is de resultaat true.
@@ -268,95 +264,95 @@ function addToShoppingCard($conn2) // voegt een artikel toe aan de shoppingcard
     }
 }
 
-function showShoppingCard($conn2)
+function showShoppingCard($conn2) // laat de shoppingcard zien
 {
-    if (isset($_SESSION['userid'])) {
-        $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $_SESSION['userid'] . ";");
+    if (isset($_SESSION['userid'])) { // kijkt of de gebruiker is ingelogd
+        $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $_SESSION['userid'] . ";");  // haalt de winkelwagen op van de gebruiker
 
-        $totaalPrijs = 0;
+        $totaalPrijs = 0; 
 
         //check if there are any records
-        if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) { // kijkt of er artikelen in de winkelwagen zitten
             while ($row = mysqli_fetch_array($result)) {
-                $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";");
-                while ($row2 = mysqli_fetch_array($result2)) {
-                    echo "<div class='product'>";
+                $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";"); // haalt de artikelen op uit de database
+                while ($row2 = mysqli_fetch_array($result2)) { // loopt door de artikelen heen
+                    echo "<div class='product'>"; 
                     echo '<img src="../images/productImages/' . $row['referentieNummer'] . '_1.webp' . '" alt="productPicture">';
                     echo "<h3 class='product-name'>" . $row2['artikelNaam'] . "</h3>";
     
-                    if ($row2['prijsNieuw'] != "") {
-                        echo "<p class='product-price'>€" . $row2['prijsNieuw'] . "</p>";
-                        $totaalPrijs += $row2['prijsNieuw'];
-                    } else {
-                        echo "<p class='product-price'>€" . $row2['prijs'] . "</p>";
-                        $totaalPrijs += $row2['prijs'];
-                    }
+                    if ($row2['prijsNieuw'] != "") { // kijkt of er een promotieprijs is
+                        echo "<p class='product-price'>€" . $row2['prijsNieuw'] . "</p>";  // laat de promotieprijs zien
+                        $totaalPrijs += $row2['prijsNieuw']; // telt de prijs op bij de totaalprijs
+                    } else { // als er geen promotieprijs is
+                        echo "<p class='product-price'>€" . $row2['prijs'] . "</p>"; // laat de normale prijs zien
+                        $totaalPrijs += $row2['prijs']; // telt de prijs op bij de totaalprijs
+                    } 
 
-                    echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "'>Verwijderen</a>";
+                    echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "'>Verwijderen</a>"; // verwijdert het artikel uit de winkelwagen
                     echo "</div>";
                 }
             }
 
-            return $totaalPrijs;
+            return $totaalPrijs; // geeft de totaalprijs terug
         } else {
-            echo "<p class='error'>Uw winkelwagen is leeg.</p>";
+            echo "<p class='error'>Uw winkelwagen is leeg.</p>"; // laat een error zien als de winkelwagen leeg is
         }
 
     } else {
-        echo "<p class='error'>Log u in om uw winkelwagen te kunnen bekijken.</p>";
+        echo "<p class='error'>Log u in om uw winkelwagen te kunnen bekijken.</p>"; // laat een error zien als de gebruiker niet is ingelogd
     }
 }
 
-function clearShoppingcard($conn2, $klantNummer)
+function clearShoppingcard($conn2, $klantNummer) // verwijdert alle artikelen uit de winkelwagen
 {
-    $sql = "DELETE FROM winkelwagen WHERE klantNummer = $klantNummer";
-    mysqli_query($conn2, $sql);  
+    $sql = "DELETE FROM winkelwagen WHERE klantNummer = $klantNummer"; // verwijdert alle artikelen uit de winkelwagen
+    mysqli_query($conn2, $sql); // voert de query uit
 }
 
 // -------------------- PROFILE PAGE -------------------------
 
 // vervangt de gerbuikersnaam van in de database met de nieuwe gebruikersnaam
 
-function update_name($conn, $name, $usersId)
+function update_name($conn, $name, $usersId) // update de naam van de gebruiker
 {
 
-    $query = "UPDATE users SET usersName = '$name' WHERE usersId = '$usersId'";
-    $query_run = mysqli_query($conn, $query);
+    $query = "UPDATE users SET usersName = '$name' WHERE usersId = '$usersId'"; // update de naam van de gebruiker
+    $query_run = mysqli_query($conn, $query); // voert de query uit
 
-    if ($query_run) {
-        header("location: ../pages/profile.php?error=data-saved");
+    if ($query_run) { // kijkt of de query is uitgevoerd
+        header("location: ../pages/profile.php?error=data-saved"); // laat een melding zien als de query is uitgevoerd
     } else {
-        header("location: ../pages/profile.php?error=data-not-saved");
+        header("location: ../pages/profile.php?error=data-not-saved"); // laat een error zien als de query niet is uitgevoerd
     }
 }
 
-function update_username($conn, $usersUid, $usersId)
+function update_username($conn, $usersUid, $usersId) // update de gebruikersnaam van de gebruiker
 {
 
-    $query = "UPDATE users SET usersUid = '$usersUid' WHERE usersId = '$usersId'";
-    $query_run = mysqli_query($conn, $query);
+    $query = "UPDATE users SET usersUid = '$usersUid' WHERE usersId = '$usersId'"; // update de gebruikersnaam van de gebruiker
+    $query_run = mysqli_query($conn, $query); // voert de query uit
 
-    if ($query_run) {
-        header("location: ../pages/profile.php?error=data-saved");
+    if ($query_run) { // kijkt of de query is uitgevoerd
+        header("location: ../pages/profile.php?error=data-saved"); // laat een melding zien als de query is uitgevoerd
     } else {
-        header("location: ../pages/profile.php?error=data-not-saved");
+        header("location: ../pages/profile.php?error=data-not-saved"); // laat een error zien als de query niet is uitgevoerd
     }
 }
 
-function update_email($conn, $usersUid, $usersId)
+function update_email($conn, $usersUid, $usersId) // update de email van de gebruiker
 {
 
-    $query = "UPDATE users SET usersEmail = '$usersUid' WHERE usersId = '$usersId'";
-    $query_run = mysqli_query($conn, $query);
+    $query = "UPDATE users SET usersEmail = '$usersUid' WHERE usersId = '$usersId'"; // update de email van de gebruiker
+    $query_run = mysqli_query($conn, $query); // voert de query uit
 
-    if ($query_run) {
-        header("location: ../pages/profile.php?error=data-saved");
+    if ($query_run) { // kijkt of de query is uitgevoerd 
+        header("location: ../pages/profile.php?error=data-saved"); // laat een melding zien als de query is uitgevoerd
     } else {
-        header("location: ../pages/profile.php?error=data-not-saved");
+        header("location: ../pages/profile.php?error=data-not-saved"); // laat een error zien als de query niet is uitgevoerd
     }
 }
 
-function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId)
+function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId) // update het wachtwoord van de gebruiker
 {
 
 
@@ -378,17 +374,17 @@ function update_password($conn, $pwd, $usersPwd_repeat, $newPwd, $usersId)
 
             $newPwd = crypt($newPwd, $salt); // $hashedPwd is de variabele die de hashed wachtwoord bevat.s
 
-            $query = "UPDATE users SET usersPwd = '$newPwd' WHERE usersId = '$usersId'";
+            $query = "UPDATE users SET usersPwd = '$newPwd' WHERE usersId = '$usersId'"; // update het wachtwoord van de gebruiker
             $query_run = mysqli_query($conn, $query);
 
-            if ($query_run) {
+            if ($query_run) { // kijkt of de query is uitgevoerd
                 header("location: ../pages/profile.php?error=data-saved");
             } else {
                 header("location: ../pages/profile.php?error=data-not-saved");
             }
         }
     } else {
-        header("location: ../pages/profile.php?error=passwords-dont-match");
+        header("location: ../pages/profile.php?error=passwords-dont-match"); // laat een error zien als de wachtwoorden niet overeenkomen
         exit();
     }
 }

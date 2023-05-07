@@ -42,6 +42,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         border-right: 1px solid $secondAccentColor;
+        padding-right: 1rem;
         p {
             text-align: center;
             a {
@@ -58,6 +59,8 @@ footer {
         align-items: center;
         margin-top: 2rem;
         gap: 5rem;
+
+        margin-left: 1rem;
         
 
         a {
@@ -65,6 +68,19 @@ footer {
                 width: 2rem;
                 height: 2rem;
                 fill: $secondAccentColor;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1250px) {
+        h2 {
+            font-size: 1.5rem;
+        }
+        .socialMedia {
+            gap: 2rem;
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
             }
         }
     }

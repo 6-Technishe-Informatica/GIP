@@ -205,7 +205,5 @@ if (isset($_POST["addAdminUser"])) {
         exit(); // zorgt ervoor dat de code stopt.
     }
 
-    createUser($conn, $name, $email, $username, $password, 1);
+    createUser($conn, $name, $email, $username, $password, 1); // maakt de gebruiker aan
 }
-
-//SELECT LAST_INSERT_ID()

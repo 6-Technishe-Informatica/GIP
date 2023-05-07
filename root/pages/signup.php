@@ -40,26 +40,26 @@
             </form>
             <!-- Geeft een foutcode op de pagina -->
             <?php
-                if(isset($_GET["error"])) {
-                    if($_GET["error"] == "emptyinput") {
+                if(isset($_GET["error"])) { // als er een error is
+                    if($_GET["error"] == "emptyinput") { // als de error emptyinput is
                         echo "<p>Vul alle velden in!</p>";
                     }
-                    else if($_GET["error"] == "invaliduid") {
+                    else if($_GET["error"] == "invaliduid") { // als de error invaliduid is
                         echo "<p>Kies een geldige gebruikersnaam!</p>";
                     }
-                    else if($_GET["error"] == "invalidemail") {
+                    else if($_GET["error"] == "invalidemail") { // als de error invalidemail is
                         echo "<p>Kies een geldig e-mail adres!</p>";
                     }
-                    else if($_GET["error"] == "passwordsdontmatch") {
+                    else if($_GET["error"] == "passwordsdontmatch") { // als de error passwordsdontmatch is
                         echo "<p>Wachtwoorden komen niet overeen!</p>";
                     }
-                    else if($_GET["error"] == "stmtfailed") {
+                    else if($_GET["error"] == "stmtfailed") { // als de error stmtfailed is
                         echo "<p>Er is iets fout gegaan, probeer het opnieuw!</p>";
                     }
-                    else if($_GET["error"] == "usernametaken") {
+                    else if($_GET["error"] == "usernametaken") { // als de error usernametaken is
                         echo "<p>Deze gebruikersnaam is al in gebruik!</p>";
                     }
-                    else if($_GET["error"] == "none") {
+                    else if($_GET["error"] == "none") { // als de error none is
                         echo "<p>U bent geregistreerd!</p>";
                     }
                 }

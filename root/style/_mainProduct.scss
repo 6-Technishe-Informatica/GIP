@@ -242,4 +242,21 @@ main#products {
             }
         }
     }
+
+    @media screen and (max-width: 1250px) {
+        article {
+            .images {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .slideshow-container{
+                .prev,
+                .next {
+                    display: none;
+                }
+            }
+        }
+    }
 }

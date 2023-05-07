@@ -23,7 +23,7 @@
                 <nav>
                     <h1>
                         <!-- toont de naam van de persoon boven de navigatie -->
-                        <?php echo "Hallo, " . $_SESSION["useruid"]; ?>
+                        <?php echo "Hallo, " . $_SESSION["useruid"]; ?> 
                     </h1>
 
                     <ul><li><button id="btnNaam">Naam</button></li></ul>
@@ -44,7 +44,6 @@
                         <h2>Wijzig je naam</h2>
                         <label for="name">Naam</label>
                         <input type="text" name="name" placeholder="Volledige naam">
-                        <!-- <input type="submit" value="Registreer"> -->
                         <button type="submit" name="submit-naam">Pas aan</button>
                     </form>
                 </div>
@@ -53,7 +52,6 @@
                         <h2>Wijzig je gebruikersnaam</h2>
                         <label for="name">Gebruikersnaam</label>
                         <input type="text" name="usersUid" placeholder="Volledige naam">
-                        <!-- <input type="submit" value="Registreer"> -->
                         <button type="submit" name="submit-gebruikersnaam">Pas aan</button>
                     </form>
                 </div>
@@ -62,7 +60,6 @@
                         <h2>Wijzig je email address</h2>
                         <label for="name">Email address</label>
                         <input type="text" name="usersEmail" placeholder="Volledige naam">
-                        <!-- <input type="submit" value="Registreer"> -->
                         <button type="submit" name="submit-email">Pas aan</button>
                     </form>
                 </div>
@@ -77,7 +74,6 @@
 
                         <label for="name">Nieuw wachtwoord</label>
                         <input type="text" name="usersNewPwd" placeholder="Volledige naam">
-                        <!-- <input type="submit" value="Registreer"> -->
                         <button type="submit" name="submit-password">Pas aan</button>
                     </form>
                 </div>

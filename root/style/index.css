@@ -37,6 +37,7 @@ header nav h2 a span {
 }
 header nav #burger {
   display: none;
+  cursor: pointer;
 }
 header nav ul {
   display: flex;
@@ -389,6 +390,7 @@ footer .contact {
   flex-direction: column;
   justify-content: center;
   border-right: 1px solid rgb(2, 169, 247);
+  padding-right: 1rem;
 }
 footer .contact p {
   text-align: center;
@@ -404,11 +406,24 @@ footer .socialMedia {
   align-items: center;
   margin-top: 2rem;
   gap: 5rem;
+  margin-left: 1rem;
 }
 footer .socialMedia a img {
   width: 2rem;
   height: 2rem;
   fill: rgb(2, 169, 247);
+}
+@media only screen and (max-width: 1250px) {
+  footer h2 {
+    font-size: 1.5rem;
+  }
+  footer .socialMedia {
+    gap: 2rem;
+  }
+  footer .socialMedia img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 main#contact {
@@ -693,6 +708,15 @@ main#products .detailsDiscription .details.active {
 }
 main#products .detailsDiscription .details.active p {
   display: inline;
+}
+@media screen and (max-width: 1250px) {
+  main#products article .images img {
+    width: 100%;
+  }
+  main#products article .slideshow-container .prev,
+  main#products article .slideshow-container .next {
+    display: none;
+  }
 }
 
 main#signup {
@@ -1136,14 +1160,16 @@ main#winkelWagen .product {
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0;
+  margin: auto;
   padding: 1rem;
   border: 1px solid rgb(137, 214, 251);
   border-radius: 0.5rem;
   background-color: rgb(212, 240, 252);
+  max-width: 80%;
 }
 main#winkelWagen .product img {
-  width: 100%;
+  width: auto;
+  max-height: 150px;
   mix-blend-mode: darken;
 }
 main#winkelWagen .product a {
@@ -1188,4 +1214,13 @@ main#winkelWagen .checkout p {
 }
 main#winkelWagen .checkout p span {
   color: rgb(1, 48, 63);
+}
+@media only screen and (max-width: 1250px) {
+  main#winkelWagen .product {
+    max-width: 100%;
+  }
+  main#winkelWagen .product img {
+    width: 100%;
+    max-height: 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

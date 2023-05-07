@@ -23,24 +23,23 @@ meta description. This will often show up in search results.">
         <article class="hero">
             <h2>Tech <span>Point</span></h2>
             <?php
-            //connect to database
             $servername = "localhost";
             $username = "root";
             $password = "usbw";
 
-            $conn = new mysqli($servername, $username, $password, "gip");
+            $conn = new mysqli($servername, $username, $password, "gip"); // connectie naar database
 
-            if (!$conn) {
-                echo "Fout: geen connectie naar database. <br>";
-                echo "Error: " . mysqli_connect_error() . "<br>";
-                exit();
+            if (!$conn) { // als er geen connectie is
+                echo "Fout: geen connectie naar database. <br>"; // geef een foutmelding
+                echo "Error: " . mysqli_connect_error() . "<br>"; // geef de foutmelding van de connectie
+                exit(); // stop de code
             }
 
-            $text = mysqli_query($conn, "SELECT * FROM admintext");
+            $text = mysqli_query($conn, "SELECT * FROM admintext"); // haalt de text op
 
-            $textValue = mysqli_fetch_assoc($text);
+            $textValue = mysqli_fetch_assoc($text); // zet de text in een array
 
-            echo "<p>" . $textValue["frontpage"] . "</p>";
+            echo "<p>" . $textValue["frontpage"] . "</p>"; // laat de text zien
             ?>
         </article>
 
@@ -57,22 +56,21 @@ meta description. This will often show up in search results.">
         <div class="deals">
             <?php
 
-            $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1");
+            $res = mysqli_query($conn, "SELECT * FROM artikelen WHERE specialDeal = 1"); // haalt alle producten op die in de aanbieding zijn
 
-            while ($productDeal = mysqli_fetch_assoc($res)) {
-                echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] . '&referentieNummer=' . $productDeal["referentieNummer"] . "'>";
+            while ($productDeal = mysqli_fetch_assoc($res)) { // zet de producten in een array
+                echo "<a href='pages/product.php?productName=" . $productDeal['artikelNaam'] . '&referentieNummer=' . $productDeal["referentieNummer"] . "'>"; // maakt een link naar de product pagina
                 echo '<article>';
-                echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
+                echo '<img src="images/productImages/' . $productDeal["referentieNummer"] . '_1.webp' . '" alt="productPicture">'; // laat de afbeelding zien
                 echo '<p>' . $productDeal['brand'] . '</p>';
                 echo '<div class="gridNamePrice dealsPrice">';
-                echo '<h3>' . $productDeal['artikelNaam'] . '</h3>';
+                echo '<h3>' . $productDeal['artikelNaam'] . '</h3>'; // laat de naam zien
 
-                //check if there is a new price
-                if ($productDeal['prijsNieuw'] !== "") {
-                    echo '<p class="ouldPrice">€ ' . $productDeal['prijs'] . '</p>';
-                    echo '<p class="newPrice">€ ' . $productDeal['prijsNieuw'] . '</p>';
-                } else {
-                    echo '<p class="newPrice">€ ' . $productDeal['prijs'] . '</p>';
+                if ($productDeal['prijsNieuw'] !== "") { // als er een nieuwe prijs is
+                    echo '<p class="ouldPrice">€ ' . $productDeal['prijs'] . '</p>'; // laat de oude prijs zien
+                    echo '<p class="newPrice">€ ' . $productDeal['prijsNieuw'] . '</p>'; // laat de nieuwe prijs zien
+                } else { // als er geen nieuwe prijs is
+                    echo '<p class="newPrice">€ ' . $productDeal['prijs'] . '</p>'; // laat de oude prijs zien
                 }
 
                 echo '</div>';
@@ -86,23 +84,21 @@ meta description. This will often show up in search results.">
         <div class="deals">
             <?php
 
-            $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1");
+            $res2 = mysqli_query($conn, "SELECT * FROM artikelen WHERE discover = 1"); // haalt alle producten op die in de aanbieding zijn
 
-            while ($productDiscover = mysqli_fetch_assoc($res2)) {
-                echo "<a href='pages/product.php?productName=" . $productDiscover['artikelNaam'] . '&referentieNummer=' . $productDiscover["referentieNummer"] . "'>";
+            while ($productDiscover = mysqli_fetch_assoc($res2)) { // zet de producten in een array
+                echo "<a href='pages/product.php?productName=" . $productDiscover['artikelNaam'] . '&referentieNummer=' . $productDiscover["referentieNummer"] . "'>"; // maakt een link naar de product pagina
                 echo '<article>';
-                echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
+                echo '<img src="images/productImages/' . $productDiscover["referentieNummer"] . '_1.webp' . '" alt="productPicture">'; // laat de afbeelding zien
                 echo '<p>' . $productDiscover['brand'] . '</p>';
                 echo '<div class="gridNamePrice dealsPrice">';
-                echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>';
+                echo '<h3>' . $productDiscover['artikelNaam'] . '</h3>'; // laat de naam zien
 
-                //check if there is a new price is not empty
-
-                if ($productDiscover['prijsNieuw'] !== "") {
-                    echo '<p class="ouldPrice">€ ' . $productDiscover['prijs'] . '</p>';
-                    echo '<p class="newPrice">€ ' . $productDiscover['prijsNieuw'] . '</p>';
-                } else {
-                    echo '<p class="newPrice">€ ' . $productDiscover['prijs'] . '</p>';
+                if ($productDiscover['prijsNieuw'] !== "") { // als er een nieuwe prijs is
+                    echo '<p class="ouldPrice">€ ' . $productDiscover['prijs'] . '</p>'; // laat de oude prijs zien
+                    echo '<p class="newPrice">€ ' . $productDiscover['prijsNieuw'] . '</p>'; // laat de nieuwe prijs zien
+                } else { // als er geen nieuwe prijs is
+                    echo '<p class="newPrice">€ ' . $productDiscover['prijs'] . '</p>'; // laat de oude prijs zien
                 }
 
                 echo '</div>';
@@ -110,7 +106,7 @@ meta description. This will often show up in search results.">
                 echo '</a>';
             }
 
-            mysqli_close($conn);
+            mysqli_close($conn); // sluit de connectie
             ?>
         </div>
 

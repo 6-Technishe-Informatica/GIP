@@ -24,14 +24,14 @@
         $klantnummer = $_GET['klantNummer'];
         $totaal = $_GET['totaal'];
 
-        $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $klantnummer . ";");
+        $result = mysqli_query($conn2, "SELECT * FROM winkelwagen WHERE klantNummer = " . $klantnummer . ";"); // haalt alle producten op van de klant
 
         $teller = 0;
 
-        while ($row = mysqli_fetch_array($result)) {
-            $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";");
-            while ($row2 = mysqli_fetch_array($result2)) {
-                $teller++;
+        while ($row = mysqli_fetch_array($result)) { // loopt door alle producten van de klant
+            $result2 = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = " . $row['referentieNummer'] . ";"); // haalt alle informatie op van het product
+            while ($row2 = mysqli_fetch_array($result2)) { // loopt door alle informatie van het product
+                $teller++; // telt het aantal producten op
             }
         }
 
@@ -41,7 +41,7 @@
         echo "<h3>U heeft een totaal van €$totaal</h3>";
         echo "</div>";
 
-        clearShoppingcard($conn2, $klantnummer);
+        clearShoppingcard($conn2, $klantnummer); // verwijderd alle producten van de klant
         ?>
     </main>
 

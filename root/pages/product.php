@@ -23,15 +23,15 @@
 
             $referentieNummer = $_GET['referentieNummer'];
 
-            $result = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer");
+            $result = mysqli_query($conn2, "SELECT * FROM artikelen WHERE referentieNummer = $referentieNummer"); // haalt alle informatie op van het product
 
-            while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) { // loopt door alle informatie van het product
                 $productDiscription = $row['artikelBeschrijving'];
                 $prijsNieuw = "";
-                if ($row['prijsNieuw'] !== "") {
+                if ($row['prijsNieuw'] !== "") { // kijkt of er een nieuwe prijs is
                     $prijs = $row['prijs'];
                     $prijsNieuw = $row['prijsNieuw'];
-                } else {
+                } else { // als er geen nieuwe prijs is
                     $prijs = $row['prijs'];
                 }
                 $stock = $row['beschikbaarheid'];
@@ -78,19 +78,19 @@
             <div class="shop">
                 <?php
                 echo '<div class="productPrice">';
-                if ($prijsNieuw !== "") {
-                    echo '<p class="ouldPrice">€ ' . $prijs . '</p>';
-                    echo '<p class="newPrice">€ ' . $prijsNieuw . '</p>';
+                if ($prijsNieuw !== "") { // kijkt of er een nieuwe prijs is
+                    echo '<p class="ouldPrice">€ ' . $prijs . '</p>'; // als er een nieuwe prijs is laat hij de oude prijs zien
+                    echo '<p class="newPrice">€ ' . $prijsNieuw . '</p>'; // en de nieuwe prijs
                 } else {
-                    echo '<p class="newPrice">€ ' . $prijs . '</p>';
+                    echo '<p class="newPrice">€ ' . $prijs . '</p>'; // als er geen nieuwe prijs is laat hij alleen de nieuwe prijs zien
                 }
 
                 echo '</div>';
 
-                if ($stock > 0) {
-                    echo "<p class='stock'>Op vooraad</p>";
+                if ($stock > 0) { // kijkt of het product op vooraad is
+                    echo "<p class='stock'>Op vooraad</p>"; // als het product op vooraad is laat hij dit zien
                 } else {
-                    echo "<p class='stock out'>Niet op vooraad</p>";
+                    echo "<p class='stock out'>Niet op vooraad</p>"; // als het product niet op vooraad is laat hij dit zien
                 }
                 ?>
 
@@ -108,9 +108,9 @@
             <div id="details" class="details">
                 <?php
 
-                $result = mysqli_query($conn2, "SELECT * FROM specificaties WHERE referentieNummer = $referentieNummer");
+                $result = mysqli_query($conn2, "SELECT * FROM specificaties WHERE referentieNummer = $referentieNummer"); // haalt alle informatie op van het product
 
-                while ($row = mysqli_fetch_array($result)) {
+                while ($row = mysqli_fetch_array($result)) { // loopt door alle informatie van het product
                     $val1 = $row['val1'];
                     $val2 = $row['val2'];
                     $val3 = $row['val3'];
@@ -119,13 +119,13 @@
                     $soort = $row['soort'];
                 }
 
-                $result2 = mysqli_query($conn2, "SELECT * FROM soorten WHERE soort = '$soort'");
+                $result2 = mysqli_query($conn2, "SELECT * FROM soorten WHERE soort = '$soort'"); // haalt alle informatie op van het product
 
-                if (!$result2) {
-                    trigger_error(mysqli_error($conn2), E_USER_ERROR);
+                if (!$result2) { // kijkt of er een error is
+                    trigger_error(mysqli_error($conn2), E_USER_ERROR); // als er een error is laat hij dit zien
                 }
 
-                while ($row = mysqli_fetch_array($result2)) {
+                while ($row = mysqli_fetch_array($result2)) { // loopt door alle informatie van het product
                     $spec1 = $row['spec1'];
                     $spec2 = $row['spec2'];
                     $spec3 = $row['spec3'];
@@ -135,20 +135,20 @@
 
 
 
-                if ($spec1 != "") {
-                    echo "<strong>$spec1:</strong>" . "<p>$val1</p>";
+                if ($spec1 != "") { // kijkt of er een spec is
+                    echo "<strong>$spec1:</strong>" . "<p>$val1</p>"; // als er een spec is laat hij dit zien
                 }
-                if ($spec2 != "") {
-                    echo "<strong>$spec2:</strong>" . "<p>$val2</p>";
+                if ($spec2 != "") { // kijkt of er een spec is
+                    echo "<strong>$spec2:</strong>" . "<p>$val2</p>"; // als er een spec is laat hij dit zien 
                 }
-                if ($spec3 != "") {
-                    echo "<strong>$spec3:</strong>" . "<p>$val3</p>";
+                if ($spec3 != "") { // kijkt of er een spec is
+                    echo "<strong>$spec3:</strong>" . "<p>$val3</p>"; // als er een spec is laat hij dit zien
                 }
-                if ($spec4 != "") {
-                    echo "<strong>$spec4:</strong>" . "<p>$val4</p>";
+                if ($spec4 != "") { // kijkt of er een spec is
+                    echo "<strong>$spec4:</strong>" . "<p>$val4</p>"; // als er een spec is laat hij dit zien
                 }
-                if ($spec5 != "") {
-                    echo "<strong>$spec5:</strong>" . "<p>$val5</p>";
+                if ($spec5 != "") { // kijkt of er een spec is
+                    echo "<strong>$spec5:</strong>" . "<p>$val5</p>"; // als er een spec is laat hij dit zien
                 }
                 ?>
             </div>

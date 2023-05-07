@@ -30,11 +30,11 @@
                 <button type="submit" name="login-submit">Log in</button>
             </form>
             <?php
-                if(isset($_GET["error"])) {
-                    if($_GET["error"] == "emptyinput") {
-                        echo "<p>Vul alle velden in!</p>";
+                if(isset($_GET["error"])) { // als er een error is
+                    if($_GET["error"] == "emptyinput") {  // als de error emptyinput is
+                        echo "<p>Vul alle velden in!</p>"; 
                     }
-                    else if($_GET["error"] == "wronglogin") {
+                    else if($_GET["error"] == "wronglogin") { // als de error wronglogin is
                         echo "<p>Verkeerde login informatie!</p>";
                     }
                 }

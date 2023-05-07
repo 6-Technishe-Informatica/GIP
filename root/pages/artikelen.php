@@ -91,17 +91,17 @@
                         $addOR = 0;
                         $soort = false;
 
-                        $sql = "SELECT * FROM artikelen WHERE";
+                        $sql = "SELECT * FROM artikelen WHERE"; // sql query
 
-                        $sql2 = "SELECT * FROM specificaties WHERE";
+                        $sql2 = "SELECT * FROM specificaties WHERE"; // sql query
 
-                        if ($minPrijs != NULL) {
+                        if ($minPrijs != NULL) { // if minPrijs is not empty
                             $sql .= " prijs BETWEEN $minPrijs AND $maxPrijs";
                             $addAND++;
                         }
 
-                        if (isset($_GET['voorraad'])) {
-                            if ($addAND > 0) {
+                        if (isset($_GET['voorraad'])) { // if checkbox is checked
+                            if ($addAND > 0) { // if there is already a AND in the query
                                 $addAND--;
                                 $sql .= " AND ";
                             }
@@ -111,14 +111,14 @@
 
                         //soorten artikelen sort
 
-                        if (isset($_GET['cpu'])) {
+                        if (isset($_GET['cpu'])) { // if checkbox is checked
                             $soort = true;
                             $sql2 .= " soort = 'cpu'";
                             $addOR++;
                         }
 
-                        if (isset($_GET['gpu'])) {
-                            if ($addOR > 0) {
+                        if (isset($_GET['gpu'])) { // if checkbox is checked
+                            if ($addOR > 0) { // if there is already a OR in the query
                                 $addOR--;
                                 $sql2 .= " OR ";
                             }
@@ -126,11 +126,11 @@
                             $addOR++;
                             $soort = true;
 
-                            $sql2 .= " soort = 'gpu'";
+                            $sql2 .= " soort = 'gpu'"; 
                         }
 
-                        if (isset($_GET['moederbord'])) {
-                            if ($addOR > 0) {
+                        if (isset($_GET['moederbord'])) { // if checkbox is checked
+                            if ($addOR > 0) { // if there is already a OR in the query
                                 $addOR--;
                                 $sql2 .= " OR ";
                             }
@@ -142,7 +142,7 @@
                         }
 
                         if (isset($_GET['ram'])) {
-                            if ($addOR > 0) {
+                            if ($addOR > 0) { // if checkbox is checked
                                 $addOR--;
                                 $sql2 .= " OR ";
                             }
@@ -153,8 +153,8 @@
                             $sql2 .= " soort = 'ram'";
                         }
 
-                        if (isset($_GET['opslag'])) {
-                            if ($addOR > 0) {
+                        if (isset($_GET['opslag'])) { // if checkbox is checked
+                            if ($addOR > 0) { // if there is already a OR in the query
                                 $addOR--;
                                 $sql2 .= " OR ";
                             }
@@ -165,8 +165,8 @@
                             $sql2 .= " soort = 'storage'";
                         }
 
-                        if (isset($_GET['case'])) {
-                            if ($addOR > 0) {
+                        if (isset($_GET['case'])) { // if checkbox is checked
+                            if ($addOR > 0) { // if there is already a OR in the query
                                 $addOR--;
                                 $sql2 .= " OR ";
                             }
@@ -177,50 +177,48 @@
                             $sql2 .= " soort = 'case'";
                         }
 
-                        if ($soort == true) {
+                        if ($soort == true) { // kijkt of er een soort filter actief is
+                            $result2 = mysqli_query($conn2, $sql2); // voert de query uit
 
-                            $result2 = mysqli_query($conn2, $sql2);
+                            $referentieNummers = array(); // maakt een array aan
 
-                            $referentieNummers = array();
+                            while ($row = mysqli_fetch_assoc($result2)) { // zet de resultaten in een array
+                                array_push($referentieNummers, $row['referentieNummer']); // voegt de referentie nummers toe aan de array
+                            } 
 
-                            while ($row = mysqli_fetch_assoc($result2)) {
-                                array_push($referentieNummers, $row['referentieNummer']);
-                            }
-
-                            if ($addAND > 0) {
+                            if ($addAND > 0) { // if there is already a AND in the query
                                 $addAND--;
                                 $sql .= " AND ";
                             }
 
-                            $sql .= " referentieNummer IN (";
+                            $sql .= " referentieNummer IN ("; // voegt de referentie nummers toe aan de query
 
-                            for ($i = 0; $i < count($referentieNummers); $i++) {
-                                if ($i == count($referentieNummers) - 1) {
-                                    $sql .= $referentieNummers[$i];
+                            for ($i = 0; $i < count($referentieNummers); $i++) { // loopt door de array
+                                if ($i == count($referentieNummers) - 1) { // kijkt of het de laatste waarde is
+                                    $sql .= $referentieNummers[$i]; // voegt de referentie nummers toe aan de query
                                 } else {
-                                    $sql .= $referentieNummers[$i] . ", ";
+                                    $sql .= $referentieNummers[$i] . ", "; // voegt de referentie nummers toe aan de query
                                 }
                             }
 
-                            $sql .= ")";
+                            $sql .= ")"; // sluit de query af
 
-                            $result = mysqli_query($conn2, $sql);
+                            $result = mysqli_query($conn2, $sql); // voert de query uit
                         } else {
-                            $result = mysqli_query($conn2, $sql);
+                            $result = mysqli_query($conn2, $sql); // voert een alternatieve query uit
                         }
                     } else {
-                        $result = mysqli_query($conn2, "SELECT * FROM artikelen");
+                        $result = mysqli_query($conn2, "SELECT * FROM artikelen"); // voert een alternatieve query uit
                     }
 
-                    // put result in a list
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result)) { // zet de resultaten in een array
                         echo '<li>';
                         echo '<a href="../pages/product.php?productName=' . $row['artikelNaam'] . '&referentieNummer=' . $row["referentieNummer"] . '">';
                         echo '<div class="artikel">';
                         echo '<img src="../images/productImages/' . $row["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
                         echo '<h2 class="titel">' . $row['artikelNaam'] . '</h2>';
 
-                        $artikelBeschrijving = $row['artikelBeschrijving'];
+                        $artikelBeschrijving = $row['artikelBeschrijving']; 
 
                         if (strlen($artikelBeschrijving) > 300) // if you want to show 15 characters
                         {
@@ -257,7 +255,7 @@
     </script>
 
     <script>
-        function search() {
+        function search() { // functie voor de zoekbalk
             // Declare variables
             var input, filter, ul, li, a, i, txtValue;
             input = document.getElementById('myInput');

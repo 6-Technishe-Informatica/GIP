@@ -1,75 +1,70 @@
-//wait for dom content to load
-document.addEventListener("DOMContentLoaded", function (event) {
-    //check if body id is product
-    if (document.body.id == 'product') {
+document.addEventListener("DOMContentLoaded", function (event) { // als de DOM geladen is
+    if (document.body.id == 'product') { // als de body id product is
 
-        //change the active class on the tabs for discription and details
+        $discription = document.getElementById('discription'); // selecteer de discription
+        $discriptionButton = document.getElementById('discription-button'); // selecteer de discription button
 
-        $discription = document.getElementById('discription');
-        $discriptionButton = document.getElementById('discription-button');
+        $details = document.getElementById('details'); // selecteer de details
+        $detailsButton = document.getElementById('details-button'); // selecteer de details button
 
-        $details = document.getElementById('details');
-        $detailsButton = document.getElementById('details-button');
+        $discriptionButton.addEventListener('click', function () { // als er op de discription button geklikt wordt
+            $discription.classList.add('active'); // voeg de active class toe aan de discription
+            $details.classList.remove('active'); // verwijder de active class van de details
 
-        $discriptionButton.addEventListener('click', function () {
-            $discription.classList.add('active');
-            $details.classList.remove('active');
-
-            $discriptionButton.classList.add('active');
-            $detailsButton.classList.remove('active');
+            $discriptionButton.classList.add('active'); // voeg de active class toe aan de discription button
+            $detailsButton.classList.remove('active'); // verwijder de active class van de details button
         });
 
-        $detailsButton.addEventListener('click', function () {
-            $details.classList.add('active');
-            $discription.classList.remove('active');
+        $detailsButton.addEventListener('click', function () { // als er op de details button geklikt wordt
+            $details.classList.add('active'); // voeg de active class toe aan de details
+            $discription.classList.remove('active'); // verwijder de active class van de discription
 
-            $detailsButton.classList.add('active');
-            $discriptionButton.classList.remove('active');
+            $detailsButton.classList.add('active'); // voeg de active class toe aan de details button
+            $discriptionButton.classList.remove('active'); // verwijder de active class van de discription button
         });
     }
 
-    //check if body id is contact
-    if (document.body.id == 'contact') {
-        const form = document.getElementById("form");
-        form.addEventListener("submit", function (e) {
+    if (document.body.id == 'contact') { // als de body id contact is
+        const form = document.getElementById("form"); // selecteer het form
+
+        form.addEventListener("submit", function (e) { // als er op de submit button geklikt wordt
             var name = document.getElementById("name");
             var email = document.getElementById("email");
             var message = document.getElementById("text");
 
-            if (name.value == "") {
-                e.preventDefault();
-                var nextElement = name.nextElementSibling;
+            if (name.value == "") { // als de naam leeg is
+                e.preventDefault(); // voorkom dat het formulier verstuurd wordt
+                var nextElement = name.nextElementSibling; // selecteer de volgende element
                 nextElement.innerHTML = "Gelieve dit veld in te vullen.";
-                nextElement.classList.add('show');
-            } else if (!name.value.match(/^[a-zA-Z\s\-]+$/)) {
-                e.preventDefault();
-                var nextElement = name.nextElementSibling;
+                nextElement.classList.add('show'); // voeg de show class toe
+            } else if (!name.value.match(/^[a-zA-Z\s\-]+$/)) { // als de naam niet overeenkomt met de regex
+                e.preventDefault(); // voorkom dat het formulier verstuurd wordt
+                var nextElement = name.nextElementSibling; // selecteer de volgende element
                 nextElement.innerHTML = "Vul een geldige naam in.";
-                nextElement.classList.add('show');
+                nextElement.classList.add('show'); // voeg de show class toe
 
-            } else {
-                var nextElement = name.nextElementSibling;
-                nextElement.classList.remove('show')
+            } else { // als de naam wel overeenkomt met de regex
+                var nextElement = name.nextElementSibling; // selecteer de volgende element
+                nextElement.classList.remove('show') // verwijder de show class
             }
-            if (email.value.indexOf("@") == -1 || email.length < 6) {
+            if (email.value.indexOf("@") == -1 || email.length < 6) { // als het email adres niet overeenkomt met de regex
                 text = "Gelieve een geldig email adres in te vullen.";
-                var nextElement = email.nextElementSibling;
+                var nextElement = email.nextElementSibling; // selecteer de volgende element
                 nextElement.innerHTML = text;
-                nextElement.classList.add('show');
-                e.preventDefault();
+                nextElement.classList.add('show'); // voeg de show class toe
+                e.preventDefault(); // voorkom dat het formulier verstuurd wordt
             }
-            if (message.value.length <= 20) {
+            if (message.value.length <= 20) { // als het bericht minder dan 20 karakters bevat
                 text = "Gelieve een bericht in te vullen van minstens 20 karakters.";
-                var nextElement = message.nextElementSibling;
+                var nextElement = message.nextElementSibling; // selecteer de volgende element
                 nextElement.innerHTML = text;
-                nextElement.classList.add('show');
-                e.preventDefault();
+                nextElement.classList.add('show'); // voeg de show class toe
+                e.preventDefault(); // voorkom dat het formulier verstuurd wordt
             }
         })
     }
 
-    //check if body id is admin
-    if (document.body.id == 'admin') {
+    if (document.body.id == 'admin') { // als de body id admin is
 
         const btnCPU = document.getElementById("Cpu");
         const btnGPU = document.getElementById("Gpu");
@@ -85,9 +80,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         const spec = document.getElementById("spec");
 
-        //check if button is clicked
-
-        btnCPU.addEventListener('click', function () {
+        btnCPU.addEventListener('click', function () { // als er op de cpu button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="cpuCores">CPU cores</label>';
             spec.innerHTML += '<input type="number" name="cpuCores" id="cpuCores" placeholder="Cpu cores">';
 
@@ -104,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnGPU.addEventListener('click', function () {
+        btnGPU.addEventListener('click', function () { // als er op de gpu button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="gpuMemory">GPU memory</label>';
             spec.innerHTML += '<input type="number" name="gpuMemory" id="gpuMemory" placeholder="Gpu memory">';
 
@@ -121,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnRAM.addEventListener('click', function () {
+        btnRAM.addEventListener('click', function () { // als er op de ram button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="ramType">RAM type</label>';
             spec.innerHTML += '<input type="text" name="ramType" id="ramType" placeholder="Ram type">';
 
@@ -135,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnPSU.addEventListener('click', function () {
+        btnPSU.addEventListener('click', function () { // als er op de psu button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="psuPower">PSU power</label>';
             spec.innerHTML += '<input type="number" name="psuPower" id="psuPower" placeholder="Psu power">';
 
@@ -146,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnMOBO.addEventListener('click', function () {
+        btnMOBO.addEventListener('click', function () { // als er op de mobo button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="moboSocket">MOBO socket</label>';
             spec.innerHTML += '<input type="text" name="moboSocket" id="moboSocket" placeholder="Mobo socket">';
 
@@ -163,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnSTORAGE.addEventListener('click', function () {
+        btnSTORAGE.addEventListener('click', function () { // als er op de storage button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="storageType">STORAGE type</label>';
             spec.innerHTML += '<input type="text" name="storageType" id="storageType" placeholder="Storage type">';
 
@@ -177,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnCASE.addEventListener('click', function () {
+        btnCASE.addEventListener('click', function () { // als er op de case button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="caseFormFactor">CASE form factor</label>';
             spec.innerHTML += '<input type="text" name="caseFormFactor" id="caseFormFactor" placeholder="Case form factor">';
 
@@ -188,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnKeyboard.addEventListener('click', function () {
+        btnKeyboard.addEventListener('click', function () { // als er op de keyboard button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="keyboardType">KEYBOARD type</label>';
             spec.innerHTML += '<input type="text" name="keyboardType" id="keyboardType" placeholder="Keyboard type">';
 
@@ -199,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnMouse.addEventListener('click', function () {
+        btnMouse.addEventListener('click', function () { // als er op de mouse button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="mouseType">MOUSE type</label>';
             spec.innerHTML += '<input type="text" name="mouseType" id="mouseType" placeholder="Mouse type">';
 
@@ -210,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnMonitor.addEventListener('click', function () {
+        btnMonitor.addEventListener('click', function () { // als er op de monitor button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="monitorSize">MONITOR size</label>';
             spec.innerHTML += '<input type="number" name="monitorSize" id="monitorSize" placeholder="Monitor size">';
 
@@ -224,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         });
 
-        btnHeadset.addEventListener('click', function () {
+        btnHeadset.addEventListener('click', function () { // als er op de headset button geklikt wordt voeg de volgende html toe aan de spec div
             spec.innerHTML = '<label for="headphonesType">HEADPHONES type</label>';
             spec.innerHTML += '<input type="text" name="headphonesType" id="headphonesType" placeholder="Headphones type">';
 
@@ -237,71 +230,67 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 
-function artikelenPaginaSearch() {
-    // Declare variables
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+function artikelenPaginaSearch() { // search function voor de artikelen pagina
 
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByClassName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput'); 
+    filter = input.value.toUpperCase(); // zet de input naar uppercase
+    ul = document.getElementById("myUL"); // zet de ul in een variable
+    li = ul.getElementsByTagName('li'); // zet de li's in een array
+
+    for (i = 0; i < li.length; i++) { // loop door de li's heen en kijk of de input overeenkomt met de li's
+        a = li[i].getElementsByClassName("a")[0]; // zet de a's in een array
+        txtValue = a.textContent || a.innerText; // zet de text van de a's in een variable
+        if (txtValue.toUpperCase().indexOf(filter) > -1) { // als de input overeenkomt met de text van de a's laat de li's zien
+            li[i].style.display = ""; // laat de li's zien
         } else {
-            li[i].style.display = "none";
+            li[i].style.display = "none"; // laat de li's niet zienw
         }
     }
 }
 
-//check if body id is product
-if (document.body.id == 'product') {
-    let slideIndex = 1;
-    showSlides(slideIndex);
+if (document.body.id == 'product') { // als de body id product is voer de volgende code uit
+    let slideIndex = 1; 
+    showSlides(slideIndex); // laat de eerste slide zien
 
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
+    function plusSlides(n) { // als er op de pijltjes geklikt wordt laat de volgende slide zien
+        showSlides(slideIndex += n); // laat de volgende slide zien
     }
 
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
+    function currentSlide(n) { // als er op de dots geklikt wordt laat de slide zien die bij de dot hoort
+        showSlides(slideIndex = n); // laat de slide zien die bij de dot hoort
     }
 
-    function showSlides(n) {
+    function showSlides(n) { // laat de slides zien
         let i;
         let slides = document.getElementsByClassName("mySlides");
         let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        if (n > slides.length) { slideIndex = 1 } // als de slide index groter is dan de lengte van de slides zet de slide index op 1
+        if (n < 1) { slideIndex = slides.length } // als de slide index kleiner is dan 1 zet de slide index op de lengte van de slides 
+        for (i = 0; i < slides.length; i++) { // loop door de slides heen en zet de display op none
+            slides[i].style.display = "none"; // zet de display op none
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+        for (i = 0; i < dots.length; i++) { // loop door de dots heen en zet de active class op de dot die bij de slide hoort
+            dots[i].className = dots[i].className.replace(" active", ""); // zet de active class op de dot die bij de slide hoort
         }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
+        slides[slideIndex - 1].style.display = "block"; // zet de display van de slide die bij de slide index hoort op block
+        dots[slideIndex - 1].className += " active"; // zet de active class op de dot die bij de slide hoort
     }
 
-    const btnAddToCart = document.getElementById('btnAddToCart');
+    const btnAddToCart = document.getElementById('btnAddToCart'); 
 
-    btnAddToCart.addEventListener('click', function () {
-        let params = new URLSearchParams(location.search);
-        let referentieNummer = params.get('referentieNummer');
+    btnAddToCart.addEventListener('click', function () { // als er op de add to cart button geklikt wordt voer de volgende code uit
+        let params = new URLSearchParams(location.search); // zet de url in een variable
+        let referentieNummer = params.get('referentieNummer'); // zet de referentie nummer in een variable
 
         //redirect to cart page
-        window.location.href = "../pages/shoppingCard.php?referentieNummer=" + referentieNummer;
+        window.location.href = "../pages/shoppingCard.php?referentieNummer=" + referentieNummer; // redirect naar de shopping card pagina
     });
 
 }
 
-if (document.body.id == 'profile') {
-    const btnNaam = document.getElementById('btnNaam');
+if (document.body.id == 'profile') { // als de body id profile is voer de volgende code uit
+    const btnNaam = document.getElementById('btnNaam'); 
     const btnEmail = document.getElementById('btnEmail');
     const btnWachtwoord = document.getElementById('btnWachtwoord');
     const btnGebruikersnaam = document.getElementById('btnGebruikersnaam');
@@ -312,99 +301,99 @@ if (document.body.id == 'profile') {
     const gebruikersnaam = document.getElementById('gebruikersnaam');
     const start = document.getElementById('start');
 
-    btnNaam.addEventListener('click', function () {
-        naam.classList.toggle('hidden');
+    btnNaam.addEventListener('click', function () { // als er op de naam button geklikt wordt voer de volgende code uit
+        naam.classList.toggle('hidden'); // toggle de hidden class
 
-        if (!email.classList.contains('hidden')) {
-            email.classList.toggle('hidden');
+        if (!email.classList.contains('hidden')) { // als de email class niet de hidden class heeft toggle de hidden class
+            email.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!wachtwoord.classList.contains('hidden')) {
-            wachtwoord.classList.toggle('hidden');
+        if (!wachtwoord.classList.contains('hidden')) { // als de wachtwoord class niet de hidden class heeft toggle de hidden class
+            wachtwoord.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!gebruikersnaam.classList.contains('hidden')) {
-            gebruikersnaam.classList.toggle('hidden');
+        if (!gebruikersnaam.classList.contains('hidden')) { // als de gebruikersnaam class niet de hidden class heeft toggle de hidden class
+            gebruikersnaam.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!start.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (!start.classList.contains('hidden')) { // als de start class niet de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (naam.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
-        }
-    });
-
-    btnEmail.addEventListener('click', function () {
-        email.classList.toggle('hidden');
-
-        if (!naam.classList.contains('hidden')) {
-            naam.classList.toggle('hidden');
-        }
-
-        if (!wachtwoord.classList.contains('hidden')) {
-            wachtwoord.classList.toggle('hidden');
-        }
-
-        if (!gebruikersnaam.classList.contains('hidden')) {
-            gebruikersnaam.classList.toggle('hidden');
-        }
-
-        if (!start.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
-        }
-
-        if (email.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (naam.classList.contains('hidden')) { // als de naam class de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
     });
 
-    btnWachtwoord.addEventListener('click', function () {
-        wachtwoord.classList.toggle('hidden');
+    btnEmail.addEventListener('click', function () { // als er op de email button geklikt wordt voer de volgende code uit
+        email.classList.toggle('hidden'); // toggle de hidden class
 
-        if (!naam.classList.contains('hidden')) {
-            naam.classList.toggle('hidden');
+        if (!naam.classList.contains('hidden')) { // als de naam class niet de hidden class heeft toggle de hidden class
+            naam.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!email.classList.contains('hidden')) {
-            email.classList.toggle('hidden');
+        if (!wachtwoord.classList.contains('hidden')) { // als de wachtwoord class niet de hidden class heeft toggle de hidden class
+            wachtwoord.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!gebruikersnaam.classList.contains('hidden')) {
-            gebruikersnaam.classList.toggle('hidden');
+        if (!gebruikersnaam.classList.contains('hidden')) { // als de gebruikersnaam class niet de hidden class heeft toggle de hidden class
+            gebruikersnaam.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!start.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (!start.classList.contains('hidden')) { // als de start class niet de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (wachtwoord.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (email.classList.contains('hidden')) { // als de email class de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
     });
 
-    btnGebruikersnaam.addEventListener('click', function () {
-        gebruikersnaam.classList.toggle('hidden');
+    btnWachtwoord.addEventListener('click', function () { // als er op de wachtwoord button geklikt wordt voer de volgende code uit
+        wachtwoord.classList.toggle('hidden'); // toggle de hidden class
 
-        if (!naam.classList.contains('hidden')) {
-            naam.classList.toggle('hidden');
+        if (!naam.classList.contains('hidden')) { // als de naam class niet de hidden class heeft toggle de hidden class
+            naam.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!email.classList.contains('hidden')) {
-            email.classList.toggle('hidden');
+        if (!email.classList.contains('hidden')) { // als de email class niet de hidden class heeft toggle de hidden class
+            email.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!wachtwoord.classList.contains('hidden')) {
-            wachtwoord.classList.toggle('hidden');
+        if (!gebruikersnaam.classList.contains('hidden')) { // als de gebruikersnaam class niet de hidden class heeft toggle de hidden class
+            gebruikersnaam.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (!start.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (!start.classList.contains('hidden')) { // als de start class niet de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
 
-        if (gebruikersnaam.classList.contains('hidden')) {
-            start.classList.toggle('hidden');
+        if (wachtwoord.classList.contains('hidden')) { // als de wachtwoord class de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
+        }
+    });
+
+    btnGebruikersnaam.addEventListener('click', function () { // als er op de gebruikersnaam button geklikt wordt voer de volgende code uit
+        gebruikersnaam.classList.toggle('hidden'); // toggle de hidden class
+
+        if (!naam.classList.contains('hidden')) { // als de naam class niet de hidden class heeft toggle de hidden class
+            naam.classList.toggle('hidden'); // toggle de hidden class
+        }
+
+        if (!email.classList.contains('hidden')) { // als de email class niet de hidden class heeft toggle de hidden class
+            email.classList.toggle('hidden'); // toggle de hidden class
+        }
+
+        if (!wachtwoord.classList.contains('hidden')) { // als de wachtwoord class niet de hidden class heeft toggle de hidden class
+            wachtwoord.classList.toggle('hidden'); // toggle de hidden class
+        }
+
+        if (!start.classList.contains('hidden')) { // als de start class niet de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
+        }
+
+        if (gebruikersnaam.classList.contains('hidden')) { // als de gebruikersnaam class de hidden class heeft toggle de hidden class
+            start.classList.toggle('hidden'); // toggle de hidden class
         }
     });
 }
