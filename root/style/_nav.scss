@@ -10,6 +10,7 @@ main {
 }
 
 header {
+
     nav {
         // nav style
         background-color: $primaryColor;
@@ -40,6 +41,14 @@ header {
         }
 
         // nav links style
+
+        .logo{
+            z-index: 1000;
+            position: absolute;
+
+            left: 1rem;
+            top: 0.5rem;
+        }
 
         ul {
             display: flex;

@@ -17,8 +17,8 @@
     </header>
     <main id="contact">
         <h2>Laat een bericht achter</h2>
+        <hr>
         <p>Wij zijn te vinden in Dendermonde, België.</p>
-
         <div class="gridContact">
             <form id="form" action="../includes/form.inc.php" method="post">
                 <label for="name">Naam</label>

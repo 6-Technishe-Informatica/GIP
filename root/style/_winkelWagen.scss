@@ -2,8 +2,10 @@ main#winkelWagen {
     max-width: 80%;
     margin: auto;
 
-    .order{
-        h1, h2, h3{
+    .order {
+        h1,
+        h2,
+        h3 {
             font-weight: bold;
             text-align: center;
 
@@ -13,7 +15,7 @@ main#winkelWagen {
         }
     }
 
-    .error{
+    .error {
         font-size: 1.5em;
         font-weight: bold;
         text-align: center;
@@ -27,28 +29,29 @@ main#winkelWagen {
         background-color: $primaryColor;
     }
 
-    .product{
+    .product {
         display: grid;
-        grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr 2fr 0.3fr 0.5fr 0.5fr;
+        margin-left: 10%;
         gap: 0.5rem;
 
         justify-content: center;
         align-items: center;
 
-        margin: auto;
+        margin-bottom: 1rem;
         padding: 1rem;
-        border: 1px solid $firstAccentColor;
+        border: 1px solid $primaryColor;
         border-radius: 0.5rem;
-        background-color: $secondaryColor;
+        background-color: $thirdAccentColor;
 
         max-width: 80%;
-        img{
+        img {
             width: auto;
             max-height: 150px;
             mix-blend-mode: darken;
         }
 
-        a{
+        a {
             text-decoration: none;
             padding: 1rem;
             border-radius: 0.5rem;
@@ -58,25 +61,26 @@ main#winkelWagen {
 
             transition: all 0.2s ease-in-out;
 
-            &:hover{
+            &:hover {
                 background-color: $firstAccentColor;
                 color: $primaryColor;
             }
         }
     }
 
-    .checkout{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+    .checkout {
+        // display: flex;
+        // flex-direction: column;
+        // gap: 1rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
         margin: 1rem 0;
         padding: 1rem;
-        border: 1px solid $firstAccentColor;
-        border-radius: 0.5rem;
-        background-color: $secondaryColor;
+        border-top: 1px solid $firstAccentColor;
 
-        .checkoutButton{
+        .checkoutButton {
             padding: 1rem;
             border-radius: 0.5rem;
             border: 1px solid $firstAccentColor;
@@ -86,27 +90,28 @@ main#winkelWagen {
 
             transition: all 0.2s ease-in-out;
 
-            &:hover{
+            &:hover {
                 background-color: $firstAccentColor;
                 color: $primaryColor;
             }
         }
 
-        p{
-           text-align: right;
-           font-size: larger;
+        p {
+            text-align: left;
+            font-size: larger;
+            padding: 1rem;
 
-            span{
+            span {
                 color: $primaryColor;
             }
         }
     }
 
     @media only screen and (max-width: 1250px) {
-        .product{
+        .product {
             max-width: 100%;
 
-            img{
+            img {
                 width: 100%;
                 max-height: 100%;
             }

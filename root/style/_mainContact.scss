@@ -7,16 +7,24 @@ main#contact {
         font-size: 2rem;
     }
 
+    hr{
+        width: 8%;
+        color: $firstAccentColor;
+        margin: 0.5rem;
+        margin-left: 0;
+    }
+
     .gridContact {
-        background-color: $secondaryColor;
+        box-shadow: 0px 0px 10px grey;
         display: grid;
         grid-template-columns: 60% 1fr;
 
         justify-content: center;
         align-items: center;
 
-        border: 1px solid $tertiaryColor;
-        border-radius: 0.5rem;
+
+        // border: 1px solid $tertiaryColor;
+        // border-radius: 0.5rem;
 
         margin-top: 1rem;
 
@@ -27,6 +35,8 @@ main#contact {
         form {
             display: grid;
             grid-template-columns: 0.1fr 1fr;
+
+            border-right: 1px solid $tertiaryColor;
 
             gap: 0.5rem;
 
@@ -57,8 +67,17 @@ main#contact {
 
             input {
                 height: 1.5rem;
-                border-radius: 0.5rem;
-                border: 1px solid $tertiaryColor;
+                border: none;
+                outline: none;
+                color: black;;
+                border-bottom: 1px solid $tertiaryColor;
+                padding: 0.5rem;
+            }
+
+            textarea{
+                border: none;
+                color: black;;
+                border-bottom: 1px solid $tertiaryColor;
                 padding: 0.5rem;
             }
 
@@ -77,12 +96,15 @@ main#contact {
                 cursor: pointer;
             }
 
-            input:focus,
-            textarea:focus {
-                outline: none;
-                border: 2px solid $tertiaryColor;
+            input:focus{
+                border: none;
+                border-bottom: 2px solid $tertiaryColor;
+            }
 
-                caret-color: $secondAccentColor;
+            textarea:focus{
+                outline: none;
+                border: none;
+                border: 2px solid $tertiaryColor;
             }
 
             .required {
@@ -106,8 +128,10 @@ main#contact {
                 width: 100%;
                 height: 100%;
 
-                border-radius: 0.5rem;
-                border: 1px solid $tertiaryColor;
+                border: none;
+
+                // border-radius: 0.5rem;
+                // border: 1px solid $tertiaryColor;
             }
         }
 

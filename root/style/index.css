@@ -39,6 +39,12 @@ header nav #burger {
   display: none;
   cursor: pointer;
 }
+header nav .logo {
+  z-index: 1000;
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+}
 header nav ul {
   display: flex;
 }
@@ -185,8 +191,7 @@ main .hero {
   border: 2px solid rgb(2, 87, 122);
   margin: auto;
   padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: rgb(212, 240, 252);
+  box-shadow: 0px 0px 10px grey;
   opacity: 1;
 }
 main .hero h2 {
@@ -194,6 +199,7 @@ main .hero h2 {
   font-weight: 600;
   text-align: center;
   color: #008aca;
+  margin-bottom: 1rem;
 }
 main .hero h2 span {
   color: black;
@@ -203,13 +209,14 @@ main .hero p {
 }
 main .dealsText {
   margin-top: 2rem;
+  margin-bottom: 0.5rem;
   margin-left: 10%;
   margin-right: 10%;
 }
 main .deals {
   overflow-x: scroll;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10.5%;
   padding-bottom: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -222,8 +229,7 @@ main .deals a {
 }
 main .deals a article {
   border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem rgb(2, 87, 122);
+  box-shadow: 0px 0px 10px grey;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -291,7 +297,7 @@ main .mobileCategorie {
   main .dealsText {
     display: none;
   }
-  main .dealsText:nth-child(3) {
+  main .dealsText.tekstOverOns {
     display: block;
   }
   main .mobileCategorie {
@@ -434,14 +440,18 @@ main#contact {
 main#contact h2 {
   font-size: 2rem;
 }
+main#contact hr {
+  width: 8%;
+  color: rgb(137, 214, 251);
+  margin: 0.5rem;
+  margin-left: 0;
+}
 main#contact .gridContact {
-  background-color: rgb(212, 240, 252);
+  box-shadow: 0px 0px 10px grey;
   display: grid;
   grid-template-columns: 60% 1fr;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
   margin-top: 1rem;
 }
 main#contact .gridContact li {
@@ -450,6 +460,7 @@ main#contact .gridContact li {
 main#contact .gridContact form {
   display: grid;
   grid-template-columns: 0.1fr 1fr;
+  border-right: 1px solid rgb(2, 87, 122);
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -473,8 +484,16 @@ main#contact .gridContact form label::before {
 }
 main#contact .gridContact form input {
   height: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
+  border: none;
+  outline: none;
+  color: black;
+  border-bottom: 1px solid rgb(2, 87, 122);
+  padding: 0.5rem;
+}
+main#contact .gridContact form textarea {
+  border: none;
+  color: black;
+  border-bottom: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#contact .gridContact form input[type=submit] {
@@ -488,11 +507,14 @@ main#contact .gridContact form input[type=submit] {
   color: rgb(212, 240, 252);
   cursor: pointer;
 }
-main#contact .gridContact form input:focus,
+main#contact .gridContact form input:focus {
+  border: none;
+  border-bottom: 2px solid rgb(2, 87, 122);
+}
 main#contact .gridContact form textarea:focus {
   outline: none;
+  border: none;
   border: 2px solid rgb(2, 87, 122);
-  caret-color: rgb(2, 169, 247);
 }
 main#contact .gridContact form .required {
   grid-column: span 2;
@@ -510,8 +532,7 @@ main#contact .gridContact .map {
 main#contact .gridContact .map iframe {
   width: 100%;
   height: 100%;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
+  border: none;
 }
 @media only screen and (max-width: 1250px) {
   main#contact .gridContact {
@@ -720,28 +741,34 @@ main#products .detailsDiscription .details.active p {
 }
 
 main#signup {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 main#signup h2 {
   margin-left: 5%;
-  padding: 2px;
+  padding: 10px;
   font-size: 2rem;
   text-align: center;
   width: 90%;
   border-bottom: 1px solid rgb(2, 87, 122);
 }
 main#signup .gridSignup {
-  background-color: rgb(212, 240, 252);
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px grey;
   margin-top: 1rem;
+}
+main#signup .gridSignup p {
+  width: 100%;
+  background-color: rgb(242, 153, 153);
+  border: 2px solid red;
+  text-align: center;
+  font-size: large;
 }
 main#signup .gridSignup form {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 0% 20% 0% 20%;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -759,29 +786,38 @@ main#signup .gridSignup form .messageArea {
   border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
+main#signup .gridSignup form label {
+  margin-top: 1rem;
+}
 main#signup .gridSignup form label::before {
   content: "*";
   color: rgb(137, 214, 251);
 }
 main#signup .gridSignup form input {
+  grid-column: span 2;
   height: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
+  border: none;
+  outline: none;
+  color: black;
+  border-bottom: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 main#signup .gridSignup form input[type=submit], main#signup .gridSignup form button[type=submit] {
   grid-column: span 2;
   width: 100%;
   height: 2rem;
-  border-radius: 0.5rem;
+  margin-top: 2rem;
   border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
+  font-size: medium;
   background-color: rgb(1, 48, 63);
   color: rgb(212, 240, 252);
   cursor: pointer;
 }
 main#signup .gridSignup form input:focus, main#signup .gridSignup form textarea:focus {
   outline-color: rgb(2, 87, 122);
+  border: none;
+  border-bottom: 2px solid rgb(2, 87, 122);
 }
 main#signup .gridSignup form .required {
   grid-column: span 2;
@@ -793,12 +829,12 @@ main#signup .gridSignup form .required.show {
 }
 
 body#admin main {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 body#admin main h2 {
   margin-left: 5%;
-  padding: 2px;
+  padding: 10px;
   font-size: 2rem;
   text-align: center;
   width: 90%;
@@ -806,7 +842,7 @@ body#admin main h2 {
 }
 body#admin main .gridArtikelsButtons {
   display: grid;
-  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-columns: 15% 1fr;
   gap: 1rem;
   justify-content: center;
   align-items: center;
@@ -814,32 +850,25 @@ body#admin main .gridArtikelsButtons {
 body#admin main .gridArtikelsButtons .buttons {
   display: grid;
   box-sizing: border-box;
-  margin-top: 1rem;
-  background-color: rgb(212, 240, 252);
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
+  height: 100%;
+  margin-top: 2rem;
+  box-shadow: 0px 0px 10px grey;
 }
 body#admin main .gridArtikelsButtons .buttons button {
+  font-size: medium;
   padding: 1rem;
   border: none;
   width: 100%;
   background-color: transparent;
+  border-bottom: 1px solid rgb(2, 87, 122);
 }
 body#admin main .gridArtikelsButtons .buttons button:hover {
-  background-color: rgb(2, 87, 122);
-}
-body#admin main .gridArtikelsButtons .buttons button:first-of-type {
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-body#admin main .gridArtikelsButtons .buttons button:last-of-type {
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-bottom: 2px solid rgb(2, 87, 122);
 }
 body#admin main .form {
-  background-color: rgb(212, 240, 252);
+  box-shadow: 0px 0px 10px grey;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
   margin-top: 1rem;
 }
 body#admin main .form form {
@@ -858,8 +887,6 @@ body#admin main .form form .messageArea {
   grid-column: span 2;
   width: 100%;
   height: 10rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
 }
 body#admin main .form form label::before {
@@ -871,9 +898,13 @@ body#admin main .form form .noRequire::before {
 }
 body#admin main .form form input {
   height: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
+  border: none;
+  border-bottom: 1px solid rgb(2, 87, 122);
   padding: 0.5rem;
+}
+body#admin main .form form input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(2, 87, 122);
 }
 body#admin main .form form input[type=file] {
   height: 2.5rem;
@@ -890,9 +921,20 @@ body#admin main .form form button[type=submit] {
   color: rgb(212, 240, 252);
   cursor: pointer;
 }
-body#admin main .form form input:focus,
-body#admin main .form form textarea:focus {
+body#admin main .form form input:focus {
   outline-color: rgb(2, 87, 122);
+}
+body#admin main .form form textarea {
+  color: black;
+  border: 1px solid rgb(2, 87, 122);
+  padding: 0.5rem;
+  width: 30vw;
+  border-radius: 0.2rem;
+}
+body#admin main .form form textarea:focus {
+  outline: none;
+  border: none;
+  border: 2px solid rgb(2, 87, 122);
 }
 body#admin main .form form .required {
   grid-column: span 2;
@@ -920,65 +962,65 @@ body#admin main .form form #spec {
   }
 }
 
-main#profile .container {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  gap: 1rem;
-  max-width: 80%;
-  margin-top: 1rem;
-  padding: 1rem;
+body#profile main .navProfile {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 0;
+  z-index: 1;
 }
-main#profile .container h2,
-main#profile .container h1 {
-  margin-bottom: 1rem;
+body#profile main .navProfile ul {
+  padding: 0.5rem;
+  border-left: 2px solid rgb(2, 87, 122);
+  border-collapse: collapse;
 }
-main#profile .container h1 {
-  font-size: 2rem;
-  grid-column: span 2;
-}
-main#profile .container aside#navigatie {
-  background-color: rgb(212, 240, 252);
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
-  padding: 1rem;
-}
-main#profile .container aside#navigatie nav {
-  text-align: center;
-}
-main#profile .container aside#navigatie nav li {
+body#profile main .navProfile ul li {
+  border: 0;
+  border-bottom: 1px solid rgb(2, 87, 122);
   list-style-type: none;
-  padding-bottom: 10px;
 }
-main#profile .container aside#navigatie nav li button {
-  all: unset;
+body#profile main .navProfile ul li button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   color: rgb(2, 87, 122);
-  border-bottom: 1px solid rgb(2, 87, 122);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  transition: all 0.1s ease-in-out;
 }
-main#profile .container div#gegevens {
-  background-color: rgb(212, 240, 252);
-  border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
-  padding: 1rem;
+body#profile main .navProfile ul li button:hover {
+  border-bottom: 2px solid rgb(2, 87, 122);
+}
+body#profile main #gegevens {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 2rem;
+}
+body#profile main #start {
+  width: 75%;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  margin-top: 20%;
   text-align: center;
 }
-main#profile .container div#gegevens label {
-  display: block;
+body#profile main #start hr {
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(2, 87, 122);
 }
-main#profile .container div#gegevens input {
-  height: 2rem;
-  width: 50%;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgb(2, 87, 122);
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-main#profile .container div#gegevens button[type=submit] {
+body#profile main button[type=submit] {
   width: 50%;
   height: 2rem;
   margin-top: 1rem;
@@ -989,47 +1031,61 @@ main#profile .container div#gegevens button[type=submit] {
   color: rgb(212, 240, 252);
   cursor: pointer;
 }
-main#profile .container div#gegevens .hidden {
+body#profile main .hidden {
   display: none;
 }
-@media only screen and (max-width: 1250px) {
-  main#profile .container {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: transparent;
-    border: none;
+body#profile main .profileChange {
+  box-shadow: 0px 0px 10px grey;
+  padding: 1rem;
+  margin-top: 20%;
+}
+body#profile main .profileChange hr {
+  width: 5%;
+  color: rgb(2, 87, 122);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+body#profile main .profileChange .profileGrid {
+  display: grid;
+  margin-bottom: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+body#profile main .profileChange .profileGrid label {
+  width: 100%;
+}
+body#profile main .profileChange .profileGrid input {
+  width: 100%;
+  border: none;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(2, 87, 122);
+}
+body#profile main .profileChange .profileGrid input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(2, 87, 122);
+}
+body#profile main .profileChange button[type=submit] {
+  width: 100%;
+}
+@media only screen and (max-width 1250px) {
+  body#profile main .navProfile {
+    width: -moz-fit-content;
+    width: fit-content;
   }
-  main#profile .container aside#navigatie {
-    background-color: rgb(212, 240, 252);
-    border: 1px solid rgb(2, 87, 122);
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-  main#profile .container aside#navigatie nav {
-    text-align: center;
-    padding-right: 0px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  main#profile .container div#gegevens {
-    background-color: rgb(212, 240, 252);
-    border: 1px solid rgb(2, 87, 122);
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-  main#profile .container div#gegevens input {
-    width: 100%;
+  body#profile main #gegevens {
+    margin-left: 20%;
   }
 }
 
 body#Artikelen .container {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 15% 80%;
+  gap: 1rem;
+  width: 95%;
+  margin: 0 auto;
 }
 body#Artikelen .container .sort {
   padding: 1rem;
+  padding-top: 0;
   font-size: larger;
 }
 body#Artikelen .container .sort input[type=checkbox] {
@@ -1039,12 +1095,8 @@ body#Artikelen .container .sort input[type=checkbox] {
 body#Artikelen .container .sort .generalSort {
   display: grid;
   gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-body#Artikelen .container .sort .generalSort div:nth-child(1) {
-  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.1rem;
+  margin-bottom: 1rem;
 }
 body#Artikelen .container .sort .sortSoort {
   padding: 1rem;
@@ -1069,18 +1121,19 @@ body#Artikelen .container .sort input[type=submit]:hover {
   color: rgb(212, 240, 252);
 }
 body#Artikelen .container .artikelen #myInput {
-  width: 80%;
+  width: 100%;
   padding: 1rem;
   border: 1px solid rgb(2, 87, 122);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
+  outline: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 body#Artikelen .container .artikelen ul li {
   list-style-type: none;
-  padding: 1rem;
+  padding-bottom: 1rem;
 }
 body#Artikelen .container .artikelen ul li a {
   text-decoration: none;
@@ -1091,9 +1144,8 @@ body#Artikelen .container .artikelen ul li a .artikel {
   grid-template-areas: "img titel prijs" "img beschrijving beschrijving";
   gap: 1rem;
   border: 1px solid rgb(2, 87, 122);
-  border-radius: 0.5rem;
   padding: 1rem;
-  background-color: rgb(212, 240, 252);
+  background-color: rgb(237, 237, 237);
 }
 body#Artikelen .container .artikelen ul li a .artikel img {
   grid-area: img;
@@ -1137,7 +1189,9 @@ main#winkelWagen {
   max-width: 80%;
   margin: auto;
 }
-main#winkelWagen .order h1, main#winkelWagen .order h2, main#winkelWagen .order h3 {
+main#winkelWagen .order h1,
+main#winkelWagen .order h2,
+main#winkelWagen .order h3 {
   font-weight: bold;
   text-align: center;
   color: rgb(1, 48, 63);
@@ -1156,15 +1210,16 @@ main#winkelWagen .error {
 }
 main#winkelWagen .product {
   display: grid;
-  grid-template-columns: 1fr 2fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 2fr 0.3fr 0.5fr 0.5fr;
+  margin-left: 10%;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin-bottom: 1rem;
   padding: 1rem;
-  border: 1px solid rgb(137, 214, 251);
+  border: 1px solid rgb(1, 48, 63);
   border-radius: 0.5rem;
-  background-color: rgb(212, 240, 252);
+  background-color: rgb(237, 237, 237);
   max-width: 80%;
 }
 main#winkelWagen .product img {
@@ -1186,14 +1241,11 @@ main#winkelWagen .product a:hover {
   color: rgb(1, 48, 63);
 }
 main#winkelWagen .checkout {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 1rem 0;
   padding: 1rem;
-  border: 1px solid rgb(137, 214, 251);
-  border-radius: 0.5rem;
-  background-color: rgb(212, 240, 252);
+  border-top: 1px solid rgb(137, 214, 251);
 }
 main#winkelWagen .checkout .checkoutButton {
   padding: 1rem;
@@ -1209,8 +1261,9 @@ main#winkelWagen .checkout .checkoutButton:hover {
   color: rgb(1, 48, 63);
 }
 main#winkelWagen .checkout p {
-  text-align: right;
+  text-align: left;
   font-size: larger;
+  padding: 1rem;
 }
 main#winkelWagen .checkout p span {
   color: rgb(1, 48, 63);
