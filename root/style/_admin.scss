@@ -1,11 +1,11 @@
 body#admin {
     main { 
-        margin-left: 10%; 
-        margin-right: 10%;
+        margin-left: 15%; 
+        margin-right: 15%;
 
         h2 { 
             margin-left: 5%;
-            padding: 2px;
+            padding: 10px;
             font-size: 2rem;
             text-align: center;
             width: 90%;
@@ -14,7 +14,7 @@ body#admin {
 
         .gridArtikelsButtons {
             display: grid;
-            grid-template-columns: 0.5fr 1.5fr;
+            grid-template-columns: 15% 1fr;
             gap: 1rem;
 
             justify-content: center;
@@ -23,44 +23,34 @@ body#admin {
             .buttons {
                 display: grid;
                 box-sizing: border-box;
-                margin-top: 1rem;
 
-                background-color: $secondaryColor;
+                height: 100%;
+                margin-top: 2rem;
+                
+                box-shadow: 0px 0px 10px grey;
 
-                border: 1px solid $tertiaryColor;
-                border-radius: 0.5rem;
-
+                
                 button {
+                    font-size: medium;
                     padding: 1rem;
-
                     border: none;
                     width: 100%;
                     background-color: transparent;
+                    border-bottom: 1px solid $tertiaryColor;
 
                     &:hover {
-                        background-color: $tertiaryColor;
+                        border-bottom: 2px solid $tertiaryColor;
                     }
-                }
-
-                button:first-of-type {
-                    border-radius: 0.5rem 0.5rem 0 0;
-                }
-
-                button:last-of-type {
-                    border-radius: 0 0 0.5rem 0.5rem;
                 }
             }
         }
 
         .form {
-            background-color: $secondaryColor;
+            box-shadow: 0px 0px 10px grey;
             justify-content: center;
             align-items: center;
-
-            border: 1px solid $tertiaryColor;
-            border-radius: 0.5rem;
-
             margin-top: 1rem;
+
 
             form {
                 display: grid;
@@ -82,9 +72,6 @@ body#admin {
                     grid-column: span 2;
                     width: 100%;
                     height: 10rem;
-
-                    border-radius: 0.5rem;
-                    border: 1px solid $tertiaryColor;
                     padding: 0.5rem;
                 }
 
@@ -99,9 +86,14 @@ body#admin {
 
                 input {
                     height: 1.5rem;
-                    border-radius: 0.5rem;
-                    border: 1px solid $tertiaryColor;
+                    border: none;
+                    border-bottom: 1px solid $tertiaryColor;
                     padding: 0.5rem;
+                }
+
+                input:focus{
+                    outline: none;
+                    border-bottom: 2px solid $tertiaryColor;
                 }
 
                 input[type="file"] {
@@ -124,9 +116,22 @@ body#admin {
                     cursor: pointer;
                 }
 
-                input:focus,
-                textarea:focus {
+                input:focus {
                     outline-color: $tertiaryColor;
+                }
+                textarea{
+                    color: black;
+                    border: 1px solid $tertiaryColor;
+                    padding: 0.5rem;
+                    width: 30vw;
+
+                    border-radius: 0.2rem;
+                }
+
+                textarea:focus{
+                    outline: none;
+                    border: none;
+                    border: 2px solid $tertiaryColor;
                 }
 
                 .required {

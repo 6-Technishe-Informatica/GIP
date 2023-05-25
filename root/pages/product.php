@@ -35,11 +35,12 @@
                     $prijs = $row['prijs'];
                 }
                 $stock = $row['beschikbaarheid'];
+                $product = $row['artikelNaam'];
             }
 
             ?>
 
-            <h2 class="productName"><?php echo $_GET['productName']; ?></h2>
+            <h2 class="productName"><?php echo $product; ?></h2>
 
             <div class="images">
                 <!-- Slideshow container -->
@@ -94,7 +95,7 @@
                 }
                 ?>
 
-                <button class="winkelMand" id="btnAddToCart"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</button>
+                <a class="winkelMand" href="../includes/shoppingCard.inc.php?addToCard=True&referentieNummer=<?php echo $referentieNummer ?>"><img src="../images/winkelwagen.svg" alt="winkelwagen"> WinkelMandje</a>
             </div>
         </article>
         <div class="detailsDiscription">

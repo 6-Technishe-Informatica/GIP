@@ -74,22 +74,22 @@
             <div class="form">
                 <form action="../includes/admin.inc.php" method="POST" multipart="" enctype="multipart/form-data">
                     <label for="naam">Artikel naam:</label>
-                    <input type="text" name="naam" id="naam" placeholder="Naam" >
+                    <input type="text" name="naam" id="naam" placeholder="Naam">
 
                     <label for="prijs">Prijs:</label>
-                    <input type="number" name="prijs" id="prijs" placeholder="Prijs" >
+                    <input type="number" name="prijs" id="prijs" placeholder="Prijs">
 
                     <label class="noRequire" for="promotiePrijs">Promotie Prijs:</label>
                     <input type="number" name="promotiePrijs" id="promotiePrijs" placeholder="Promotie prijs">
 
                     <label for="beschrijving">Beschrijving:</label>
-                    <textarea name="beschrijving" id="beschrijving" cols="30" rows="10" ></textarea>
+                    <textarea name="beschrijving" id="beschrijving" cols="30" rows="10"></textarea>
 
                     <label for="vooraad">Vooraad:</label>
-                    <input type="number" name="vooraad" id="vooraad" placeholder="Vooraad" >
+                    <input type="number" name="vooraad" id="vooraad" placeholder="Vooraad">
 
                     <label for="brand">Merk:</label>
-                    <input type="text" name="brand" id="brand" placeholder="Brand" >
+                    <input type="text" name="brand" id="brand" placeholder="Brand">
 
                     <label class="noRequire" for="specialDeals">Special deal:</label>
                     <input type="checkbox" name="specialDeals" id="specialDeals">
@@ -108,6 +108,18 @@
                     <button type="submit" name="artikelSubmit">Voeg een artikel toe</button>
                 </form>
             </div>
+        </div>
+
+        <h2>Artikel aanpassen</h2>
+
+        <div class="form">
+            <form action="../includes/admin.inc.php" id="aanpassingen" method="POST">
+                <label for="artikelNaam">Zoek naar een artikel</label>
+                <input type="text" name="artikelNaam" placeholder="Geef een artikel naam in...">
+                <button type="submit" name="aanpassen">Zoek</button>
+            </form>
+
+
         </div>
 
         <h2>Add admin user</h2>
@@ -134,6 +146,13 @@
         <?php include '../siteParts/contact.php'; ?>
     </footer>
 
+    <script>
+        var myForm = document.getElementById('aanpassingen');
+        myForm.onsubmit = function() {
+            var w = window.open('about:blank', 'Popup_Window', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=600,height=500,left = 312,top = 234');
+            this.target = 'Popup_Window';
+        };
+    </script>
     <script src="../main.js"></script>
 </body>
 

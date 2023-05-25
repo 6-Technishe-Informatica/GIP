@@ -1,10 +1,12 @@
+
+
 main#signup{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
 
     h2{
         margin-left: 5%;
-        padding: 2px;
+        padding: 10px;
         font-size: 2rem;
         text-align: center;
         width: 90%;
@@ -12,21 +14,26 @@ main#signup{
     }
 
     .gridSignup{
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
 
-        background-color: $secondaryColor;
         justify-content: center;
         align-items: center;
 
-        border: 1px solid $tertiaryColor;
-        border-radius: 0.5rem;
+        box-shadow: 0px 0px 10px grey;
 
         margin-top: 1rem;
+
+        p{
+            width: 100%;
+            background-color: rgb(242, 153, 153);
+            border: 2px solid red;
+            text-align: center;
+            font-size: large;
+        }
 
         form{
             display: grid;
             grid-template-columns: 1fr 1fr;
+            margin: 0% 20% 0% 20%;
 
             gap: 0.5rem;
 
@@ -49,6 +56,10 @@ main#signup{
                 border: 1px solid $tertiaryColor;
                 padding: 0.5rem;
             }
+            
+            label{
+                margin-top: 1rem;
+            }
 
             label::before{
                 content: "*";
@@ -56,9 +67,12 @@ main#signup{
             }
 
             input{
+                grid-column: span 2;
                 height: 1.5rem;
-                border-radius: 0.5rem;
-                border: 1px solid $tertiaryColor;
+                border: none;
+                outline: none;
+                color: black;;
+                border-bottom: 1px solid $tertiaryColor;
                 padding: 0.5rem;
             }
 
@@ -66,10 +80,12 @@ main#signup{
                 grid-column: span 2;
                 width: 100%;
                 height: 2rem;
-
-                border-radius: 0.5rem;
+                margin-top: 2rem;
                 border: 1px solid $tertiaryColor;
                 padding: 0.5rem;
+                
+                font-size: medium;
+
 
                 background-color: $primaryColor;
                 color: $secondaryColor;
@@ -79,6 +95,8 @@ main#signup{
 
             input:focus, textarea:focus{
                 outline-color: $tertiaryColor;
+                border: none;
+                border-bottom: 2px solid $tertiaryColor;
             }
 
             

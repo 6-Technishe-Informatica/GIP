@@ -21,11 +21,10 @@
     </header>
     <main id="winkelWagen">
         <?php
-        //check if get referentieNummer is set
         $totaalPrijs = 0;
 
         if (isset($_GET['referentieNummer'])) { // als er een referentieNummer is
-            addToShoppingCard($conn2); // voeg het product toe aan de winkelwagen
+            addToShoppingCard($conn2, $_GET['referentieNummer']); // voeg het product toe aan de winkelwagen
             $totaalPrijs = showShoppingCard($conn2); // laat de winkelwagen zien
         } else {
             $totaalPrijs = showShoppingCard($conn2); // laat de winkelwagen zien
@@ -33,8 +32,9 @@
         ?>
 
         <div class="checkout">
-            <a href="../pages/checkout.php?klantNummer=<?php echo $_SESSION['userid']; ?>&totaal=<?php echo $totaalPrijs; ?>" class="checkoutButton">Checkout</a>
-            <p>Totaal: €<span><?php echo $totaalPrijs; ?></span></p>
+            <p>Totaal: €<span><?php echo $totaalPrijs; ?></span></p>    
+            <a href="../pages/checkout.php?klantNummer=<?php echo $_SESSION['userid']; ?>&totaal=<?php echo $totaalPrijs; ?>&clear=True" class="checkoutButton">Checkout</a>
+            
         </div>
     </main>
     <footer>

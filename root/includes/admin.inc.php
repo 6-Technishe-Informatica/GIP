@@ -95,7 +95,7 @@ if (isset($_POST["artikelSubmit"])) {
         $teller = 0; // zorgt ervoor dat de afbeeldingen een unieke naam krijgen
 
         foreach ($img_desc as $val) { // loopt door de array heen en zet de afbeeldingen in de map
-            $teller++; 
+            $teller++;
             $newname = $id . "_" . $teller . '.webp'; // maakt een unieke naam voor de afbeelding
             move_uploaded_file($val['tmp_name'], '../images/productImages/' . $newname); // zet de afbeelding in de map
         }
@@ -206,4 +206,82 @@ if (isset($_POST["addAdminUser"])) {
     }
 
     createUser($conn, $name, $email, $username, $password, 1); // maakt de gebruiker aan
+}
+if (isset($_POST["aanpassen"])) {
+    $artikelNaam = $_POST["artikelNaam"];
+
+    require_once 'dbh.inc.php';
+
+    //laat de gegevens zien van het artikel in een form
+
+    echo "<!DOCTYPE html>
+    <html lang='nl'>
+    
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel='stylesheet' href='../style/index.css'>
+        <title>Tech point</title>
+    </head>
+    
+    <body id='admin'>
+        <main>";
+
+    echo "<h1>Artikel aanpassen</h1>";
+    echo $artikelNaam;
+
+    $sql = "SELECT * FROM artikelen WHERE artikelNaam = '$artikelNaam'";
+    $result = mysqli_query($conn2, $sql);
+
+    //checkt of er een resultaat is
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div class='form'><form action='../includes/admin.inc.php' method='post'>
+            <label>Artikel naam</label>
+            <input type='text' name='artikelNaam' value='" . $row['artikelNaam'] . "'>
+            <label>Artikel prijs</label>
+            <input type='text' name='artikelPrijs' value='" . $row['prijs'] . "'>
+            <label>Artikel voorraad</label>
+            <input type='text' name='artikelVoorraad' value='" . $row['beschikbaarheid'] . "'>
+            <label>Artikel beschrijving</label>
+            <textarea type='text' name='artikelBeschrijving'>" . $row['artikelBeschrijving'] . "</textarea>
+            <label>Artikel referentie code</label>
+            <input type='text' readonly name='artikelId' value='" . $row['referentieNummer'] . "'>
+            <label>Artikel verwijderen </label>
+            <input type='checkbox' name='verwijderen'>
+            <button type='submit' name='aanpassingen'> Aanpassingen opslaan</button>
+            </form></div>";
+    }
+    echo "</main></body>";
+    echo "</html>";
+
+    } else {
+        echo "<br><br>" . "Dit artikel betstaat niet";
+    }
+}
+if (isset($_POST["aanpassingen"])) {
+    $artikelNaam = $_POST["artikelNaam"];
+    $artikelPrijs = $_POST["artikelPrijs"];
+    $artikelVoorraad = $_POST["artikelVoorraad"];
+    $artikelBeschrijving = $_POST["artikelBeschrijving"];
+    $artikelId = $_POST["artikelId"];
+
+    require_once 'dbh.inc.php';
+
+    //update de gegevens van het artikel
+
+    if (isset($_POST["verwijderen"])) {
+        $sql = "DELETE FROM artikelen WHERE referentieNummer = '$artikelId'";
+        $result = mysqli_query($conn2, $sql);
+
+        echo "<script>window.close();</script>";
+    } else {
+        $sql = "UPDATE artikelen SET artikelNaam = '$artikelNaam', prijs = '$artikelPrijs', beschikbaarheid = '$artikelVoorraad', artikelBeschrijving = '$artikelBeschrijving' WHERE referentieNummer = '$artikelId'";
+        $result = mysqli_query($conn2, $sql);
+
+        echo "<script>window.close();</script>";
+    }
 }

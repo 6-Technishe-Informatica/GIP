@@ -247,18 +247,30 @@ function reArrayFiles($file) // zorgt ervoor dat de files in een array kunnen wo
     return $file_ary; // geeft de array terug
 }
 
-function addToShoppingCard($conn2) // voegt een artikel toe aan de shoppingcard
+function addToShoppingCard($conn2, $referentieNummer) // voegt een artikel toe aan de shoppingcard
 {
     if (isset($_SESSION['userid'])) {
         $referentieNummer = $_GET['referentieNummer'];
+        $klantNummer = $_SESSION['userid'];
 
-        $sql = "INSERT INTO winkelwagen (klantNummer, referentieNummer) VALUES (?, ?);";
-        $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
-        mysqli_stmt_prepare($stmt, $sql); // bereid een statement voor
+        $sql1 = "SELECT * FROM winkelwagen WHERE klantNummer = $klantNummer AND referentieNummer = $referentieNummer;";
 
-        mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userid'], $referentieNummer); // koppelt de ? in de sql statement aan de variabelen hieronder.
-        mysqli_stmt_execute($stmt); // voert de statement uit.
-        mysqli_stmt_close($stmt); // sluit de statement.   
+        //check if the product is already in the shoppingcard
+        $result = mysqli_query($conn2, $sql1);
+        $resultCheck = mysqli_num_rows($result);
+
+        if ($resultCheck > 0) {
+            $sql = "UPDATE winkelwagen SET aantal = aantal + 1 WHERE klantNummer = $klantNummer AND referentieNummer = $referentieNummer;";
+            $query_run = mysqli_query($conn2, $sql);
+        }else{
+            $sql = "INSERT INTO winkelwagen (klantNummer, referentieNummer) VALUES (?, ?);";
+            $stmt = mysqli_stmt_init($conn2); // maakt een statement aan
+            mysqli_stmt_prepare($stmt, $sql); // bereid een statement voor
+
+            mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userid'], $referentieNummer); // koppelt de ? in de sql statement aan de variabelen hieronder.
+            mysqli_stmt_execute($stmt); // voert de statement uit.
+            mysqli_stmt_close($stmt); // sluit de statement.
+        }   
     } else {
         echo "<p class='error'>U moet ingelogd zijn om een product te kunnen kopen.</p>";
     }
@@ -287,6 +299,8 @@ function showShoppingCard($conn2) // laat de shoppingcard zien
                         echo "<p class='product-price'>€" . $row2['prijs'] . "</p>"; // laat de normale prijs zien
                         $totaalPrijs += $row2['prijs']; // telt de prijs op bij de totaalprijs
                     } 
+
+                    echo "<p class='aantal'>Aantal: " . $row['aantal'] . "</p>"; // laat het aantal zien
 
                     echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "'>Verwijderen</a>"; // verwijdert het artikel uit de winkelwagen
                     echo "</div>";

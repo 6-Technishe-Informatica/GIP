@@ -20,19 +20,19 @@
         <div class="gridSignup">
             <h2>Registreer</h2>
             <form action="../includes/signup.inc.php" method="post">
-                <label for="name">Naam</label>
+                <label for="name">Naam</label><br>
                 <input type="text" name="name" placeholder="Volledige naam">
-
-                <label for="email">E-mail</label>
+                
+                <label for="email">E-mail</label><br>
                 <input type="text" name="email" placeholder="E-mail">
-
-                <label for="uid">Gebruikersnaam</label>
+                
+                <label for="uid">Gebruikersnaam</label><br>
                 <input type="text" name="uid" placeholder="Gebruikersnaam">
-
-                <label for="pwd">Wachtwoord</label>
+                
+                <label for="pwd">Wachtwoord</label><br>
                 <input type="password" name="pwd" placeholder="Wachtwoord">
-
-                <label for="pwd-repeat">Herhaal wachtwoord</label>
+                
+                <label for="pwd-repeat">Herhaal wachtwoord</label><br>
                 <input type="password" name="pwd-repeat" placeholder="Herhaal wachtwoord">
                 
                 <!-- <input type="submit" value="Registreer"> -->

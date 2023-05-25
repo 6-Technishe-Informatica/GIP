@@ -30,13 +30,12 @@
                             <label for="prijsMax">tot</label>
                             <input name="prijsMax" class="inputPrijs" type="number">
                         </div>
-
+                        <br>
                         <div>
                             <input type="checkbox" name="voorraad">
                             <label for="voorraad">Op voorraad</label>
                         </div>
                     </div>
-
                     <fieldset class="sortSoort">
                         <legend>Soorten</legend>
 
@@ -77,7 +76,8 @@
 
             <div class="artikelen">
 
-                <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names..">
+                <input type="text" id="myInput" onkeyup="search()" placeholder="Voer zoekterm in...">
+
                 <ul id="myUL">
 
                     <?php
@@ -126,7 +126,7 @@
                             $addOR++;
                             $soort = true;
 
-                            $sql2 .= " soort = 'gpu'"; 
+                            $sql2 .= " soort = 'gpu'";
                         }
 
                         if (isset($_GET['moederbord'])) { // if checkbox is checked
@@ -184,7 +184,7 @@
 
                             while ($row = mysqli_fetch_assoc($result2)) { // zet de resultaten in een array
                                 array_push($referentieNummers, $row['referentieNummer']); // voegt de referentie nummers toe aan de array
-                            } 
+                            }
 
                             if ($addAND > 0) { // if there is already a AND in the query
                                 $addAND--;
@@ -218,7 +218,7 @@
                         echo '<img src="../images/productImages/' . $row["referentieNummer"] . '_1.webp' . '" alt="productPicture">';
                         echo '<h2 class="titel">' . $row['artikelNaam'] . '</h2>';
 
-                        $artikelBeschrijving = $row['artikelBeschrijving']; 
+                        $artikelBeschrijving = $row['artikelBeschrijving'];
 
                         if (strlen($artikelBeschrijving) > 300) // if you want to show 15 characters
                         {

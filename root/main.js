@@ -276,17 +276,6 @@ if (document.body.id == 'product') { // als de body id product is voer de volgen
         slides[slideIndex - 1].style.display = "block"; // zet de display van de slide die bij de slide index hoort op block
         dots[slideIndex - 1].className += " active"; // zet de active class op de dot die bij de slide hoort
     }
-
-    const btnAddToCart = document.getElementById('btnAddToCart'); 
-
-    btnAddToCart.addEventListener('click', function () { // als er op de add to cart button geklikt wordt voer de volgende code uit
-        let params = new URLSearchParams(location.search); // zet de url in een variable
-        let referentieNummer = params.get('referentieNummer'); // zet de referentie nummer in een variable
-
-        //redirect to cart page
-        window.location.href = "../pages/shoppingCard.php?referentieNummer=" + referentieNummer; // redirect naar de shopping card pagina
-    });
-
 }
 
 if (document.body.id == 'profile') { // als de body id profile is voer de volgende code uit
