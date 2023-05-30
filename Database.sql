@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 23, 2023 at 07:10 AM
+-- Generation Time: May 30, 2023 at 07:53 AM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS `admintext` (
 --
 
 INSERT INTO `admintext` (`frontpage`) VALUES
-('azerty'),
-('azerty'),
-('azerty');
+('Welkom bij TechPoint â€“ jouw ultieme bestemming voor de laatste technologische trends en innovaties! Bij TechPoint zijn we gepassioneerd door alles wat met technologie te maken heeft en streven we ernaar om jou te voorzien van de meest geavanceerde '),
+('Welkom bij TechPoint â€“ jouw ultieme bestemming voor de laatste technologische trends en innovaties! Bij TechPoint zijn we gepassioneerd door alles wat met technologie te maken heeft en streven we ernaar om jou te voorzien van de meest geavanceerde '),
+('Welkom bij TechPoint â€“ jouw ultieme bestemming voor de laatste technologische trends en innovaties! Bij TechPoint zijn we gepassioneerd door alles wat met technologie te maken heeft en streven we ernaar om jou te voorzien van de meest geavanceerde ');
 
 -- --------------------------------------------------------
 

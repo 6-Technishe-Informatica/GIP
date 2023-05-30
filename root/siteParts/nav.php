@@ -16,7 +16,7 @@ session_start();
         $paginaNaam =  basename($_SERVER['PHP_SELF']); //geeft pagina naam weer
 
         if ($paginaNaam != "artikelen.php") { //checkt of de pagina niet artikelen.php is
-            echo "<li class='search'><input type='text' id='myInput' onkeyup='myFunction()' onclick='hide()' placeholder='Search for artikelen..'></li>"; //toont de zoekbalk
+            echo "<li class='search'><input type='text' id='myInput' onkeyup='myFunction()' onclick='hide()' placeholder='Zoek for artikelen..'></li>"; //toont de zoekbalk
         }
 
         ?>
