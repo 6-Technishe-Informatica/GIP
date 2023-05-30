@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 30, 2023 at 07:53 AM
+-- Generation Time: May 30, 2023 at 12:23 PM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -224,15 +224,9 @@ INSERT INTO `specificaties` (`referentieNummer`, `soort`, `val1`, `val2`, `val3`
 
 CREATE TABLE IF NOT EXISTS `winkelwagen` (
   `klantNummer` int(11) NOT NULL,
-  `referentieNummer` int(11) NOT NULL
+  `referentieNummer` int(11) NOT NULL,
+  `aantal` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `winkelwagen`
---
-
-INSERT INTO `winkelwagen` (`klantNummer`, `referentieNummer`) VALUES
-(22, 84);
 --
 -- Database: `loginsystem`
 --

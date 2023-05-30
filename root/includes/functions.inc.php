@@ -302,7 +302,7 @@ function showShoppingCard($conn2) // laat de shoppingcard zien
 
                     echo "<p class='aantal'>Aantal: " . $row['aantal'] . "</p>"; // laat het aantal zien
 
-                    echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "'>Verwijderen</a>"; // verwijdert het artikel uit de winkelwagen
+                    echo "<a href='../includes/shoppingCard.inc.php?referentieNummer=" . $row['referentieNummer'] . "&klantNummer=" . $_SESSION['userid'] . "&clear=1'" . ">Verwijderen</a>"; // verwijdert het artikel uit de winkelwagen
                     echo "</div>";
                 }
             }

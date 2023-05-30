@@ -30,8 +30,6 @@
 
         header("Location: ../pages/shoppingCard.php"); // stuurt de gebruiker terug naar de winkelwagen pagina   
     }
-
-    echo "<a href='../pages/product.php?referentieNummer=" . $referentieNummer . "' class='back'>Terug naar Product</a>"
     ?>
 </main>
 
